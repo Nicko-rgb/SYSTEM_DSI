@@ -1,0 +1,11 @@
+.publicacion{
+    margin-top: 110px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    background: rgb(24, 20, 60);
+    background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
+}

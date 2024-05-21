@@ -1,0 +1,26 @@
+.inicio {
+    margin-top: 110px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    background: rgb(24, 20, 60);
+    background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
+}
+
+.inicio .Inst {
+    font-size: 25px;
+    color: white;
+}
+
+.inicio h1 {
+    font-size: 8rem;
+    margin-top: 100px;
+    color: white;
+}
+
+.inicio h3 {
+    color: white;
+}
