@@ -1,4 +1,4 @@
-.publicacion{
+.periodico{
     margin-top: 110px;
     display: flex;
     align-items: center;
@@ -9,4 +9,5 @@
     background: rgb(24, 20, 60);
     background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
     border: red solid 1px;
+   
 }

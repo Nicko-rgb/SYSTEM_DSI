@@ -5,9 +5,13 @@
 }
 
 .App {
-  height: 86vh;
+  height: 100vh;
+  overflow: auto;
+  background: rgb(24, 20, 60);
 }
-
+.App .icons{
+  background: none;
+}
 .App .cabecera {
   display: flex;
   justify-content: space-between;
@@ -18,6 +22,7 @@
   top: 0;
   width: 100%;
   height: 110px;
+  z-index: 1;
 }
 
 .App .cabecera .imgLogo {
@@ -26,14 +31,15 @@
   padding: 5px;
   animation: rotarLogo 1s linear infinite;
 }
-@keyframes rotarLogo {
+
+/* @keyframes rotarLogo {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 
 .cabecera .barraNav {
   width: 100%;
@@ -53,15 +59,17 @@
 }
 
 .barraNav .linkRuta {
-  width: 150px;
+  width: 160px;
   font-size: 1.2em;
   font-family: calibri;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
   height: 35px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   color: white;
   background: rgb(25, 11, 176);
   background: linear-gradient(180deg, rgba(25, 11, 176, 1) 0%, rgba(2, 203, 216, 1) 100%);
