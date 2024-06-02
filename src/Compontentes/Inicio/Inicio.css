@@ -3,8 +3,9 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: 968px;
-    padding-left: 20px;
+    justify-content: center;
+    height: calc(100vh - 110px);
+    padding: 20px;
     display: flex;
     flex-direction: column;
     background: rgb(24, 20, 60);
@@ -23,7 +24,10 @@
 .inicio .Inst {
     font-size: 25px;
     color: white;
-    margin-top: 50px;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+
 }
 .inicio .subInicio{
     background: none;
@@ -31,16 +35,24 @@
 .inicio h1 {
     z-index: -2;
     font-size: 6rem;
-    margin-top: 100px;
     color: white;
     text-shadow: 0 0 10px rgb(3, 3, 105);
     background: none;
 }
-
-.inicio h3 {
+.inicio h3{
+    font-size: 2rem;
+    text-decoration: underline;
+    text-shadow: 0 0 3px black;
+}
+.inicio .frase {
     color: white;
-    text-shadow: 0 0 3px rgb(3, 3, 105);
+    text-shadow: 0 0 2px blue,
+                0 0 2px blue,
+                0 0 2px blue;
     background: none;
+    font-family: Courier, "Lucida Console", monospace;
+    font-size: 25px;
+    text-decoration: none;
 }
 .inicio img{
     width: 500px;
@@ -48,7 +60,7 @@
 .inicio .buton{
     position: absolute;
     z-index: 1;
-    bottom: 100px;
+    bottom: 50px;
     cursor: pointer;
 }
 .inicio .uneteIcon{

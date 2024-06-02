@@ -3,11 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body{
+  background: rgb(12, 9, 37);
+}
 .App {
   height: 100vh;
   overflow: auto;
-  background: rgb(24, 20, 60);
 }
 .App .icons{
   background: none;

@@ -1,12 +1,212 @@
-.publicacion{
-    margin-top: 110px;
-    display: flex;
-    align-items: center;
-    height: 89.7%;
-    padding-left: 20px;
-    display: flex;
-    flex-direction: column;
+.publicaciones {
+    height: auto;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: calc(100vh - 110px);
     background: rgb(24, 20, 60);
     background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
-    border: red solid 1px;
+    margin-top: 110px;
+}
+
+.publicaciones .subPubli {
+    width: 100%;
+    display: grid;
+    height: 100%;
+    overflow-y: auto;
+    place-items: center;
+    gap: 10px;
+}
+
+.publicaciones .subPubli .content-publicacion {
+    border: black solid 1px;
+    border-radius: 10px;
+    width: 650px;
+    height: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content-publicacion header {
+    display: flex;
+    height: 65px;
+    position: relative;
+}
+
+.content-publicacion header .fa-user {
+    border: blue solid 1px;
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 55px;
+}
+
+.content-publicacion header .datoUser {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 90%;
+    gap: 5px;
+    padding-left: 10px;
+}
+
+.content-publicacion header .ico-publiAction {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: white;
+    font-size: 25px;
+    z-index: 3;
+    cursor: pointer;
+}
+.content-publicacion header .accionPubli{
+    position: absolute;
+    right: 5px;
+    background: rgb(16, 80, 110);
+    width: 150px;
+    padding: 10px;
+    z-index: 2;
+    display: none;
+}
+.content-publicacion header .ico-publiAction:hover ~ .accionPubli{
+    display: block;
+}
+.content-publicacion header .accionPubli:hover{
+    display: block;
+}
+
+.content-publicacion header .datoUser div {
+    display: flex;
+    gap: 20px;
+}
+
+.content-publicacion header h3,
+p {
+    margin: 0;
+    font-family: arial narrow;
+}
+
+.publicaciones .content-publicacion .fotoPublicacion {
+    min-height: auto;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.publicaciones .content-publicacion img {
+    width: 100%;
+    height: 100%;
+    max-height: calc(850px - 65px);
+    object-fit: cover;
+}
+
+.publicaciones .content-publicacion footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.publicaciones .content-publicacion footer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.publicaciones .content-publicacion footer div p{
+    margin: 0
+}
+
+
+.publicaciones .content-publicacion footer .liked{
+    color: red;
+}
+
+.publicaciones .content-publicacion footer div:hover {
+    transform: scale(1.03);
+}
+
+.publicaciones .content-publicacion .comments {
+    display: none;
+}
+
+.publicaciones .content-publicacion .show-comments {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.publicaciones .content-publicacion section div {
+    border: black solid 1px;
+    border-radius: 10px;
+    padding: 5px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.publicaciones .content-publicacion section .infoComment {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    border: none;
+    padding: 0;
+    padding-bottom: 0;
+}
+
+.publicaciones .content-publicacion section .infoComment h4 {
+    margin: 0;
+    font-family: calibri;
+    font-size: 16px;
+}
+
+.publicaciones .content-publicacion section .infoComment i {
+    border: black solid 1px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.publicaciones .content-publicacion section p {
+    padding-left: 30px;
+    margin-top: -5px;
+}
+
+.publicaciones .content-publicacion input {
+    border: rgb(63, 186, 190) solid 1px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: arial narrow;
+    outline: none;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.publicaciones .content-publicacion .ico-comment {
+    position: absolute;
+    color: black;
+    right: 0;
+    pointer-events: none;
+    height: 100%;
+    width: 40px;
+}
+
+/*******************************************************************************/
+
+@media (max-width: 650px) {
+    .publicaciones .subPubli .content-publicacion {
+        width: 100%;
+    }
+    .publicaciones .subPubli .content-publicacion img{
+        width: 100%;
+    }
 }
