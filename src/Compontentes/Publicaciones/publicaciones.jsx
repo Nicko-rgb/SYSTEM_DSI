@@ -4,7 +4,6 @@ import { FaHeart, FaRegShareSquare } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { SlOptionsVertical } from "react-icons/sl";
 import imagen1 from '../../IMG/std2.jpg';
-import Suiza from '../../IMG/Suiza.jpg'
 
 import Comentarios from './Comentarios';
 
