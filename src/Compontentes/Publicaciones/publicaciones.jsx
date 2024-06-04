@@ -75,7 +75,7 @@ const Publicaciones = () => {
                     <header>
                         <i class="fa fa-user"></i>
                         <div class="datoUser">
-                            <h3>Joseph Padilla Alvan</h3>
+                            <h3>Romer Alejandro Ursua</h3>
                             <div>
                                 <p>12/05/2024</p>
                                 <p>8:45 am</p>
