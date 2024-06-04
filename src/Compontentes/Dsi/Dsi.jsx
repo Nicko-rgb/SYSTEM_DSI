@@ -12,6 +12,7 @@ const Dsi = () => {
                 <div className='lateralIcons'>
                     <Link className='div' to="/dsi/">
                         <FaInfoCircle className='icons-lateral' />
+
                     </Link >
                     <Link className='div' to="/dsi/docentes">
                         <FaChalkboardTeacher className='icons-lateral' />
@@ -34,6 +35,7 @@ const Dsi = () => {
                     <Link className='dsiLink' to="/dsi/beneficios">BENEFICIOS</Link>
                 </div>
             </nav>
+            <h3>HOla Nikson</h3>
         </div>
     )
 }
