@@ -4,6 +4,10 @@ import 'animate.css';
 
 import NavegadorDsi from '../Nav/navDsi';
 
+import foto1 from '../../../IMG/foto1.jpg'
+import foto2 from '../../../IMG/foto2.jpg'
+import foto3 from '../../../IMG/foto3.jpg'
+
 const Dsi = () => {
     return (
         <div className='acerca'>
@@ -14,9 +18,9 @@ const Dsi = () => {
                     <div className='div1'>
                         
                         <div className="cards">
-                            <img src="" alt="" className="card" />
-                            <img src="" alt="" className="card card2" />
-                            <img src="" alt="" className="card" />
+                            <img src={foto1} alt="" className="card" />
+                            <img src={foto2} alt="" className="card card2" />
+                            <img src={foto3} alt="" className="card" />
 
                         </div>
                     </div>
