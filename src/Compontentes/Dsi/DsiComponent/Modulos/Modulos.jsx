@@ -1,16 +1,15 @@
 import React from 'react'
-import './beneficios.css'
+import './modulos.css'
 import NavegadorDsi from '../Nav/navDsi'
-
-const Beneficios = () => {
+const Modulos = () => {
     return (
-        <div className='beneficios'>
+        <div className='modulos'>
             <NavegadorDsi />
             <div className="container">
-                <h1>BENEFICIOS</h1>
+                <h1>MODULOS</h1>
             </div>
         </div>
     )
 }
 
-export default Beneficios
+export default Modulos

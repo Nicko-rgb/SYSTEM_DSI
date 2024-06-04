@@ -1,0 +1,11 @@
+.beneficios{
+    margin-top: 110px;
+    height: calc(100vh - 110px);
+    width: 100%;
+    display: flex;
+}
+.beneficios .container{
+    margin-left: -200px;
+    width: 100%;
+    border: white solid 1px;
+}

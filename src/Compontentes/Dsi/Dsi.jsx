@@ -1,5 +1,6 @@
 import React from 'react'
 import './dsi.css'
+
 import { Link } from 'react-router-dom';
 import { FaInfoCircle, FaChalkboardTeacher, FaServer } from "react-icons/fa";
 
@@ -34,6 +35,9 @@ const Dsi = () => {
                     <Link className='dsiLink' to="/dsi/beneficios">BENEFICIOS</Link>
                 </div>
             </nav>
+            <div className="acerca-conatainer">
+                <h1>ACERCA DE </h1>
+            </div>
         </div>
     )
 }

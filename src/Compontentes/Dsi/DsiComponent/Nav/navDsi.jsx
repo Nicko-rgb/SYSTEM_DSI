@@ -7,7 +7,7 @@ import { PiBooksFill } from "react-icons/pi";
 import { FaHandshakeSimple } from "react-icons/fa6";
 
 
-const navegadorDsi = () => {
+const NavegadorDsi = () => {
     return (
         <div className='dsiNav'>
             <nav className="lateral">
@@ -40,4 +40,4 @@ const navegadorDsi = () => {
     )
 }
 
-export default navegadorDsi
+export default NavegadorDsi

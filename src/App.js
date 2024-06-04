@@ -5,10 +5,14 @@ import Dsi from './Compontentes/Dsi/Dsi';
 import Mural from './Compontentes/Mural/Mural';
 import logoDSI from './IMG/lododsi.png'
 import logoSuiza from './IMG/logoSuiza.png'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Biblioteca from './Compontentes/Dsi/DsiComponent/Biblioteca/Biblioteca';
+import Docentes from './Compontentes/Dsi/DsiComponent/Docentes/Docentes'
+import Modulos from './Compontentes/Dsi/DsiComponent/Modulos/Modulos'
+import Benefecios from './Compontentes/Dsi/DsiComponent/Beneficios/Beneficios'
 import { GoHome } from "react-icons/go";
 import { FaUserFriends, FaInfoCircle, FaRegNewspaper } from "react-icons/fa";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
 function App() {
     return (
         <div className="App">
@@ -18,7 +22,12 @@ function App() {
                     <Route path="/publicacion" element={<Publicaciones  className="icons"/>} />
                     <Route path="/dsi" element={<Dsi />} />
                     <Route path="/periodico_mural" element={<Mural  className="icons"/>} />
+
+
+                    <Route path='/dsi/docentes' element={<Docentes />} />
+                    <Route path='/dsi/modulos' element={<Modulos />} />
                     <Route path='/dsi/biblioteca' element={<Biblioteca />} />
+                    <Route path='/dsi/beneficios' element={<Benefecios />} />
                 </Routes>
                 <div className='cabecera'>
                     <img className='Imagen_Logo_Suiza imgLogo' src={logoSuiza}></img>
