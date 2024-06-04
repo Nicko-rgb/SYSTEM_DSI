@@ -1,0 +1,121 @@
+.acerca {
+    position: relative;
+    margin-top: 110px;
+    height: calc(100vh - 110px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
+}
+
+.acerca .container {
+    width: 80%;
+    height: 80vh;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgb(50, 224, 255);
+    margin-left: -200px;
+    padding: 20px;
+    color: white;
+}
+
+.acerca .container h1 {
+    margin-top: -20px;
+    height: 100px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.acerca .container .subContent {
+    height: calc(100% - 75px);
+    display: flex;
+    gap: 25px;
+}
+
+.acerca .subContent div {
+    box-shadow: 0 0 2px rgb(50, 224, 255);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.acerca .subContent .div1 {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    &::-webkit-scrollbar{
+        width: 1px;
+    }
+}
+.acerca .subContent .div1 .cards{
+    box-shadow: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 20px;
+}
+.acerca .div1 img{
+    height: 400px;
+    box-shadow: 0 0  2px white;
+    border-radius: 15px;
+
+    transition: 0.3s ease;
+}
+.acerca .div1 img:hover{
+    transform: scale(1.02);
+}
+
+.acerca .div1 .card2{
+    margin-top: 18vh;
+}
+
+.acerca .subContent .div2 {
+    width: 30%;
+    overflow-y: auto;
+    &::-webkit-scrollbar{
+        width: 1px;
+    }
+}
+
+.acerca .subContent .div2 section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+    height: 200px;
+
+}
+.acerca .subContent .div2 section div{
+    box-shadow: 0 0 2px white;
+    height: 50px;
+    text-align: center;
+    transition: 0.3s ease;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+.acerca .subContent .div2 section div p{
+    position: absolute;
+}
+.acerca .subContent .div2 section div:hover{
+    transform: scale(1.03);
+}
+.acerca .subContent .div2 iframe{
+    margin-top: 20px;
+}
+@media (max-width: 1300px) {
+    .acerca{
+        display: flex;
+        gap: 10px;
+        justify-content: left;
+    }
+    .acerca .container {
+        width: 93%;
+        height: 98%;
+    }
+    .acerca .div1 img{
+        height: 250px;
+    }
+}

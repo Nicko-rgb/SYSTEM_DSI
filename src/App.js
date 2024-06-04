@@ -1,14 +1,17 @@
 import './App.css';
 import Inicio from './Compontentes/Inicio/inicio';
 import Publicaciones from './Compontentes/Publicaciones/publicaciones';
-import Dsi from './Compontentes/Dsi/Dsi';
+import Dsi from './Compontentes/Dsi_component/Acerca/Dsi';
 import Mural from './Compontentes/Mural/Mural';
-import logoDSI from './IMG/lododsi.png'
+
+import Biblioteca from './Compontentes/Dsi_component/Biblioteca/Biblioteca'
+import Docentes from './Compontentes/Dsi_component/Docentes/Docentes'
+import Modulos from './Compontentes/Dsi_component/Modulos/Modulos'
+import Beneficios from './Compontentes/Dsi_component/Beneficios/Beneficios'
+
+
 import logoSuiza from './IMG/logoSuiza.png'
-import Biblioteca from './Compontentes/Dsi/DsiComponent/Biblioteca/Biblioteca';
-import Docentes from './Compontentes/Dsi/DsiComponent/Docentes/Docentes'
-import Modulos from './Compontentes/Dsi/DsiComponent/Modulos/Modulos'
-import Benefecios from './Compontentes/Dsi/DsiComponent/Beneficios/Beneficios'
+import logoDSI from './IMG/lododsi.png'
 import { GoHome } from "react-icons/go";
 import { FaUserFriends, FaInfoCircle, FaRegNewspaper } from "react-icons/fa";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -27,10 +30,10 @@ function App() {
                     <Route path='/dsi/docentes' element={<Docentes />} />
                     <Route path='/dsi/modulos' element={<Modulos />} />
                     <Route path='/dsi/biblioteca' element={<Biblioteca />} />
-                    <Route path='/dsi/beneficios' element={<Benefecios />} />
+                    <Route path='/dsi/beneficios' element={<Beneficios />} />
                 </Routes>
                 <div className='cabecera'>
-                    <img className='Imagen_Logo_Suiza imgLogo' src={logoSuiza}></img>
+                    <img className='Imagen_Logo_Suiza imgLogo' alt='' src={logoSuiza}></img>
                     <div className='barraNav'>
                         <h2>D'SYSTEM BLOG</h2>
                         <div className='barraLinks'>
@@ -40,7 +43,7 @@ function App() {
                             <Link className='linkRuta' to="/periodico_mural"><FaRegNewspaper className="icons"/>Periodico Mural</Link>
                         </div>
                     </div>
-                    <img className='Imagen_Logo_Dsi imgLogo' src={logoDSI} ></img>
+                    <img className='Imagen_Logo_Dsi imgLogo' alt='' src={logoDSI} ></img>
                 </div>
             </BrowserRouter>
         </div>

@@ -32,17 +32,24 @@
 .inicio .subInicio{
     background: none;
 }
+
 .inicio h1 {
-    z-index: -2;
     font-size: 6rem;
     color: white;
-    text-shadow: 0 0 10px rgb(3, 3, 105);
+    text-shadow: 0 0 10px rgb(245, 50, 235);
     background: none;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px rgb(3, 3, 105);
+    position: relative;
 }
+
+
+
 .inicio h3{
     font-size: 2rem;
     text-decoration: underline;
     text-shadow: 0 0 3px black;
+    
 }
 .inicio .frase {
     color: white;
