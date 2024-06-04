@@ -1,81 +1,11 @@
-.dsi{
+.acerca{
     margin-top: 110px;
-    display: flex;
-    align-items: center;
     height: calc(100vh - 110px);
-    display: flex;
-    background: rgb(24, 20, 60);
-    background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
-}
-.dsi .lateral{
-    display: flex;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    position: relative;
-    width: 260px;
-    pointer-events: none;
-}
-.dsi .lateral .lateralIcons{
-    display: flex;
-    flex-direction: column;
-    border: black solid 1px;
-    background: rgb(8, 8, 49);
-    width: 60px;
-    height: 100%;
-    pointer-events: initial;
-    z-index: 1;
-}
-.dsi .lateral .lateralIcons .div{
-    border-bottom: black solid 1px;
-    height: 60px;
-    width: 60px;
-    display: grid;
-    place-items: center;
-}
-.dsi .lateral .lateralIcons .div:hover{
-    background: #0c2435;
-}
-.dsi .lateral .lateralIcons .div .icons-lateral{
-    width: 60%;
-    height: 60%;
-    color: white;
-    background: none;
-}
-
-
-.dsi .lateral .lateral-hidde{
-    position: absolute;
-    width: 200px;
-    left: -150px;
-    display: flex;
-    flex-direction: column;
-    border: black solid 1px;
-    background: rgb(13, 41, 102);
-    border-left: none;
-    height: 100%;
-    transition: 0.3s ease;
-    pointer-events: initial;
-    z-index: 0;
-}
-.lateral-hidde .dsiLink{
     width: 100%;
-    color: white;
-    text-decoration: none;
-    border-bottom: black solid 1px;
-    height: 60px;
     display: flex;
-    align-items: center;
-    font-family: calibri;
-    padding-left: 10px;
-    
 }
-.lateral-hidde .dsiLink:hover{
-    background: #162c68;
-}
-.dsi .lateral .lateralIcons:hover ~ .lateral-hidde{
-    left: 60px;
-}
-.dsi .lateral .lateral-hidde:hover{
-    left: 60px;
+.acerca .container{
+    margin-left: -200px;
+    width: 100%;
+    border: white solid 1px;
 }
