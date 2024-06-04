@@ -1,13 +1,15 @@
 import React from 'react'
-import './dsi.css'
-import { Link } from 'react-router-dom';
-import { FaInfoCircle, FaChalkboardTeacher, FaServer } from "react-icons/fa";
+import './navDsi.css'
+import { Link } from 'react-router-dom'
 
+import { FaInfoCircle, FaChalkboardTeacher, FaServer } from "react-icons/fa";
 import { PiBooksFill } from "react-icons/pi";
 import { FaHandshakeSimple } from "react-icons/fa6";
-const Dsi = () => {
+
+
+const navegadorDsi = () => {
     return (
-        <div className='dsi'>
+        <div className='dsiNav'>
             <nav className="lateral">
                 <div className='lateralIcons'>
                     <Link className='div' to="/dsi/">
@@ -38,4 +40,4 @@ const Dsi = () => {
     )
 }
 
-export default Dsi
+export default navegadorDsi

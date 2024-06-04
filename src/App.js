@@ -6,7 +6,7 @@ import Mural from './Compontentes/Mural/Mural';
 import logoDSI from './IMG/lododsi.png'
 import logoSuiza from './IMG/logoSuiza.png'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
+import Biblioteca from './Compontentes/Dsi/DsiComponent/Biblioteca/Biblioteca';
 import { GoHome } from "react-icons/go";
 import { FaUserFriends, FaInfoCircle, FaRegNewspaper } from "react-icons/fa";
 function App() {
@@ -18,6 +18,7 @@ function App() {
                     <Route path="/publicacion" element={<Publicaciones  className="icons"/>} />
                     <Route path="/dsi" element={<Dsi />} />
                     <Route path="/periodico_mural" element={<Mural  className="icons"/>} />
+                    <Route path='/dsi/biblioteca' element={<Biblioteca />} />
                 </Routes>
                 <div className='cabecera'>
                     <img className='Imagen_Logo_Suiza imgLogo' src={logoSuiza}></img>
