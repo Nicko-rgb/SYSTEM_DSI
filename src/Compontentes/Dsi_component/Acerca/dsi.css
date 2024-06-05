@@ -45,18 +45,34 @@
     width: 70%;
     display: flex;
     flex-direction: column;
+    gap: 20px;
     align-items: center;
     overflow-y: auto;
     &::-webkit-scrollbar{
         width: 1px;
     }
 }
-.acerca .subContent .div1 ol{
-    width: 95%;
+.acerca .subContent .div1 .tcompe{
+    color: rgb(0, 225, 255);
+    text-shadow: 0 0 5px red;
+}
+.acerca .subContent .div1 .competencias{
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    box-shadow: none;
+}
+.acerca .subContent .div1 .competencias img{
+    width: 200px;
+    box-shadow: none;
+}
+.acerca .subContent .div1 .competencias ol{
+    width: 90%;
     display: flex;
     flex-direction: column;
     gap: 15px;
     text-align: justify;
+    padding-left: 15px;
 }
 .acerca .subContent .div1 .cards{
     box-shadow: none;
@@ -64,7 +80,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
-    margin-top: 20px;
     gap: 20px;
 }
 .acerca .div1 img{
@@ -145,6 +160,9 @@
     }
     .acerca .container{
         margin-left: -200px;
+    }
+    .acerca .subContent .div1 .competencias img{
+        height: 100%;
     }
     
 }

@@ -56,6 +56,26 @@
     pointer-events: initial;
     z-index: 0;
 }
+.dsiNav .lateral .lateral-hidde .iconsRedes{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    place-self: center;
+    row-gap: 20px;
+}
+
+.dsiNav .lateral .lateral-hidde .iconsRedes .ico{
+    border: white solid 1px;
+    font-size: 50px;
+    border-radius: 50%;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+
 .lateral-hidde .dsiLink{
     width: 100%;
     color: white;

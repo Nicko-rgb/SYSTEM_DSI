@@ -2,10 +2,11 @@ import React from 'react'
 import './navDsi.css'
 import { Link } from 'react-router-dom'
 
-import { FaInfoCircle, FaChalkboardTeacher, FaServer } from "react-icons/fa";
+import { FaInfoCircle, FaChalkboardTeacher, FaServer, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { PiBooksFill } from "react-icons/pi";
 import { FaHandshakeSimple } from "react-icons/fa6";
-
+import { CiLocationOn } from "react-icons/ci";
+import { MdOutlineMail } from "react-icons/md";
 
 const NavegadorDsi = () => {
     return (
@@ -34,6 +35,21 @@ const NavegadorDsi = () => {
                     <Link className='dsiLink' to="/dsi/modulos">MUDULOS</Link>
                     <Link className='dsiLink' to="/dsi/biblioteca">BIBLIOTECA</Link>
                     <Link className='dsiLink' to="/dsi/beneficios">BENEFICIOS</Link>
+
+                    <div className="iconsRedes">
+                        <Link className='lIco'>
+                            <FaFacebook className='ico' />
+                        </Link>
+                        <Link className='lIco'>
+                            <FaWhatsapp className='ico' />
+                        </Link>
+                        <Link className='lIco'>
+                            <CiLocationOn className='ico' />
+                        </Link>
+                        <Link className='lIco'>
+                            <MdOutlineMail className='ico' />
+                        </Link>
+                    </div>
                 </div>
             </nav>
         </div>

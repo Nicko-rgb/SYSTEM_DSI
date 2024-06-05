@@ -12,6 +12,7 @@ import Beneficios from './Compontentes/Dsi_component/Beneficios/Beneficios'
 
 import logoSuiza from './IMG/logoSuiza.png';
 import logoDSI from './IMG/lododsi.png';
+
 import { GoHome } from "react-icons/go";
 import { FaUserFriends, FaInfoCircle, FaRegNewspaper } from "react-icons/fa";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
