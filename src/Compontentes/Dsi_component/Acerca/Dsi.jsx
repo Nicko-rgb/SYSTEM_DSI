@@ -16,12 +16,10 @@ const Dsi = () => {
                 <h1>DESARROLLO DE SISTEMAS DE INFORMACION IESTP - SUIZA</h1>
                 <div className='subContent'>
                     <div className='div1'>
-                        
                         <div className="cards">
                             <img src={foto1} alt="" className="card" />
-                            <img src={foto2} alt="" className="card card2" />
-                            <img src={foto3} alt="" className="card" />
-
+                            <img src={foto2} alt="" className="card " />
+                            <img src={foto3} alt="" className="card card3" />
                         </div>
                     </div>
                     <div className='div2'>

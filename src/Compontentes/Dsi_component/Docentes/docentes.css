@@ -1,19 +1,32 @@
 .docentes{
+    position: relative;
     margin-top: 110px;
     height: calc(100vh - 110px);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3vw;
+    gap: 1vw;
+    padding: 5px;
 }
 .docentes .container{
     width: 80%;
     height: 80vh;
     border-radius: 15px;
     box-shadow: 0 0 5px rgb(50, 224, 255);
-    margin-left: -200px;
-    display: grid;
-    place-items: center;
+    padding: 20px;
     color: white;
+    transition: 0.3s ease;
+}
+
+@media (max-width: 1200px){
+    .docentes{
+        gap: 17px;
+        padding: 0;
+    }
+    .docentes .container {
+        width: 93%;
+        height: 98%;
+        margin-left: -200px;
+    }
 }

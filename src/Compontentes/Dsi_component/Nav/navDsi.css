@@ -6,19 +6,18 @@
 }
 .dsiNav .lateral{
     display: flex;
-    height: calc(100% + 10px);
+    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
+    border-radius: 15px;
     width: 260px;
     pointer-events: none;
-    padding: 5px;
+    box-shadow: 0 0 5px rgb(50, 224, 255);
 }
 .dsiNav .lateral .lateralIcons{
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgb(50, 224, 255);
     background: rgb(8, 8, 49);
     width: 60px;
     height: 100%;
@@ -44,14 +43,13 @@
 
 
 .dsiNav .lateral .lateral-hidde{
-    position: absolute;
-    width: 20px;
-    height: calc(100% - 9px);
+    width: 200px;
+    height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     border: black solid 1px;
-    background: rgb(13, 41, 102);
+    background: rgb(7, 27, 68);
     border-left: none;
     transition: 0.3s ease;
     pointer-events: initial;
@@ -66,22 +64,44 @@
     display: flex;
     align-items: center;
     font-family: calibri;
-    padding-left: 15px;
+    padding-left: 10px;
     
 }
 .lateral-hidde .dsiLink:hover{
     background: #162c68;
 }
-.dsiNav .lateral .lateralIcons:hover ~ .lateral-hidde{
-    left: 55px;
-    width: 200px;
-}
-.dsiNav .lateral .lateral-hidde:hover{
-    left: 55px;
-    width: 200px;
-}
-@media (max-width: 1300px){
-     .dsiNav{
+
+
+@media (max-width: 1200px) {
+    .dsiNav{
         height: 98%;
+    }
+    .dsiNav .lateral{
+        box-shadow: none;
+        border-radius: 0;
+        height: calc(100% + 20px);
+        padding: 10px;
+        padding-right: none;
+    }
+    .dsiNav .lateralIcons{
+        box-shadow: 0 0 5px rgb(50, 224, 255);
+        border-radius: 15px;
+    }
+    .dsiNav .lateral .lateral-hidde{
+        width: 0px;
+    }
+    .dsiNav .lateralIcons:hover ~ .lateral-hidde{
+        width: 100%;
+    }
+    .dsiNav .lateral-hidde:hover{
+        width: 100%;
+    }
+}
+@media (max-width: 800px) {
+    .dsiNav .lateral {
+        padding: 0;
+    }
+    .dsiNav .lateral .lateralIcons{
+        border-radius: 0;
     }
 }

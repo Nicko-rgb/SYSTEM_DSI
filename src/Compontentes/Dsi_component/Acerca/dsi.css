@@ -6,7 +6,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 3vw;
+    gap: 1vw;
+    padding: 5px;
 }
 
 .acerca .container {
@@ -14,9 +15,9 @@
     height: 80vh;
     border-radius: 15px;
     box-shadow: 0 0 5px rgb(50, 224, 255);
-    margin-left: -200px;
     padding: 20px;
     color: white;
+    transition: 0.3s ease;
 }
 
 .acerca .container h1 {
@@ -52,12 +53,12 @@
     box-shadow: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
     gap: 20px;
 }
 .acerca .div1 img{
-    height: 400px;
+    height: 300px;
     box-shadow: 0 0  2px white;
     border-radius: 15px;
     object-fit: cover;
@@ -68,8 +69,8 @@
     transform: scale(1.02);
 }
 
-.acerca .div1 .card2{
-    margin-top: 18vh;
+.acerca .div1 .card3{
+    margin-left: calc(50%);
 }
 
 .acerca .subContent .div2 {
@@ -106,17 +107,73 @@
 .acerca .subContent .div2 iframe{
     margin-top: 20px;
 }
-@media (max-width: 1300px) {
+
+@media (max-width: 1200px){
     .acerca{
-        display: flex;
-        gap: 10px;
-        justify-content: left;
+        gap: 17px;
+        padding: 0;
     }
     .acerca .container {
         width: 93%;
         height: 98%;
     }
+    .acerca .container .div1 .cards{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        place-items: center;
+    }
+    .acerca .container .card3{
+        margin-left: 0;
+    }
     .acerca .div1 img{
-        height: 250px;
+        height: 150px;
+        width: 80%;
+    }
+    .acerca .container{
+        margin-left: -200px;
+    }
+    
+}
+@media (max-width: 800px) {
+    .acerca{
+        padding: 0;
+        justify-content: left;
+        gap: 0;
+    }
+    .acerca .container{
+        padding: 0;
+        padding-top: 15px;
+        height: 100%;
+        overflow-y: auto;
+        border-radius: 0;
+        &::-webkit-scrollbar{
+            width: 0;
+        }
+    }
+    .acerca .container .subContent{
+        display: flex;
+        flex-direction: column-reverse;
+        height: auto;
+    }
+    .acerca .container .subContent .div2{
+        width: 100%;
+        overflow: initial;
+    }
+    .acerca .container .subContent .div2 section{
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        
+    }
+    .acerca .container .subContent .div2 section div{
+        width: 100%;
+        height: 70px;
+        z-index: -1;
+    }
+    .acerca .container .subContent .div1{
+        width: 100%;
+    }
+    .acerca .div1 img{
+        width: 100%;
     }
 }
