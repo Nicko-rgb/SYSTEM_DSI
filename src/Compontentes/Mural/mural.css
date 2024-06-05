@@ -3,13 +3,76 @@
     top: 110px;
     display: flex;
     align-items: center;
-    height: calc(100vh - 110px);
     width: 100%;
-    padding-left: 20px;
     display: flex;
     flex-direction: column;
     background: rgb(24, 20, 60);
     background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
-    border: red solid 1px;
-    overflow-y: auto;
+}
+.periodico .cajaPadre{
+    width: 100%;
+    height: 100vh;
+    border: 2px solid green;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    overflow: hidden;
+    margin: 20px;
+}
+.periodico .cajaPadre .Menu1{
+    display: flex;
+    width: 600px;
+    height: 75%;
+    margin-top: 30px;
+    justify-content: center;
+    position: relative;
+    border: 2px solid green;
+
+}
+.Menu1>.title{
+    display: flex;
+    width: 300px;
+    height: 50px;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    color: wheat;
+    background: rgb(71,66,155);
+    background: linear-gradient(90deg, rgba(71,66,155,1) 0%, rgba(13,8,50,1) 2%, rgba(19,47,52,1) 78%);
+}
+.Menu1>.Menu-Caja{
+    position: absolute;
+    margin-top: 70px;
+    border-radius: 30px;
+    width: 360px;
+    height: 400px;
+    max-width: 360px;
+    max-height: 400px;
+    background: rgb(71,66,155);
+    background: linear-gradient(90deg, rgba(71,66,155,1) 0%, rgba(13,8,50,1) 2%, rgba(19,47,52,1) 78%);
+    color: aliceblue;
+    overflow: hidden;
+    text-align: center;
+}
+
+.Menu1>.Subir{
+    position: absolute;
+    width: 16rem;
+    height: 70px;
+    display: flex;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    cursor: pointer;
+    color: beige;
+    gap:10px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 29%, rgba(0,212,255,1) 100%);
+}
+.Subir:hover{
+    transition: 0.2s; 
+    background-color: #45a049; /* Cambiar color de fondo al pasar el ratón */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra de caja */
+    transform: scale(1.3); /* Ligeramente más grande */
 }
