@@ -21,10 +21,13 @@
 }
 .periodico .cajaPadre .Menu1{
     display: flex;
+    flex-direction: column;
     width: 600px;
     height: 75%;
     margin-top: 30px;
     justify-content: center;
+    align-items: center;
+    gap: 30px;
     position: relative;
     border: 2px solid green;
 
@@ -41,8 +44,6 @@
     background: linear-gradient(90deg, rgba(71,66,155,1) 0%, rgba(13,8,50,1) 2%, rgba(19,47,52,1) 78%);
 }
 .Menu1>.Menu-Caja{
-    position: absolute;
-    margin-top: 70px;
     border-radius: 30px;
     width: 360px;
     height: 400px;
@@ -56,14 +57,12 @@
 }
 
 .Menu1>.Subir{
-    position: absolute;
     width: 16rem;
     height: 70px;
     display: flex;
     border-radius: 30px;
     justify-content: center;
     align-items: center;
-    bottom: 0;
     cursor: pointer;
     color: beige;
     gap:10px;
