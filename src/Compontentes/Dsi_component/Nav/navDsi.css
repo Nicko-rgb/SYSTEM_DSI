@@ -3,6 +3,7 @@
     align-items: center;
     height: 80vh;
     display: flex;
+    z-index: 1;
 }
 .dsiNav .lateral{
     display: flex;

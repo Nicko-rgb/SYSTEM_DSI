@@ -8,6 +8,7 @@
     justify-content: center;
     gap: 1vw;
     padding: 5px;
+    z-index: 0;
 }
 
 .acerca .container {
@@ -168,7 +169,7 @@
     .acerca .container .subContent .div2 section div{
         width: 100%;
         height: 70px;
-        z-index: -1;
+        z-index: 0;
     }
     .acerca .container .subContent .div1{
         width: 100%;
