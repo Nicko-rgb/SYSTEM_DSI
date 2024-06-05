@@ -6,7 +6,8 @@ import NavegadorDsi from '../Nav/navDsi';
 
 import foto1 from '../../../IMG/foto1.jpg'
 import foto2 from '../../../IMG/foto2.jpg'
-import foto3 from '../../../IMG/foto3.jpg'
+import foto3 from '../../../IMG/std2.jpg'
+
 
 const Dsi = () => {
     return (
@@ -16,6 +17,13 @@ const Dsi = () => {
                 <h1>DESARROLLO DE SISTEMAS DE INFORMACION IESTP - SUIZA</h1>
                 <div className='subContent'>
                     <div className='div1'>
+                        <h3>COMPETENCIAS ESPECIFICAS</h3>
+                        <ol>
+                            <li>Desarrollar la construcción de programas de los sistemas de información, de acuerdo con el diseño funcional, estándares internacionales de TI, buenas prácticas de programación y políticas de seguridad de la organización.</li>
+                            <li>Desarrollar las pruebas integrales de los sistemas de información y servicios de TI en la fase de implantación, de acuerdo con el diseño funcional, buenas prácticas de TI y políticas de seguridad de la organización.</li>
+                            <li>Realizar la puesta en producción de los sistemas de información o servicios de TI, de acuerdo con la planificación efectuada.</li>
+                            <li>Administrar el diseño funcional de los sistemas de información, de acuerdo con las demandas del negocio que son parte del alcance de la arquitectura de sistemas vigente.</li>
+                        </ol>
                         <div className="cards">
                             <img src={foto1} alt="" className="card" />
                             <img src={foto2} alt="" className="card " />
@@ -23,7 +31,7 @@ const Dsi = () => {
                         </div>
                     </div>
                     <div className='div2'>
-                        <h4>TITULO A NOMBRE DE LA NACION:</h4>
+                        <h4>TITULO A NOMBRE DE LA NACION</h4>
                         <p>Pofecional Técnico en Desarrollo de Sistemas de Informacion</p>
                         <section>
                             <div>

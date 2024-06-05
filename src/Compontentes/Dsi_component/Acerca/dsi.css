@@ -45,10 +45,18 @@
     width: 70%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     overflow-y: auto;
     &::-webkit-scrollbar{
         width: 1px;
     }
+}
+.acerca .subContent .div1 ol{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: justify;
 }
 .acerca .subContent .div1 .cards{
     box-shadow: none;
@@ -56,6 +64,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
+    margin-top: 20px;
     gap: 20px;
 }
 .acerca .div1 img{
@@ -123,8 +132,12 @@
         grid-template-columns: repeat(2, 1fr);
         place-items: center;
     }
+    .acerca .container .div1 .cards img{
+        width: 100%;
+    }
     .acerca .container .card3{
-        margin-left: 0;
+        margin-left: calc(100%);
+        
     }
     .acerca .div1 img{
         height: 150px;
@@ -159,6 +172,8 @@
     .acerca .container .subContent .div2{
         width: 100%;
         overflow: initial;
+        display: flex;
+        flex-direction: column;
     }
     .acerca .container .subContent .div2 section{
         display: flex;
@@ -170,6 +185,11 @@
         width: 100%;
         height: 70px;
         z-index: 0;
+    }
+    .acerca .subContent .div2 iframe{
+        width: 500px;
+        height: 300px;
+        margin-left: calc(50% - 250px);
     }
     .acerca .container .subContent .div1{
         width: 100%;
