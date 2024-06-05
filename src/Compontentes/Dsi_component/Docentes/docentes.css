@@ -16,6 +16,7 @@
     box-shadow: 0 0 5px rgb(50, 224, 255);
     padding: 20px;
     color: white;
+    overflow-y: auto;
     transition: 0.3s ease;
 }
 
