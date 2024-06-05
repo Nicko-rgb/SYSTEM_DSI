@@ -45,7 +45,7 @@ const Dsi = () => {
                             </div>
                         </section>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4860.704793665854!2d-74.57432416324508!3d-8.39464977365317!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a3bd76a21d1c31%3A0x699cb3518cd1af14!2sIESTP%20Suiza%20area%20total%20del%20terreno!5e0!3m2!1ses!2spe!4v1717520948901!5m2!1ses!2spe"
-                            width="100%" height="400px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            width="100%" height="400px" allowfullscreen="" title='MapaSuiza' loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
