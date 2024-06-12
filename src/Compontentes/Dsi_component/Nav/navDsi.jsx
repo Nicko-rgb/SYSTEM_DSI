@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom'
 
 import { FaInfoCircle, FaChalkboardTeacher, FaServer, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { PiBooksFill } from "react-icons/pi";
-import { FaHandshakeSimple } from "react-icons/fa6";
+import { FaHandshakeSimple, FaPeopleLine } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineMail } from "react-icons/md";
 
+import internet from '../../ICO/internet.ico'
 const NavegadorDsi = () => {
     return (
         <div className='dsiNav'>
@@ -28,26 +29,34 @@ const NavegadorDsi = () => {
                     <Link className='div' to="/dsi/beneficios">
                         <FaHandshakeSimple className='icons-lateral' />
                     </Link >
+                    <Link className='div' to="/dsi/developers">
+                        <FaPeopleLine className='icons-lateral' />
+                    </Link >
                 </div>
+                
                 <div className='lateral-hidde'>
-                    <Link className='dsiLink' to="/dsi/">ACERCA DE</Link>
-                    <Link className='dsiLink' to="/dsi/docentes">DOCENTES</Link>
-                    <Link className='dsiLink' to="/dsi/modulos">MUDULOS</Link>
-                    <Link className='dsiLink' to="/dsi/biblioteca">BIBLIOTECA</Link>
-                    <Link className='dsiLink' to="/dsi/beneficios">BENEFICIOS</Link>
+                    <Link className='dsiLink' to="/dsi/">Acerca de</Link>
+                    <Link className='dsiLink' to="/dsi/docentes">Docentes</Link>
+                    <Link className='dsiLink' to="/dsi/modulos">Módulos</Link>
+                    <Link className='dsiLink' to="/dsi/biblioteca">Biblioteca</Link>
+                    <Link className='dsiLink' to="/dsi/beneficios">Beneficios</Link>
+                    <Link className='dsiLink' to="/dsi/developers">Desarrolladores</Link>
 
                     <div className="iconsRedes">
-                        <Link className='lIco'>
-                            <FaFacebook className='ico' />
+                        <Link className='lIco' to='https://www.facebook.com/nick.mancillaleon' title='Facebook'>
+                            <FaFacebook className='ico fb' />
                         </Link>
-                        <Link className='lIco'>
-                            <FaWhatsapp className='ico' />
+                        <Link className='lIco' to='https://walink.co/7c3eb6' title='WhatsApp'>
+                            <FaWhatsapp className='ico wsp' />
                         </Link>
-                        <Link className='lIco'>
-                            <CiLocationOn className='ico' />
+                        {/* <Link className='lIco' to='https://institutosuiza.edu.pe/' title='Conoce más'>
+                            <img src={internet} alt="" />
+                        </Link> */}
+                        <Link className='lIco' to='https://maps.app.goo.gl/CYYX3S4YEFjuyHCi7' title='Mapa'>
+                            <CiLocationOn className='ico map'/>
                         </Link>
-                        <Link className='lIco'>
-                            <MdOutlineMail className='ico' />
+                        <Link className='lIco' to='mailto:mancillanixon7@gmail.com' title='Correo Electronicodcf'>
+                            <MdOutlineMail className='ico mail' />
                         </Link>
                     </div>
                 </div>

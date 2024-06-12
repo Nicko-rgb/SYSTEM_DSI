@@ -1,218 +1,179 @@
-.acerca {
+.acerca{
     position: relative;
-    margin-top: 110px;
-    height: calc(100vh - 110px);
+    margin-top: 80px;
+    height: calc(100vh - 80px);
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1vw;
-    padding: 5px;
-    z-index: 0;
 }
-
-.acerca .container {
-    width: 80%;
-    height: 80vh;
-    border-radius: 15px;
-    box-shadow: 0 0 5px rgb(50, 224, 255);
-    padding: 20px;
+.acerca .container{
     color: white;
     transition: 0.3s ease;
+    height: calc(100vh - 80px);
+    margin-left: 205px;
+    width: calc(100% - 205px);
+    overflow-y: auto;
 }
-
-.acerca .container h1 {
-    margin-top: -20px;
-    height: 100px;
-    display: grid;
-    place-items: center;
+.acerca .container .div1 .aa{
     text-align: center;
+    margin: 0;
 }
-
+.acerca .container .div1 h1 {
+    margin: 0;
+    text-align: center;
+    margin-top: -30px;
+}
 .acerca .container .subContent {
-    height: calc(100% - 75px);
+    position: relative;
     display: flex;
     gap: 25px;
 }
 
-.acerca .subContent div {
-    box-shadow: 0 0 2px rgb(50, 224, 255);
-    border-radius: 20px;
+.acerca .subContent section {
+    box-shadow: 0 0 2px orangered;
     padding: 15px;
 }
 
 .acerca .subContent .div1 {
-    width: 70%;
+    width: calc(100% - 305.5px);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    overflow-y: auto;
-    &::-webkit-scrollbar{
-        width: 1px;
-    }
+    gap: 25px;
 }
-.acerca .subContent .div1 .tcompe{
-    color: rgb(0, 225, 255);
-    text-shadow: 0 0 5px red;
-}
-.acerca .subContent .div1 .competencias{
+.acerca .subContent .div1 .infoCarre{
     display: flex;
-    gap: 20px;
-    padding: 0;
-    box-shadow: none;
+    justify-content: space-evenly;
 }
-.acerca .subContent .div1 .competencias img{
-    width: 200px;
-    box-shadow: none;
-}
-.acerca .subContent .div1 .competencias ol{
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: justify;
+.acerca .subContent .div1 .descripcion, .lenguajes, .perfil, .salida{
+    border-left: orangered solid 2px;
     padding-left: 15px;
-}
-.acerca .subContent .div1 .cards{
-    box-shadow: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-    gap: 20px;
-}
-.acerca .div1 img{
-    height: 300px;
-    box-shadow: 0 0  2px white;
-    border-radius: 15px;
-    object-fit: cover;
-    width: 100%;
-    transition: 0.3s ease;
-}
-.acerca .div1 img:hover{
-    transform: scale(1.02);
-}
-
-.acerca .div1 .card3{
-    margin-left: calc(50%);
-}
-
-.acerca .subContent .div2 {
-    width: 30%;
-    overflow-y: auto;
-    &::-webkit-scrollbar{
-        width: 1px;
-    }
-}
-
-.acerca .subContent .div2 section {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    gap: 20px;
-    height: 200px;
-
+    text-align: justify;
+    gap: 8px;
 }
-.acerca .subContent .div2 section div{
-    box-shadow: 0 0 2px white;
-    height: 50px;
-    text-align: center;
-    transition: 0.3s ease;
+.acerca .subContent .div1 h5{
+    color: orangered;
+    text-decoration: underline 2px;
+}
+.acerca .subContent .div1 .infoCarre div{
+    box-shadow: 0 0 2px gray;
+    height: 40px;
+    border-radius: 15px;
     display: grid;
     place-items: center;
-    position: relative;
+    padding-left: 7px;
+    padding-right: 7px;
+    transition: 0.3s ease;
 }
-.acerca .subContent .div2 section div p{
-    position: absolute;
-}
-.acerca .subContent .div2 section div:hover{
+.acerca .subContent .div1 .infoCarre div:hover{
+    box-shadow: 0 0 3px gray;
     transform: scale(1.03);
 }
-.acerca .subContent .div2 iframe{
-    margin-top: 20px;
+.acerca .subContent .div1  .lenguajes h6{
+    text-decoration: underline;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px rgb(109, 250, 238),
+                0 0 5px rgb(109, 250, 238);
+    font-size: 14px;
+    font-family: arial narrow;
+}
+.acerca .subContent .div1 .lenguajes .box-lenguajes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+.div1  .box-lenguajes .card{
+    box-shadow: 0 0 5px orangered;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    padding: 10px;
+    background: rgb(237, 255, 254);
+    color: black;
+    transition: 0.3s ease;
+    position: relative;
 }
 
-@media (max-width: 1200px){
-    .acerca{
-        gap: 17px;
-        padding: 0;
-    }
-    .acerca .container {
-        width: 93%;
-        height: 98%;
-    }
-    .acerca .container .div1 .cards{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        place-items: center;
-    }
-    .acerca .container .div1 .cards img{
-        width: 100%;
-    }
-    .acerca .container .card3{
-        margin-left: calc(100%);
-        
-    }
-    .acerca .div1 img{
-        height: 150px;
-        width: 80%;
-    }
-    .acerca .container{
-        margin-left: -200px;
-    }
-    .acerca .subContent .div1 .competencias img{
-        height: 100%;
-    }
-    
+.div1 .lenguajes .box-lenguajes .card:hover{
+    z-index: 1;
+    transform: scale(1.03);
 }
-@media (max-width: 800px) {
-    .acerca{
-        padding: 0;
-        justify-content: left;
-        gap: 0;
+
+
+.acerca .subContent .div1  .lenguajes .box-lenguajes > .card:last-child {
+    grid-column: 2 / -2;
+    justify-self: center;
+}
+.div1  .box-lenguajes .card img, .img{
+    width: 50px;
+    font-size: 40px;
+}
+.div1 .lenguajes .box-lenguajes .card h6{
+    text-decoration: none;
+    text-shadow: none;
+}
+.div1 .descripcion2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+.div1 .descripcion2 .perfil img{
+    width: 100%;
+    object-fit: cover;
+}
+.div1 .descripcion2 .perfil, .salida{
+    padding-left: 5px;
+}
+.div1 .perfil ul, .salida ul{
+    margin-left: 20px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.acerca .subContent .div2 {
+    position: fixed;
+    right: 18px;
+    width: 300px;
+    height: calc(100% - 80px);
+    overflow-y: auto;
+    &::-webkit-scrollbar{
+        width: 1px;
     }
-    .acerca .container{
-        padding: 0;
-        padding-top: 15px;
-        height: 100%;
-        overflow-y: auto;
-        border-radius: 0;
-        &::-webkit-scrollbar{
-            width: 0;
-        }
-    }
-    .acerca .container .subContent{
-        display: flex;
-        flex-direction: column-reverse;
-        height: auto;
-    }
-    .acerca .container .subContent .div2{
-        width: 100%;
-        overflow: initial;
+}
+.acerca .subContent .div2 .galeria{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: relative;
+}
+.acerca .subContent .div2 .galeria img{
+    width: 100%;
+    transition: .3s ease;
+}
+.acerca .subContent .div2 .galeria img:hover{
+    margin-right: 20px;
+    transform: scale(1.1);
+}
+
+@media (max-width: 1000px) {
+    .acerca .subContent{
         display: flex;
         flex-direction: column;
     }
-    .acerca .container .subContent .div2 section{
-        display: flex;
-        flex-direction: row;
+    .acerca .subContent .div1{
+        width: 100%;
+    }
+    .acerca .subContent .div2{
+        position: initial;
         height: auto;
-        
-    }
-    .acerca .container .subContent .div2 section div{
-        width: 100%;
-        height: 70px;
-        z-index: 0;
-    }
-    .acerca .subContent .div2 iframe{
-        width: 500px;
-        height: 300px;
-        margin-left: calc(50% - 250px);
-    }
-    .acerca .container .subContent .div1{
-        width: 100%;
-    }
-    .acerca .div1 img{
         width: 100%;
     }
 }
+
+

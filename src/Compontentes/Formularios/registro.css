@@ -1,0 +1,63 @@
+.registroUser{
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    color: white;
+    height: calc(100% - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.registroUser form{
+    box-shadow: 0 0 2px orangered;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+    padding: 20px;
+}
+form aside{
+    display: flex;
+    gap: 5px;
+    padding-left: 20%;
+}form aside .check{
+    box-shadow: none;
+    width: 18px;
+}
+.registroUser form div{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+form div label{
+    text-shadow: orangered 0 0 5px,
+                orangered 0 0 5px,
+                orangered 0 0 5px;
+    font-family: arial narrow;
+    font-size: 17px;
+    margin-left: 5px;
+}
+form div input, select{
+    padding: 5px;
+    font-size: 17px;
+    box-shadow: 0 0 2px orangered;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+}
+form div select option{
+    color: black;
+}
+form button{
+    width: 150px;
+    height: 40px;
+    margin: 0 auto;
+    color: white;
+    box-shadow: 0 0 2px orangered;
+    border: none;
+    background: orangered;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}

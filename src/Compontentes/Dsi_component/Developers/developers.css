@@ -1,11 +1,11 @@
-.beneficios{
+.developers{
     position: relative;
     margin-top: 80px;
     height: calc(100vh - 80px);
     width: 100%;
     display: flex;
 }
-.beneficios .container{
+.developers .container{
     padding: 20px;
     color: white;
     transition: 0.3s ease;
@@ -14,4 +14,13 @@
     border: red solid 1px;
     width: calc(100% - 205px);
     overflow-y: auto;
+}
+.container .imgs{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 20px;
+}
+.container img{
+    width: 400px;
+    margin-left: 10px;
 }

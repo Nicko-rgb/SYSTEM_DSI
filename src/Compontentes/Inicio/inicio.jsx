@@ -6,6 +6,7 @@ import imagen4 from '../../IMG/std2.jpg'
 import imagen5 from '../../IMG/std3.jpg'
 
 import { FaUserFriends } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Inicio = () => {
     const [imagenActual, setImagenActual] = useState(0);
@@ -34,7 +35,7 @@ const Inicio = () => {
                 />
             </div>
             <div className="buton">
-                <button><FaUserFriends className='uneteIcon icons'/>UNETE A NOSOTROS</button>
+                <Link to='/register/' className='button'><FaUserFriends className='uneteIcon icons'/>UNETE A NOSOTROS</Link>
             </div>
             
         </div>

@@ -1,16 +1,16 @@
 .inicio {
-    margin-top: 110px;
+    margin-top: 80px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 80px);
     padding: 20px;
     display: flex;
     flex-direction: column;
     background: rgb(24, 20, 60);
     background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
-    z-index: 1;
+    z-index: 0;
 }
 .inicio .fotosTransis{
     position: absolute;
@@ -73,9 +73,9 @@
 .inicio .uneteIcon{
     font-size: 19px;
 }
-.inicio button{
+.inicio .button{
     height: 40px;
-    width: 170px;
+    width: 200px;
     border-radius: 9px;
     border: none;
     font-weight: bold;

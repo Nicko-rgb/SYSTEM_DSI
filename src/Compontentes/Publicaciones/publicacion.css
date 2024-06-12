@@ -1,22 +1,20 @@
 .publicaciones {
     /* position: fixed; */
+    margin-top: 80px;
     height: auto;
     display: grid;
     place-items: center;
     width: 100%;
-    height: calc(100vh - 110px);
-    background: rgb(24, 20, 60);
-    background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
-    margin-top: 110px;
+    height: calc(100vh - 80px);
 }
 
 .publicaciones .subPubli {
     width: 100%;
     display: grid;
     height: 100%;
-    overflow-y: auto;
     place-items: center;
     gap: 10px;
+    overflow-y: auto;
 }
 
 .publicaciones .subPubli .content-publicacion {
