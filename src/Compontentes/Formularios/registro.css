@@ -8,7 +8,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}.registroUser form{
+    overflow-y: auto;
+}
+.registroUser .subRegistro{
+    position: relative;
+}
+.registroUser .subRegistro .icoVolver{
+    position: absolute;
+    top: -20px;
+    left: -40px;
+    
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 30px;
+    color: orangered;
+}
+.registroUser .subRegistro .icoVolver:hover{
+    cursor: pointer;
+    box-shadow: orangered 0 0 4px;
+}
+.registroUser .subRegistro >h2{
+    text-align: center;
+}
+.registroUser form{
     box-shadow: 0 0 2px orangered;
     display: flex;
     flex-direction: column;

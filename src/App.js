@@ -5,6 +5,7 @@ import Dsi from './Compontentes/Dsi_component/Acerca/Dsi';
 import Mural from './Compontentes/Mural/Mural';
 
 import RegistroUser from './Compontentes/Formularios/registro';
+import Login from './Compontentes/Formularios/inicioSesion';
 
 import Biblioteca from './Compontentes/Dsi_component/Biblioteca/Biblioteca'
 import Docentes from './Compontentes/Dsi_component/Docentes/Docentes'
@@ -30,6 +31,7 @@ function App() {
                     <Route path="/periodico_mural" element={<Mural className="icons" />} />
 
                     <Route path='/register/' element={<RegistroUser/>} />
+                    <Route path='/login/' element={<Login/>} />
 
                     <Route path='/dsi/docentes' element={<Docentes />} />
                     <Route path='/dsi/modulos' element={<Modulos />} />
