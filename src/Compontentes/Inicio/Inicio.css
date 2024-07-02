@@ -1,17 +1,35 @@
-.inicio{
+.inicio {
     position: relative;
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
     height: 100vh;
     overflow-y: auto;
 }
-.inicio .icoNav{
+.inicio .navegador .link1{
+    color: orangered;
+}
+
+.inicio main {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25px;
+    height: calc(100% - 70px);
+    width: 100%;
+    grid-area: 2vw;
+}
+
+.inicio main>div {
+    margin: auto 0;
+}
+
+.inicio .icoNav {
     position: absolute;
     color: white;
-    font-size: 35px;
+    font-size: 28px;
     padding: 5px;
     left: 10px;
 }
-.inicio .navHidde{
+
+.inicio .navHidde {
     position: absolute;
     left: -150px;
     display: flex;
@@ -21,28 +39,55 @@
     width: 150px;
     padding-top: 35px;
     transition: 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
-.inicio .navHidde:hover{
+.inicio .navHidde:hover {
     left: 0px;
 }
-.inicio .icoNav:hover~.navHidde{
+
+.inicio .icoNav:hover~.navHidde {
     left: 0;
 }
-.inicio .navHidde .linkHidde{
+
+.inicio .navHidde .linkHidde {
     color: white;
     text-decoration: none;
-    
+    position: relative
 }
-.inicio main{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: calc(100% - 70px);
+
+.linkHidde::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, white, white);
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+    transition: width 0.3s ease-in-out;
+}
+
+.linkHidde:hover::before {
     width: 100%;
-    grid-area: 2vw;
 }
-.inicio main > div{
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.inicio main>div {
     display: flex;
     flex-direction: column;
     padding-left: 4vw;
@@ -50,21 +95,27 @@
     min-width: 50%;
     max-width: 50%;
 }
-main div h3, h1{
+
+main div h3,
+h1 {
     font-family: arial;
     margin: 0;
 }
-main div h3{
+
+main div h3 {
     font-size: 1.1rem;
 }
-main div h1{
+
+main div h1 {
     font-size: 2.5rem;
 }
-main div p{
+
+main div p {
     font-family: arial;
     text-align: justify;
 }
-.inicio main .butons{
+
+.inicio main .butons {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -72,40 +123,43 @@ main div p{
     padding-left: 0;
     gap: 5vw;
     margin-top: 4vw;
-} 
-.inicio main .butons button{
+}
+
+.inicio main .butons button {
     border: orangered solid 1px;
     border-radius: 5px;
     width: 130px;
     height: 37px;
     cursor: pointer;
     transition: .3s ease;
+    margin-bottom: 20px;
 }
 
-main .butons .btn1{
-    background: orangered;
-    color: white;
-}
-.inicio main .butons .btn1:hover{
-    background: transparent;
-    color: orangered;
-}
-
-main .butons .btn2{
-    background: transparent;
-    color: orangered;
-}
-
-.inicio main .butons .btn2:hover{
+main .butons .btn1 {
     background: orangered;
     color: white;
 }
 
-.inicio main .img{
+.inicio main .butons .btn1:hover {
+    background: transparent;
+    color: orangered;
+}
+
+main .butons .btn2 {
+    background: transparent;
+    color: orangered;
+}
+
+.inicio main .butons .btn2:hover {
+    background: orangered;
+    color: white;
+}
+
+.inicio main .img {
     position: relative;
     min-width: 20%;
     height: auto;
     height: 300px;
-    width:400px;
+    width: 400px;
     margin-right: 4vw;
 }

@@ -4,6 +4,7 @@
     width: 100%;
     height: 70px;
     z-index: 2;
+    /* backdrop-filter: blur(10px); */
     background: linear-gradient(135deg, rgba(4,4,27,1) 0%, rgba(64,2,2,1) 200%);
 }
 .navegador .subnav{
@@ -27,8 +28,10 @@
     color: white;
     text-decoration: none;
     font-family: arial;
-    font-weight: bold
+    font-weight: bold;
+    position: relative;
 }
+
 .navegador button{
     border: orangered solid 1px;
     margin-right: 4vw;
@@ -39,3 +42,37 @@
     color: orangered;
     cursor: pointer;
 }
+
+
+.link::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, orangered, orangered);
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+    transition: width 0.3s ease-in-out;
+}
+
+.link:hover::before {
+    width: 100%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+

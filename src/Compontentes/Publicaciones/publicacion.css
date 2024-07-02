@@ -2,8 +2,12 @@
     position: relative;
     overflow-y: auto;
     height: 100vh;
-}
+    background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 
+}
+.publicaciones .navegador .link2{
+    color: orangered;
+}
 .publicaciones .subPubli {
     display: flex;
     flex-direction: column;

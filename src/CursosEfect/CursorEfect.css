@@ -1,0 +1,25 @@
+.cursor-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor, .trail {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+}
+
+
+.trail {
+    opacity: 0.5;
+}

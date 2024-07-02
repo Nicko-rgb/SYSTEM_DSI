@@ -6,17 +6,17 @@ import { FaUserPlus } from 'react-icons/fa';
 import { IoMdPhotos } from "react-icons/io";
 import Navegador from '../Navegador/Navegador';
 import CardImage from './CardImage';
-
+import Coding from './Coding';
 
 const Inicio = () => {
     return (
         <div className="inicio">
-            <Navegador />
+            <Navegador className="navegador" />
             <FaBarsStaggered className='icoNav' />
             <nav className='navHidde'>
-                <Link to='/login' className='linkHidde'><FiLogIn/> Incias Sesion</Link>
-                <Link to='/login' className='linkHidde'><FaUserPlus/>Registrarse</Link>
-                <Link to='/login' className='linkHidde'><IoMdPhotos/>Ver Galeria</Link>
+                <Link to='/login' className='linkHidde'><FiLogIn /> Incias Sesion</Link>
+                <Link to='/login' className='linkHidde'><FaUserPlus />Registrarse</Link>
+                <Link to='/login' className='linkHidde'><IoMdPhotos />Ver Galeria</Link>
             </nav>
             <main>
                 <div>
@@ -35,6 +35,7 @@ const Inicio = () => {
                             <button className="btn2">INICIA SESION</button>
                         </Link>
                     </div>
+                    <Coding />
                 </div>
                 <div className="img">
                     <CardImage />

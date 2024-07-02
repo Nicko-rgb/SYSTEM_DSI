@@ -13,16 +13,15 @@ import Modulos from './Compontentes/Dsi_component/Modulos/Modulos'
 import Beneficios from './Compontentes/Dsi_component/Beneficios/Beneficios'
 import Developers from './Compontentes/Dsi_component/Developers/Developers'
 
-import logoDSI from './IMG/lododsi.png'
-import { GoHomeFill } from "react-icons/go";
-import { FaUserFriends, FaInfoCircle, FaRegNewspaper } from "react-icons/fa";
-import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
-import { RiCodeBoxFill } from "react-icons/ri";
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+
+import CursorEffect from './CursosEfect/CursorEfect';
 
 function App() {
 
     return (
         <div className="App">
+            <CursorEffect />
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Inicio />} />

@@ -8,10 +8,10 @@ const Navegador = () => {
             <div className="subnav">
                 <img src={logo} alt="logo" />
                 <nav>
-                    <Link className="link" to='/'>Inicio</Link>
-                    <Link className="link" to='/publicacion'>Publicaciones</Link>
-                    <Link className="link" to='/dsi'>DSI</Link>
-                    <Link className="link" to='/periodico_mural'>P .Mural</Link>
+                    <Link className="link link1" to='/'>Inicio</Link>
+                    <Link className="link link2" to='/publicacion'>Publicaciones</Link>
+                    <Link className="link link3" to='/dsi'>DSI</Link>
+                    <Link className="link link4" to='/periodico_mural'>P .Mural</Link>
                 </nav>
                 <div>
                     <Link to='/login'>

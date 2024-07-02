@@ -4,12 +4,11 @@ import { GrNext } from "react-icons/gr";
 import { MdArrowBackIosNew } from "react-icons/md";
 import bb from '../../IMG/studentInformatica.jpeg';
 import aa from '../../IMG/dev1.png';
-import cc from '../../IMG/std1.jpg';
 import dd from '../../IMG/std2.jpg';
 
 const CardImage = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const images = [aa, bb, cc, dd];
+    const images = [aa, bb, dd];
 
     useEffect(() => {
         const interval = setInterval(() => {

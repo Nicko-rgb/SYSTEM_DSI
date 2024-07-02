@@ -2,6 +2,10 @@
     position: relative;
     overflow-y: auto;
     height: 100vh;
+    background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
+}
+.acerca .navegador .link3{
+    color: orangered;
 }
 .acerca .container{
     color: white;
@@ -152,9 +156,9 @@
 .acerca .subContent .div2 .galeria img{
     width: 100%;
     transition: .3s ease;
+    margin-left: 0;
 }
 .acerca .subContent .div2 .galeria img:hover{
-    margin-right: 20px;
     transform: scale(1.1);
 }
 
