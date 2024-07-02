@@ -26,7 +26,7 @@ const UploadForm = ({ onClose }) => {
         <div className="formSubir">
             <div className="contenedor">
                 <div className="subirCabeza">
-                    <h2>Sube algo Nuevo la Comunidad</h2>
+                    <h2>Sube Algo Nuevo Aquí</h2>
                     <button className="close-btn" onClick={onClose}>
                         <FaTimes />
                     </button>
