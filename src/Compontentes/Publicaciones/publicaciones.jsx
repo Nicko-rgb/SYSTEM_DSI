@@ -7,11 +7,12 @@ import imagen1 from '../../IMG/std2.jpg';
 
 import Navegador from '../Navegador/Navegador';
 import Comentarios from './Comentarios';
-import SubirPublicacion from './Subir';
+import UploadForm from './SubirNuevo';
 
 const Publicaciones = () => {
     const [showComments, setShowComments] = useState(false);
     const [liked, setLiked] = useState(false);
+    const [showUploadForm, setShowUploadForm] = useState(false);
 
     const handleLike = () => {
         setLiked(!liked);
@@ -21,17 +22,31 @@ const Publicaciones = () => {
         setShowComments(!showComments);
     };
 
+    const handleInputClick = () => {
+        setShowUploadForm(true);
+    };
+
+    const handleUploadFormClose = () => {
+        setShowUploadForm(false);
+    };
+
     return (
-        <div class="publicaciones">
-           <Navegador /> 
-            <main class="subPubli">
+        <div className="publicaciones">
+            <Navegador />
+            <main className="subPubli">
+                <div className="subirNuevo">
+                    <p>Sube algo nuevo para la comunidad</p>
+                    <input type="text" placeholder='Escribe Aquí' onClick={handleInputClick} />
+                </div>
 
-                <SubirPublicacion className='subirPublicacion'/>
+                {showUploadForm && (
+                    <UploadForm onClose={handleUploadFormClose} />
+                )}
 
-                <div class="content-publicacion">
+                <div className="content-publicacion">
                     <header>
-                        <i class="fa fa-user"></i>
-                        <div class="datoUser">
+                        <i className="fa fa-user"></i>
+                        <div className="datoUser">
                             <h3>Joseph Padilla Alvan</h3>
                             <div>
                                 <p>12/05/2024</p>
@@ -46,7 +61,7 @@ const Publicaciones = () => {
                             <p>Borrar Publicacion</p>
                         </div>
                     </header>
-                    <div class="fotoPublicacion">
+                    <div className="fotoPublicacion">
                         <img src={imagen1} alt="" id="myImg" />
                     </div>
                     <footer>
@@ -75,10 +90,9 @@ const Publicaciones = () => {
                         <TiMessages className='ico-comment' />
                     </div>
                 </div>
-
             </main>
         </div>
-    )
+    );
 };
 
 export default Publicaciones;

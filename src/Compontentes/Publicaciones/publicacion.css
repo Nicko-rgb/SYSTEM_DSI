@@ -8,6 +8,24 @@
 .publicaciones .navegador .link2{
     color: orangered;
 }
+.publicaciones .subirNuevo{
+    width: 600px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: transparent;
+}
+.publicaciones .subirNuevo p{
+    color: white;
+    text-align: center;
+}
+.publicaciones .subirNuevo input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    background: rgb(200, 207, 207);
+}
 .publicaciones .subPubli {
     display: flex;
     flex-direction: column;
@@ -32,6 +50,7 @@
     height: 65px;
     position: relative;
     z-index: 0;
+    color: white;
 }
 
 .content-publicacion header .fa-user {
@@ -42,6 +61,7 @@
     display: grid;
     place-items: center;
     font-size: 55px;
+
 }
 
 .content-publicacion header .datoUser {
@@ -143,11 +163,12 @@ p {
 
 
 .publicaciones .content-publicacion section div {
-    border: black solid 1px;
+    border: white solid 1px;
     border-radius: 10px;
     padding: 5px;
     padding-bottom: 10px;
     margin-top: 10px;
+    color: white;
 }
 
 .publicaciones .content-publicacion section .infoComment {
@@ -161,12 +182,13 @@ p {
 
 .publicaciones .content-publicacion section .infoComment h4 {
     margin: 0;
+    margin-top: -10px;
     font-family: calibri;
     font-size: 16px;
 }
 
 .publicaciones .content-publicacion section .infoComment i {
-    border: black solid 1px;
+    border: white solid 1px;
     height: 30px;
     width: 30px;
     border-radius: 50%;

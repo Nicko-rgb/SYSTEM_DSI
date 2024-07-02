@@ -6,7 +6,9 @@ const Navegador = () => {
     return (
         <div className='navegador'>
             <div className="subnav">
-                <img src={logo} alt="logo" />
+                <Link to='/'>
+                    <img src={logo} alt="logo" />
+                </Link>
                 <nav>
                     <Link className="link link1" to='/'>Inicio</Link>
                     <Link className="link link2" to='/publicacion'>Publicaciones</Link>
