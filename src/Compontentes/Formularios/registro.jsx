@@ -27,30 +27,16 @@ const RegistroUser = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const formData = new FormData(event.target);
-        const nombre = formData.get('nombre');
-        const apellido = formData.get('apellido');
-        const telefono = formData.get('telefono');
-        const estudiaEnIESTPValue = formData.get('estudiaEnIESTP') === 'true';
-        const carrera = formData.get('carrera');
-        const email = formData.get('email');
-        const passwordValue = formData.get('password');
+        if (password !== confirmPassword) {
+            alert('Las contraseñas no coinciden.');
+            return;
+        }
 
         try {
+            const formData = new FormData(event.target);
             const response = await fetch('/api/register', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    nombre,
-                    apellido,
-                    telefono,
-                    estudiaEnIESTP: estudiaEnIESTPValue,
-                    carrera,
-                    email,
-                    password: passwordValue
-                })
+                body: formData
             });
 
             if (response.ok) {
@@ -73,7 +59,7 @@ const RegistroUser = () => {
     return (
         <div className='registroUser'>
             <div className="subRegistro">
-                <Link to='/'><MdArrowBackIos className='icoVolver'/></Link>
+                <Link to='/'><MdArrowBackIos className='icoVolver' /></Link>
                 <h2>Registro de usuario</h2>
                 <form onSubmit={handleSubmit}>
                     <div>

@@ -1,23 +1,24 @@
 .registroUser{
     z-index: 1;
     display: flex;
+    background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
     flex-direction: column;
-    margin-top: 80px;
     color: white;
-    height: calc(100% - 80px);
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     overflow-y: auto;
+    height: 100%;
+    padding: 20px;
 }
 .registroUser .subRegistro{
     position: relative;
+    margin: auto 0;
 }
 .registroUser .subRegistro .icoVolver{
     position: absolute;
     top: -20px;
     left: -40px;
-    
     border-radius: 50%;
     padding: 5px;
     font-size: 30px;
