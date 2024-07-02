@@ -4,52 +4,53 @@ const mongoose = require('mongoose');
 const app = express();
 const port = 3001;
 
-// Configurar la conexión a la base de datos MongoDB
+// Conectar a la base de datos de MongoDB
 mongoose.connect('mongodb://localhost/systemdsi', {
     useNewUrlParser: true,
     useUnifiedTopology: true
-});
+})
+    .then(() => console.log('Conexión a MongoDB exitosa'))
+    .catch(err => console.error('Error al conectar a MongoDB:', err));
 
-// Definir el esquema de la colección
+// Definir el esquema y el modelo de la colección "users"
 const userSchema = new mongoose.Schema({
-    nombre: { type: String, required: true },
-    apellido: { type: String, required: true },
-    telefono: { type: String, required: true },
-    estudiaEnIESTP: { type: Boolean, required: true },
-    carrera: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+    nombre: String,
+    apellido: String,
+    telefono: String,
+    estudiaEnIESTP: Boolean,
+    carrera: String,
+    email: String,
+    password: String,
+    fechaRegistro: Date
 });
 
-// Crear el modelo de la colección
-const User = mongoose.model('users', userSchema);
+const User = mongoose.model('User', userSchema);
 
-// Middleware para analizar el cuerpo de las solicitudes
-app.use(express.json());
-
-// Endpoint para manejar las solicitudes de registro
+// Ruta para registrar un nuevo usuario
 app.post('/api/register', async (req, res) => {
-    const { nombre, apellido, telefono, estudiaEnIESTP, carrera, email, password } = req.body;
-
     try {
-        // Verificar si el usuario ya existe
-        const existingUser = await User.findOne({ email });
-        if (existingUser) {
-            return res.status(400).json({ message: 'El usuario ya existe' });
-        }
+        const { nombre, apellido, telefono, estudiaEnIESTP, carrera, email, password } = req.body;
+        const fechaRegistro = new Date();
 
-        // Crear un nuevo documento en la colección "system_dsi"
-        const newUser = new User({ nombre, apellido, telefono, estudiaEnIESTP, carrera, email, password });
+        const newUser = new User({
+            nombre,
+            apellido,
+            telefono,
+            estudiaEnIESTP,
+            carrera,
+            email,
+            password,
+            fechaRegistro
+        });
+
         await newUser.save();
-        res.status(200).json({ message: 'Usuario registrado exitosamente' });
-        console.log("USUARIO NUEVO REGISTRADO");
+        res.status(201).json({ message: 'Usuario registrado exitosamente' });
     } catch (err) {
-        res.status(400).json({ message: 'Error al registrar el usuario', error: err.message });
-        console.log("ERROR AL REGISTRAR USUARIO");
+        res.status(500).json({ message: err.message });
     }
 });
 
+// Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor escuchando en el puerto ${port}`);
-    console.log("http://localhost:3001/api/register");
 });
