@@ -1,0 +1,41 @@
+.navegador{
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    height: 70px;
+    z-index: 2;
+    background: linear-gradient(135deg, rgba(4,4,27,1) 0%, rgba(64,2,2,1) 200%);
+}
+.navegador .subnav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navegador img{
+    width: 150px;
+    margin-left: 4vw;
+}
+.navegador nav{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 7vw;
+}
+.navegador nav .link{
+    color: white;
+    text-decoration: none;
+    font-family: arial;
+    font-weight: bold
+}
+.navegador button{
+    border: orangered solid 1px;
+    margin-right: 4vw;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    background: transparent;
+    color: orangered;
+    cursor: pointer;
+}

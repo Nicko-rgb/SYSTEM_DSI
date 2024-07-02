@@ -39,22 +39,6 @@ function App() {
                     <Route path='/dsi/beneficios' element={<Beneficios />} />
                     <Route path='/dsi/developers' element={<Developers />} />
                 </Routes>
-
-                <footer className='cabecera'>
-                    <Link to='/'>
-                        <RiCodeBoxFill className='logDSI' />
-                    </Link>
-                    <nav className='barraNav'>
-                        <h2>D'SYSTEM BLOG</h2>
-                        <div className='barraLinks'>
-                            <Link className='linkRuta' to="/"><GoHomeFill className="icons" /> Inicio</Link>
-                            <Link className='linkRuta' to="/publicacion"><FaUserFriends className="icons" /> Publicacion </Link>
-                            <Link className='linkRuta' to="/dsi"><FaInfoCircle className="icons" /> DSI</Link>
-                            <Link className='linkRuta' to="/periodico_mural"><FaRegNewspaper className="icons" />Periodico Mural</Link>
-                        </div>
-                    </nav>
-                    <img className='Imagen_Logo_Dsi imgLogo' alt='' src={logoDSI} ></img>
-                </footer>
             </BrowserRouter>
         </div>
     );

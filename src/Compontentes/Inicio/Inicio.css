@@ -1,113 +1,111 @@
-.inicio {
-    margin-top: 80px;
+.inicio{
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 80px);
-    padding: 20px;
+    background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
+    height: 100vh;
+    overflow-y: auto;
+}
+.inicio .icoNav{
+    position: absolute;
+    color: white;
+    font-size: 35px;
+    padding: 5px;
+    left: 10px;
+}
+.inicio .navHidde{
+    position: absolute;
+    left: -150px;
     display: flex;
     flex-direction: column;
-    background: rgb(24, 20, 60);
-    background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
-    z-index: 0;
+    gap: 5px;
+    padding-left: 10px;
+    width: 150px;
+    padding-top: 35px;
+    transition: 0.3s ease;
 }
-.inicio .fotosTransis{
-    position: absolute;
-    z-index: -1;
-    overflow: hidden;
+
+.inicio .navHidde:hover{
+    left: 0px;
+}
+.inicio .icoNav:hover~.navHidde{
     left: 0;
-    height: 100%;
-    width: 100%;
 }
-
-.inicio .Inst {
-    font-size: 25px;
+.inicio .navHidde .linkHidde{
     color: white;
-    position: absolute;
-    text-align: center;
-    top: 5px;
-
-}
-.inicio .subInicio{
-    background: none;
-}
-
-.inicio h1 {
-    font-size: 6rem;
-    color: white;
-    text-shadow: 0 0 10px rgb(245, 50, 235);
-    background: none;
-    text-transform: uppercase;
-    -webkit-text-stroke: 2px rgb(3, 3, 105);
-    position: relative;
-}
-
-
-
-.inicio h3{
-    font-size: 2rem;
-    text-decoration: underline;
-    text-shadow: 0 0 3px black;
+    text-decoration: none;
     
 }
-.inicio .frase {
-    color: white;
-    text-shadow: 0 0 2px blue,
-                0 0 2px blue,
-                0 0 2px blue;
-    background: none;
-    font-family: Courier, "Lucida Console", monospace;
-    font-size: 25px;
-    text-decoration: none;
-}
-.inicio img{
-    width: 500px;
-}
-.inicio .buton{
-    position: absolute;
-    z-index: 1;
-    bottom: 50px;
-    cursor: pointer;
-}
-.inicio .uneteIcon{
-    font-size: 19px;
-}
-.inicio .button{
-    height: 40px;
-    width: 200px;
-    border-radius: 9px;
-    border: none;
-    font-weight: bold;
-    background: rgb(5, 180, 250);
-    color: white;
-    box-shadow: 0 0 3px white;
-    animation: flotar 1s linear infinite;
-    cursor: pointer;
+.inicio main{
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 5px;
+    justify-content: space-between;
+    height: calc(100% - 70px);
+    width: 100%;
+    grid-area: 2vw;
 }
-@keyframes flotar {
-    0%{
-        transform: scale(1);
-    }
-    50%{
-        transform: scale(1.1);
-    }
-    100%{
-        transform: scale(1);
-    }
+.inicio main > div{
+    display: flex;
+    flex-direction: column;
+    padding-left: 4vw;
+    color: white;
+    min-width: 50%;
+    max-width: 50%;
 }
-@media  (max-width: 1400px) {
-    .inicio h1{
-        font-size: 4rem;
-    }
+main div h3, h1{
+    font-family: arial;
+    margin: 0;
+}
+main div h3{
+    font-size: 1.1rem;
+}
+main div h1{
+    font-size: 2.5rem;
+}
+main div p{
+    font-family: arial;
+    text-align: justify;
+}
+.inicio main .butons{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-left: 0;
+    gap: 5vw;
+    margin-top: 4vw;
+} 
+.inicio main .butons button{
+    border: orangered solid 1px;
+    border-radius: 5px;
+    width: 130px;
+    height: 37px;
+    cursor: pointer;
+    transition: .3s ease;
 }
 
-@media  (max-width: 800px) {
-    .inicio h1{
-        font-size: 2rem;
-    }
+main .butons .btn1{
+    background: orangered;
+    color: white;
+}
+.inicio main .butons .btn1:hover{
+    background: transparent;
+    color: orangered;
+}
+
+main .butons .btn2{
+    background: transparent;
+    color: orangered;
+}
+
+.inicio main .butons .btn2:hover{
+    background: orangered;
+    color: white;
+}
+
+.inicio main .img{
+    position: relative;
+    min-width: 20%;
+    height: auto;
+    height: 300px;
+    width:400px;
+    margin-right: 4vw;
 }

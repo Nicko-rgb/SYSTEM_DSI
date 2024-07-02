@@ -1,17 +1,14 @@
 .acerca{
     position: relative;
-    margin-top: 80px;
-    height: calc(100vh - 80px);
-    width: 100%;
-    display: flex;
+    overflow-y: auto;
+    height: 100vh;
 }
 .acerca .container{
     color: white;
     transition: 0.3s ease;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
     margin-left: 205px;
     width: calc(100% - 205px);
-    overflow-y: auto;
 }
 .acerca .container .div1 .aa{
     text-align: center;
@@ -139,7 +136,7 @@
     position: fixed;
     right: 18px;
     width: 300px;
-    height: calc(100% - 80px);
+    height: calc(100% - 70px);
     overflow-y: auto;
     &::-webkit-scrollbar{
         width: 1px;

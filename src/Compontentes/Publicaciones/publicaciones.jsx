@@ -5,6 +5,7 @@ import { TiMessages } from "react-icons/ti";
 import { SlOptionsVertical } from "react-icons/sl";
 import imagen1 from '../../IMG/std2.jpg';
 
+import Navegador from '../Navegador/Navegador';
 import Comentarios from './Comentarios';
 import SubirPublicacion from './Subir';
 
@@ -22,7 +23,8 @@ const Publicaciones = () => {
 
     return (
         <div class="publicaciones">
-            <div class="subPubli">
+           <Navegador /> 
+            <main class="subPubli">
 
                 <SubirPublicacion className='subirPublicacion'/>
 
@@ -74,7 +76,7 @@ const Publicaciones = () => {
                     </div>
                 </div>
 
-            </div>
+            </main>
         </div>
     )
 };

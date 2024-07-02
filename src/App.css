@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 body{
-  background: rgb(7, 2, 27);
+  background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
+
 }
 .App {
   height: 100vh;

@@ -1,15 +1,15 @@
 .biblioteca{
     position: relative;
-    margin-top: 80px;
-    height: calc(100vh - 80px);
     width: 100%;
     display: flex;
+    flex-direction: column;
+    overflow-y: auto;
 }
 .biblioteca .container{
     padding: 20px;
     color: white;
     transition: 0.3s ease;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
     margin-left: 205px;
     border: red solid 1px;
     width: calc(100% - 205px);
