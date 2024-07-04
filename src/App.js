@@ -15,7 +15,7 @@ import Developers from './Compontentes/Dsi_component/Developers/Developers'
 
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import CursorEffect from './CursosEfect/CursorEfect';
+import CursorEffect from './CursorEfect/CursorEfect';
 
 function App() {
 
