@@ -8,6 +8,9 @@
 .periodico .navegador .link4 {
     color: orangered;
 }
+.periodico .navegador .link4::before {
+    width: 100%;
+}
 
 .periodico header {
     display: flex;
@@ -76,13 +79,13 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
-    top: 70px;
+    top: 0px;
     width: 100%;
-    height: calc(100% - 70px);
+    height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {

@@ -4,21 +4,47 @@
     height: 100vh;
     overflow-y: auto;
 }
-.inicio .navegador .link1{
+
+.inicio .navegador .link1 {
     color: orangered;
 }
 
+.inicio .navegador .link1::before {
+    width: 100%;
+}
+
 .inicio main {
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding-top: 25px;
     height: calc(100% - 70px);
     width: 100%;
     grid-area: 2vw;
+    transform: scale(0);
+    transition: transform 1s ease-in-out;
+}
+
+.inicio .loaded {
+    transform: scale(1);
 }
 
 .inicio main>div {
     margin: auto 0;
+}
+
+.inicio main .bienvenida {
+    position: absolute;
+    color: white;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family: 'Montserrat';  */
+    /* font-family: 'Open Sans'; */
+    /* font-family: 'Lato'; */
+    /* font-family: 'Raleway'; */
+    /* font-family: 'Merriweather'; */
 }
 
 .inicio .icoNav {
@@ -162,4 +188,16 @@ main .butons .btn2 {
     height: 300px;
     width: 400px;
     margin-right: 4vw;
+}
+
+.inicio main .img img {
+    position: absolute;
+    left: 0;
+    object-fit: cover;
+    overflow-y: hidden;
+    backface-visibility: hidden;
+    min-width: 10%;
+    height: auto;
+    height: 300px;
+    width: 400px;
 }

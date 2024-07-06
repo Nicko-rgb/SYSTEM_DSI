@@ -30,18 +30,11 @@
     font-family: arial;
     font-weight: bold;
     position: relative;
+    width: 120px;
+    text-align: center;
 }
 
-.navegador button{
-    border: orangered solid 1px;
-    margin-right: 4vw;
-    border-radius: 5px;
-    width: 100px;
-    height: 35px;
-    background: transparent;
-    color: orangered;
-    cursor: pointer;
-}
+
 
 
 .link::before {
@@ -75,4 +68,13 @@
     }
 }
 
-
+.navegador button{
+    border: orangered solid 1px;
+    margin-right: 4vw;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    background: transparent;
+    color: orangered;
+    cursor: pointer;
+}

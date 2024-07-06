@@ -8,6 +8,9 @@
 .publicaciones .navegador .link2{
     color: orangered;
 }
+.publicaciones .navegador .link2::before {
+    width: 100%;
+}
 .publicaciones .subirNuevo{
     width: 600px;
     padding: 10px;

@@ -7,6 +7,9 @@
 .acerca .navegador .link3{
     color: orangered;
 }
+.acerca .navegador .link3::before {
+    width: 100%;
+}
 .acerca .container{
     color: white;
     transition: 0.3s ease;
