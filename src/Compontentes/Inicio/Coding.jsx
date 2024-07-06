@@ -15,7 +15,8 @@ const Coding = () => {
     7       }
     8       Data.push(User)
     9       console.log(Data)
-    10  }`;
+    10  }
+    `;
 
     useEffect(() => {
         const interval = setInterval(() => {

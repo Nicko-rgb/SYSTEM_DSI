@@ -8,7 +8,6 @@ import { FaHandshakeSimple, FaPeopleLine } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineMail } from "react-icons/md";
 
-import internet from '../../ICO/internet.ico'
 const NavegadorDsi = () => {
     return (
         <div className='dsiNav'>

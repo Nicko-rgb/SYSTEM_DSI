@@ -1,4 +1,3 @@
-import NavegadorDsi from '../Nav/navDsi'
 import fotogil from '../../../IMG/docentegil.jpg'
 import fotoruber from '../../../IMG/docenteruber.jpg'
 import fotopuyo from '../../../IMG/docentepuyo.jpg'

@@ -17,7 +17,7 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    padding-top: 25px;
+    padding-top: 35px;
     height: calc(100% - 70px);
     width: 100%;
     grid-area: 2vw;
@@ -53,6 +53,7 @@
     font-size: 28px;
     padding: 5px;
     left: 10px;
+    z-index: 1;
 }
 
 .inicio .navHidde {
@@ -66,6 +67,7 @@
     padding-top: 35px;
     transition: 0.3s ease;
     backdrop-filter: blur(10px);
+    z-index: 1;
 }
 
 .inicio .navHidde:hover {
@@ -122,23 +124,23 @@
     max-width: 50%;
 }
 
-main div h3,
-h1 {
+main div h3, h1 {
     font-family: arial;
     margin: 0;
 }
 
-main div h3 {
-    font-size: 1.1rem;
+main h3 {
+    font-size: 1.2vw;
 }
 
 main div h1 {
-    font-size: 2.5rem;
+    font-size: 2.5vw;
 }
 
 main div p {
     font-family: arial;
     text-align: justify;
+    font-size: 1vw;
 }
 
 .inicio main .butons {
@@ -200,4 +202,32 @@ main .butons .btn2 {
     height: auto;
     height: 300px;
     width: 400px;
+}
+
+@media (max-width:1180px){
+    /* .inicio main{
+        border: red solid;
+    }
+    .inicio main h3{
+        font-size: 15px;
+    }
+    .inicio main h1{
+        font-size: 28px;
+    }
+    .inicio main > div p{
+        font-size: 13px;
+    } */
+
+    .inicio main .butons{
+        margin-top: 2vw;
+    }
+
+    .inicio main .img{
+        height: 200px;
+        width: 300px;
+    }
+    .inicio main .img img{
+        height: 200px;
+        width: 300px;
+    }
 }

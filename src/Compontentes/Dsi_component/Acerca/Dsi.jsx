@@ -4,8 +4,6 @@ import Navegador from '../../Navegador/Navegador'
 import NavegadorDsi from '../Nav/navDsi';
 import lenguajes from './lenguajes';
 
-import java from '../../ICO/java.ico'
-
 import foto1 from '../../../IMG/codigo.png'
 import foto2 from '../../../IMG/foto1.jpg'
 import foto3 from '../../../IMG/std2.jpg'

@@ -1,13 +1,12 @@
 .code-example {
-    background-color: #282c34;
-    color: #fff;
-    border-radius: 5px;
-    font-family: 'Courier New', monospace;
-    font-size: 16px;
-    line-height: 1.5;
-    white-space: pre-wrap;
-    overflow-x: auto;
-    height: 270px;
-    width: 500px;
-    margin-bottom: 20px;
-  }
+  background-color: #282c34;
+  color: #fff;
+  border-radius: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 1vw;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  width: 500px;
+  margin-bottom: 20px;
+}

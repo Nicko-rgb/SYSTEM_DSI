@@ -1,6 +1,5 @@
 import React from 'react'
 import './docentes.css'
-import navegador from '../../Navegador/Navegador'
 import NavegadorDsi from '../Nav/navDsi'
 import Profes from './data'
 import Navegador from '../../Navegador/Navegador'
