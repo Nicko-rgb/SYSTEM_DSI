@@ -5,18 +5,17 @@ const Coding = () => {
     const [code, setCode] = useState('');
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const codeExample = `
-    1   import Data from './data.js'
-    2   const Coding = (data) => {
-    3       const User = {
-    4           name: 'John',
-    5           email: 'jhon54@gmail.com',
-    6           age: 30,
-    7       }
-    8       Data.push(User)
-    9       console.log(Data)
-    10  }
-    `;
+    const codeExample = 
+`  1   import Data from './data.js'
+  2   const Coding = (data) => {
+  3       const User = {
+  4           name: 'Juan',
+  5           email: 'juan54@gmail.com',
+  6           age: 30,
+  7       }
+  8       Data.push(User)
+  9       console.log(Data)
+  10  }`;
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -36,7 +35,7 @@ const Coding = () => {
     return (
         <div className="code-example">
             <pre>
-                <code>{code}</code>
+                <code>{code}<span>|</span></code>
             </pre>
         </div>
     );

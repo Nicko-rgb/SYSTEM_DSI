@@ -9,4 +9,24 @@
   overflow-x: auto;
   width: 500px;
   margin-bottom: 20px;
+  padding: 20px;
+}
+
+.code-example code span {
+  color: white;
+  animation: cursor .5s linear infinite;
+}
+
+@keyframes cursor {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

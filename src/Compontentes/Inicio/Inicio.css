@@ -186,7 +186,6 @@ main .butons .btn2 {
 .inicio main .img {
     position: relative;
     min-width: 20%;
-    height: auto;
     height: 300px;
     width: 400px;
     margin-right: 4vw;
@@ -198,25 +197,24 @@ main .butons .btn2 {
     object-fit: cover;
     overflow-y: hidden;
     backface-visibility: hidden;
-    min-width: 10%;
-    height: auto;
     height: 300px;
     width: 400px;
 }
 
 @media (max-width:1180px){
-    /* .inicio main{
-        border: red solid;
+    main h3 {
+        font-size: 1.5vw;
     }
-    .inicio main h3{
-        font-size: 15px;
+    
+    main div h1 {
+        font-size: 2.8vw;
     }
-    .inicio main h1{
-        font-size: 28px;
+    
+    main div p {
+        font-family: arial;
+        text-align: justify;
+        font-size: 1.3vw;
     }
-    .inicio main > div p{
-        font-size: 13px;
-    } */
 
     .inicio main .butons{
         margin-top: 2vw;
@@ -229,5 +227,57 @@ main .butons .btn2 {
     .inicio main .img img{
         height: 200px;
         width: 300px;
+    }
+}
+@media (max-width:800px){
+    .inicio main{
+        display: flex;
+        flex-direction: column;
+    }
+    .inicio main > div{
+        min-width: 100%;
+        padding-left: 0;
+        padding: 4vw;
+        gap: 1vw;
+        margin-top: 50px;
+    }
+    .inicio main .bienvenida{
+        top: 30px;
+        padding: 0 4vw;
+    }
+    .inicio main h3{
+        font-size: 20px;
+    }
+    .inicio main h1{
+        font-size: 34px;
+    }
+    .inicio main p{
+        font-size: 16px;
+    }
+    .inicio main .img{
+        height: 500px;
+        width: 400px;
+        min-width: 100%;
+        margin-right: 0;
+        margin-top: -30px;
+        padding-bottom: 170px;
+    }
+    .inicio main .img img{
+        position: initial;
+        height: 300px;
+        width: 400px;
+        margin:  0 auto;
+    }
+
+    .inicio .code-example{
+        font-size: initial;
+        width: auto;
+        height: 280px;
+    }
+}
+@media (max-width: 700px){
+    .inicio{
+        padding-top: 50px;
+        position: relative;
     }
 }
