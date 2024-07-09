@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Ruta para obtener los datos de la colección "users"
-app.get('/api/users/register', async (req, res) => {
+app.get('/api/users/', async (req, res) => {
     try {
         const users = await User.find({});
         res.json(users);

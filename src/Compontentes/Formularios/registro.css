@@ -10,10 +10,23 @@
     overflow-y: auto;
     height: 100%;
     padding: 20px;
+    padding-top: none;
+}
+.registroUser .cabeza{
+    position: fixed;
+    top: 0;
+    padding: 0 20px;
+    padding-top: 15px;
+    display: flex;
+    width: 96%;
+    justify-content: space-between;
 }
 .registroUser .subRegistro{
     position: relative;
     margin: auto 0;
+}
+.registroUser .regis{
+    margin-top: 90px;
 }
 .registroUser .subRegistro .icoVolver{
     position: absolute;
@@ -52,6 +65,20 @@ form aside{
     flex-direction: column;
     gap: 2px;
 }
+.registroUser form .terminos{
+    /* border: red solid 1px; */
+    display: flex;
+    flex-direction: row;
+}
+.registroUser form .link{
+    text-decoration: none;
+    text-shadow: none;
+    color: aqua;
+}
+.registroUser form .link:hover{
+    color: rgb(0, 125, 167);
+    text-decoration: underline;
+}
 form div label{
     text-shadow: orangered 0 0 5px,
                 orangered 0 0 5px,
@@ -60,7 +87,7 @@ form div label{
     font-size: 17px;
     margin-left: 5px;
 }
-form div input, select{
+form div input{
     padding: 5px;
     font-size: 17px;
     box-shadow: 0 0 2px orangered;
@@ -69,13 +96,19 @@ form div input, select{
     background: transparent;
     color: white;
 }
-form div select option{
-    color: black;
+form div input[type="checkbox"]{
+    box-shadow: none;
+    width: 20px;
 }
+form .errorPassword-message{
+    color: orangered;
+    text-align: center;
+}
+
 form button{
     width: 150px;
     height: 40px;
-    margin: 0 auto;
+    margin: 20px auto;
     color: white;
     box-shadow: 0 0 2px orangered;
     border: none;
@@ -83,4 +116,18 @@ form button{
     border-radius: 7px;
     cursor: pointer;
     font-weight: bold;
+}
+button.disabled {
+    background-color: #c6c4c4;
+    cursor: not-allowed;
+}
+@media (max-width: 700px){
+    .registroUser .subRegistro{
+        padding-bottom: 150px;
+    }
+}
+@media (max-height: 700px){
+    .registroUser .sesion{
+        margin-top: 90px;
+    }
 }

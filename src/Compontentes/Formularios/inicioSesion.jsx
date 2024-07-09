@@ -5,7 +5,11 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
+import Cabeza from '../Navegador/Cabeza'
+import EstadoSesion from './Sesion'
+
 const Login = () => {
+    const { handleLogin } = EstadoSesion()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
@@ -16,17 +20,23 @@ const Login = () => {
 
         try {
             const response = await axios.post('/api/login', { email, password })
-            localStorage.setItem('token', response.data.token)
+            console.log("Inicio de Sesion de usuario Exitoso");
+            handleLogin(response.data.name, response.data.token)
             navigate('/')
         } catch (error) {
             console.error('Error al iniciar sesión:', error)
-            setErrorMessage('Correo electrónico o contraseña incorrectos')
+            if (error.response && error.response.data && error.response.data.message) {
+                setErrorMessage(error.response.data.message)
+            } else {
+                setErrorMessage('Error al iniciar sesión. Inténtalo de nuevo.')
+            }
         }
     }
 
     return (
         <div className="registroUser">
-            <div className="subRegistro">
+            <Cabeza />
+            <div className="subRegistro sesion">
                 <Link to='/'><MdArrowBackIos className='icoVolver'/></Link>
                 <h2>Iniciar Sesión</h2>
                 <form onSubmit={handleSubmit}>

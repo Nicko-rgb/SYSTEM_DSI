@@ -1,0 +1,60 @@
+.cabeza{
+    display: none;
+    padding: 0 25px;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(4, 4, 27, 1) 0%, rgba(64, 2, 2, 1) 200%);
+    width: 97%;
+    z-index: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.cabeza img{
+    width: 150px;
+}
+.cabeza button{
+    border: orangered solid 1px;
+    background: orangered;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 37px;
+    cursor: pointer;
+    transition: .3s ease;
+    margin-bottom: 20px;
+}
+.cabeza div{
+    display: flex;
+    gap: 10px;
+    margin-right: -10px;
+}
+
+.cabeza div .salirUser{
+    box-shadow: 0 0 2px white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 27px;
+}
+.cabeza .perfilUser{
+    box-shadow: 0 0 2px white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 27px;
+}
+
+@media (max-width: 700px) {
+    .cabeza{
+        z-index: 2;
+        position: fixed;
+        top: 0px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

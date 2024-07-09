@@ -1,31 +1,38 @@
-.acerca{
+.acerca {
     position: relative;
     overflow-y: auto;
     height: 100vh;
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
-.acerca .navegador .link3{
+
+.acerca .navegador .link3 {
     color: orangered;
 }
+
 .acerca .navegador .link3::before {
     width: 100%;
 }
-.acerca .container{
+
+.acerca .container {
     color: white;
     transition: 0.3s ease;
     height: calc(100vh - 70px);
     margin-left: 205px;
     width: calc(100% - 205px);
 }
-.acerca .container .div1 .aa{
+
+.acerca .container .div1 .aa {
     text-align: center;
     margin: 0;
+    font-size: initial;
+    padding-bottom: 15px;
 }
+
 .acerca .container .div1 h1 {
-    margin: 0;
     text-align: center;
     margin-top: -30px;
 }
+
 .acerca .container .subContent {
     position: relative;
     display: flex;
@@ -43,11 +50,16 @@
     flex-direction: column;
     gap: 25px;
 }
-.acerca .subContent .div1 .infoCarre{
+
+.acerca .subContent .div1 .infoCarre {
     display: flex;
     justify-content: space-evenly;
 }
-.acerca .subContent .div1 .descripcion, .lenguajes, .perfil, .salida{
+
+.acerca .subContent .div1 .descripcion,
+.lenguajes,
+.perfil,
+.salida {
     border-left: orangered solid 2px;
     padding-left: 15px;
     display: flex;
@@ -55,11 +67,17 @@
     text-align: justify;
     gap: 8px;
 }
-.acerca .subContent .div1 h5{
+
+.acerca .subContent .div1 h5 {
     color: orangered;
     text-decoration: underline 2px;
 }
-.acerca .subContent .div1 .infoCarre div{
+
+.acerca .subContent .div1 p {
+    font-size: initial;
+}
+
+.acerca .subContent .div1 .infoCarre div {
     box-shadow: 0 0 2px gray;
     height: 40px;
     border-radius: 15px;
@@ -69,11 +87,17 @@
     padding-right: 7px;
     transition: 0.3s ease;
 }
-.acerca .subContent .div1 .infoCarre div:hover{
+
+.acerca .subContent .div1 .infoCarre div p {
+    text-align: center;
+}
+
+.acerca .subContent .div1 .infoCarre div:hover {
     box-shadow: 0 0 3px gray;
     transform: scale(1.03);
 }
-.acerca .subContent .div1  .lenguajes h6{
+
+.acerca .subContent .div1 .lenguajes h6 {
     text-decoration: underline;
     letter-spacing: 2px;
     text-shadow: 0 0 5px rgb(109, 250, 238),
@@ -87,7 +111,8 @@
     gap: 15px;
     margin-top: 10px;
 }
-.div1  .box-lenguajes .card{
+
+.div1 .box-lenguajes .card {
     box-shadow: 0 0 5px orangered;
     display: flex;
     flex-direction: column;
@@ -100,37 +125,46 @@
     position: relative;
 }
 
-.div1 .lenguajes .box-lenguajes .card:hover{
+.div1 .lenguajes .box-lenguajes .card:hover {
     z-index: 1;
     transform: scale(1.03);
 }
 
 
-.acerca .subContent .div1  .lenguajes .box-lenguajes > .card:last-child {
+.acerca .subContent .div1 .lenguajes .box-lenguajes>.card:last-child {
     grid-column: 2 / -2;
     justify-self: center;
 }
-.div1  .box-lenguajes .card img, .img{
+
+.div1 .box-lenguajes .card img,
+.img {
     width: 50px;
     font-size: 40px;
 }
-.div1 .lenguajes .box-lenguajes .card h6{
+
+.div1 .lenguajes .box-lenguajes .card h6 {
     text-decoration: none;
     text-shadow: none;
 }
-.div1 .descripcion2{
+
+.div1 .descripcion2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
-.div1 .descripcion2 .perfil img{
+
+.div1 .descripcion2 .perfil img {
     width: 100%;
     object-fit: cover;
 }
-.div1 .descripcion2 .perfil, .salida{
+
+.div1 .descripcion2 .perfil,
+.salida {
     padding-left: 5px;
 }
-.div1 .perfil ul, .salida ul{
+
+.div1 .perfil ul,
+.salida ul {
     margin-left: 20px;
     font-size: 15px;
     display: flex;
@@ -145,39 +179,66 @@
     width: 300px;
     height: calc(100% - 70px);
     overflow-y: auto;
-    &::-webkit-scrollbar{
+
+    &::-webkit-scrollbar {
         width: 1px;
     }
 }
-.acerca .subContent .div2 .galeria{
+
+.acerca .subContent .div2 .galeria {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     position: relative;
 }
-.acerca .subContent .div2 .galeria img{
+
+.acerca .subContent .div2 .galeria img {
     width: 100%;
     transition: .3s ease;
     margin-left: 0;
 }
-.acerca .subContent .div2 .galeria img:hover{
+
+.acerca .subContent .div2 .galeria img:hover {
     transform: scale(1.1);
 }
 
 @media (max-width: 1000px) {
-    .acerca .subContent{
+    .acerca .subContent {
         display: flex;
         flex-direction: column;
     }
-    .acerca .subContent .div1{
+
+    .acerca .subContent .div1 {
         width: 100%;
     }
-    .acerca .subContent .div2{
+
+    .acerca .subContent .div2 {
         position: initial;
         height: auto;
         width: 100%;
     }
+    .acerca .subContent .div2 .galeria{
+        display: grid;
+        grid-template-columns: repeat( 2, 1fr);
+    }
 }
 
-
+@media (max-width: 800px) {
+    .acerca .container {
+        margin-left: 55px;
+        width: calc(100% - 55px);
+    }
+    .acerca .subContent .div1 .lenguajes .box-lenguajes{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 700px){
+    .acerca .subContent .descripcion2{
+        display: flex;
+        flex-direction: column;
+    }
+    .acerca .subContent .div2{
+        padding-bottom: 100px;
+    }
+}

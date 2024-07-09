@@ -20,10 +20,10 @@
     padding-top: 35px;
     height: calc(100% - 70px);
     width: 100%;
-    grid-area: 2vw;
     transform: scale(0);
     transition: transform 1s ease-in-out;
 }
+
 
 .inicio .loaded {
     transform: scale(1);
@@ -120,17 +120,21 @@
     flex-direction: column;
     padding-left: 4vw;
     color: white;
-    min-width: 50%;
-    max-width: 50%;
+    /* min-width: 50%; */
+    max-width: 55%;
 }
 
-main div h3, h1 {
+main div h3,
+h1 {
     font-family: arial;
     margin: 0;
 }
 
 main h3 {
     font-size: 1.2vw;
+}
+main .bienvenida{
+    font-size: 22px;
 }
 
 main div h1 {
@@ -150,7 +154,8 @@ main div p {
     justify-content: left;
     padding-left: 0;
     gap: 5vw;
-    margin-top: 4vw;
+    margin-top: 2.5vw;
+    padding-bottom: 2.5vw;
 }
 
 .inicio main .butons button {
@@ -183,6 +188,57 @@ main .butons .btn2 {
     color: white;
 }
 
+.code-example {
+    position: relative;
+    background-color: #282c34;
+    color: #fff;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: initial;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    width: 100%;
+    height: 280px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.code-example button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    background-color: transparent;
+    color: white;
+    border: none;
+    box-shadow: 0 0 1px white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.code-example code span {
+    color: white;
+    animation: cursor .5s linear infinite;
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 .inicio main .img {
     position: relative;
     min-width: 20%;
@@ -201,60 +257,77 @@ main .butons .btn2 {
     width: 400px;
 }
 
-@media (max-width:1180px){
+@media (max-width:1180px) {
+    main>div {
+        /* max-width: 70%; */
+        min-width: 60%;
+    }
+
     main h3 {
         font-size: 1.5vw;
     }
-    
+    main .bienvenida{
+        font-size: 22px;
+    }
+
     main div h1 {
         font-size: 2.8vw;
     }
-    
+
     main div p {
         font-family: arial;
         text-align: justify;
         font-size: 1.3vw;
     }
 
-    .inicio main .butons{
-        margin-top: 2vw;
-    }
-
-    .inicio main .img{
+    .inicio main .img {
         height: 200px;
         width: 300px;
     }
-    .inicio main .img img{
+
+    .inicio main .img img {
         height: 200px;
         width: 300px;
     }
 }
-@media (max-width:800px){
-    .inicio main{
+
+@media (max-width: 1050px) {
+    .inicio main h3 {
+        font-size: 20px;
+    }
+    .inicio main .bienvenida{
+        font-size: 23px;
+    }
+
+    .inicio main h1 {
+        font-size: 34px;
+    }
+
+    .inicio main p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width:800px) {
+    .inicio main {
         display: flex;
         flex-direction: column;
     }
-    .inicio main > div{
+
+    .inicio main>div {
         min-width: 100%;
         padding-left: 0;
         padding: 4vw;
         gap: 1vw;
         margin-top: 50px;
     }
-    .inicio main .bienvenida{
+
+    .inicio main .bienvenida {
         top: 30px;
         padding: 0 4vw;
     }
-    .inicio main h3{
-        font-size: 20px;
-    }
-    .inicio main h1{
-        font-size: 34px;
-    }
-    .inicio main p{
-        font-size: 16px;
-    }
-    .inicio main .img{
+
+    .inicio main .img {
         height: 500px;
         width: 400px;
         min-width: 100%;
@@ -262,22 +335,25 @@ main .butons .btn2 {
         margin-top: -30px;
         padding-bottom: 170px;
     }
-    .inicio main .img img{
+
+    .inicio main .img img {
         position: initial;
         height: 300px;
         width: 400px;
-        margin:  0 auto;
+        margin: 0 auto;
     }
 
-    .inicio .code-example{
+    .inicio .code-example {
         font-size: initial;
         width: auto;
         height: 280px;
     }
 }
-@media (max-width: 700px){
-    .inicio{
-        padding-top: 50px;
+
+@media (max-width: 700px) {
+    .inicio {
+        padding-top: 70px;
         position: relative;
     }
+
 }

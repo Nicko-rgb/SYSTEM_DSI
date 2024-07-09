@@ -27,7 +27,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    gap: 7vw;
+    gap: 5vw;
 }
 
 .navegador nav .link {
@@ -36,8 +36,9 @@
     font-family: arial;
     font-weight: bold;
     position: relative;
-    width: 130px;
+    width: 120px;
     text-align: center;
+    font-size: 15px;
 }
 
 .link::before {
@@ -70,6 +71,22 @@
         background-position: 0% 50%;
     }
 }
+.navegador .subnav div{
+    height: 50px;
+    display: flex;
+    justify-content: left;
+}
+.navegador .subnav div .perfilUser{
+    box-shadow: 0 0 2px white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 4vw;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 27px;
+}
 
 .navegador button {
     border: orangered solid 1px;
@@ -88,8 +105,17 @@
     }
 }
 
-@media (max-width: 800px) {
-    .navegador img {
+@media (max-width: 900px) {
+    .navegador img{
+        width: 130px;
+        margin-left: 2vw;
+    }
+    .navegador .btnLogin {
+        display: none;
+    }
+}
+@media (max-width: 800px){
+    .navegador img{
         display: none;
     }
 }
@@ -104,10 +130,6 @@
         box-shadow: 0 0 2px orangered;
         backdrop-filter: blur(10px);
         border-radius: 30px;
-    }
-
-    .navegador button {
-        display: none;
     }
 
     .navegador .subnav nav .link {
@@ -126,6 +148,9 @@
 
     .navegador .link .navIco {
         font-size: 20px;
+    }
+    .navegador .subnav div .perfilUser{
+        display: none;
     }
 
 }
