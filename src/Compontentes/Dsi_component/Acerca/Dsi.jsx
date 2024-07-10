@@ -1,61 +1,99 @@
 import React from 'react'
 import './dsi.css'
-import 'animate.css';
-
+import Navegador from '../../Navegador/Navegador'
 import NavegadorDsi from '../Nav/navDsi';
+import lenguajes from './lenguajes';
 
 import foto1 from '../../../IMG/codigo.png'
 import foto2 from '../../../IMG/foto1.jpg'
 import foto3 from '../../../IMG/std2.jpg'
-import chica from '../../../IMG/chica.jpg'
 
+import stdInfor from '../../../IMG/studentInformatica.jpeg'
 
 const Dsi = () => {
     return (
         <div className='acerca'>
-            <NavegadorDsi className='dsiNav' />
-            <main className="container">
-                <h1>DESARROLLO DE SISTEMAS DE INFORMACION IESTP - SUIZA</h1>
-                <div className='subContent'>
-                    <div className='div1'>
-                        <h3 className='tcompe'>COMPETENCIAS ESPECIFICAS</h3>
-                        <div className='competencias'>
-                            <ol>
-                                <li>Desarrollar la construcción de programas de los sistemas de información, de acuerdo con el diseño funcional, estándares internacionales de TI, buenas prácticas de programación y políticas de seguridad de la organización.</li>
-                                <li>Desarrollar las pruebas integrales de los sistemas de información y servicios de TI en la fase de implantación, de acuerdo con el diseño funcional, buenas prácticas de TI y políticas de seguridad de la organización.</li>
-                                <li>Realizar la puesta en producción de los sistemas de información o servicios de TI, de acuerdo con la planificación efectuada.</li>
-                                <li>Administrar el diseño funcional de los sistemas de información, de acuerdo con las demandas del negocio que son parte del alcance de la arquitectura de sistemas vigente.</li>
-                            </ol>
-                            <img src={chica} alt="" />
-                        </div>
-                        <div className="cards">
-                            <img src={foto1} alt="" className="card" />
-                            <img src={foto2} alt="" className="card " />
-                            <img src={foto3} alt="" className="card card3" />
-                        </div>
-                    </div>
-                    <div className='div2'>
-                        <h4>TITULO A NOMBRE DE LA NACION</h4>
-                        <p>Pofecional Técnico en Desarrollo de Sistemas de Informacion</p>
-                        <section>
+            <Navegador />
+            <main>
+                <NavegadorDsi className='dsiNav' />
+                <section className="container">
+                    <div className='subContent'>
+                        <section className='div1'>
+                            <p className='aa'>PROGRAMA DE ESTUDIOS</p>
+                            <h1>DESARROLLO DE SISTEMAS DE INFORMACION IESTP - SUIZA</h1>
                             <div>
-                                <p>Carrera Profecional Técnica de 3 años de esudio</p>
+                                <h4>TITULO A NOMBRE DE LA NACION</h4>
+                                <p>Profesional Técnico en Desarrollo de Sistemas de Información</p>
                             </div>
-                            <div>
-                                <p>6 CICLOS ACADEMICOS</p>
+                            <div className='infoCarre'>
+                                <div>
+                                    <p>Carrera Profesional Técnica de 3 años de estudio</p>
+                                </div>
+                                <div>
+                                    <p>6 CICLOS ACADÉMICOS</p>
+                                </div>
+                                <div>
+                                    <p>3 Certificaciones Modulares</p>
+                                </div>
                             </div>
-                            <div>
-                                <p>3 Certificaciones Modulares</p>
+                            <div className='descripcion'>
+                                <h5>Descripción de la Carrera</h5>
+                                <p>La carrera de Desarrollo de Sistemas de Información te prepara para diseñar, desarrollar y mantener sistemas informáticos que satisfagan las necesidades de las organizaciones. Aprenderás a programar en diversos lenguajes (Back-end & Front-end), gestionar bases de datos y administrar redes, aplicando metodologías ágiles y buenas prácticas de la industria.</p>
+                            </div>
+                            <div className="lenguajes">
+                                <h5>Lenguajes de Programación y Herramientas</h5>
+                                <div className="box-lenguajes">
+                                    {lenguajes.map(dato => (
+                                        <div className='card'>
+                                            <img src={dato.img} alt="" />
+                                            <h6>{dato.nombre}</h6>
+                                            <p>{dato.descripcion} </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="descripcion2">
+                                <div className='perfil'>
+                                    <h5>Perfil del Egresado</h5>
+                                    <ul>
+                                        <li>Desarrolla aplicaciones web y móviles utilizando tecnologías actuales</li>
+                                        <li>Diseña y administra bases de datos relacionales y no relacional</li>
+                                        <li>Implementa soluciones de conectividad y seguridad en redes</li>
+                                        <li>Trabaja en equipo y se adapta a los cambios tecnológicos</li>
+                                        <li>Comunica efectivamente ideas y soluciones técnicas</li>
+                                        <img src={stdInfor} alt="" />
+                                    </ul>
+                                </div>
+                                <div className='salida'>
+                                    <h5>Campo Laboral</h5>
+                                    <p>Los egresados de la carrera pueden desempeñarse como programadores, analistas de sistemas, administradores de bases de datos, técnicos de redes y soporte informático en empresas de diversos sectores, tanto públicas como privadas.</p>
+                                    <ul>
+                                        <li>DESARROLLO DE SOFTWARE: Desarrolla software para empresas de servicios de mantenimiento de sistemas informáticos, empresas de venta y representación de soluciones informáticas, y empresas que producen software.</li>
+                                        <li>ADMINISTRACION DE CENTROS DE COMPUTO: Administra centros de cómputo, redes de área local y extendida, y gestiona bases de datos relacional y no relacional.</li>
+                                        <li>EMPRESAS DE TECNOLOGIA DE LA INFORMACION: Trabaja en empresas que proveen servicios de tecnologías de la información, incluyendo desarrollo de software, consultoría y asesoramiento.</li>
+                                        <li>EMPRESAS DE SERVICIO  DE MENTENIMIENTO: Trabaja en empresas que ofrecen servicios de mantenimiento de sistemas informáticos, incluyendo soporte técnico y resolución de problemas.</li>
+                                    </ul>
+                                </div>
                             </div>
                         </section>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4860.704793665854!2d-74.57432416324508!3d-8.39464977365317!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a3bd76a21d1c31%3A0x699cb3518cd1af14!2sIESTP%20Suiza%20area%20total%20del%20terreno!5e0!3m2!1ses!2spe!4v1717520948901!5m2!1ses!2spe"
-                            width="100%" height="400px" allowfullscreen="" title='MapaSuiza' loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <section className='div2'>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4860.704793665854!2d-74.57432416324508!3d-8.39464977365317!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a3bd76a21d1c31%3A0x699cb3518cd1af14!2sIESTP%20Suiza%20area%20total%20del%20terreno!5e0!3m2!1ses!2spe!4v1717520948901!5m2!1ses!2spe"
+                                width="100%" height="250px" allowfullscreen="" title='MapaSuiza' loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <div className="galeria">
+                                <img src={foto1} alt="" />
+                                <img src={foto2} alt="" />
+                                <img src={foto3} alt="" />
+                                <img src={stdInfor} alt="" />
+                                <img src={foto2} alt="" />
+                            </div>
+                        </section>
                     </div>
-                </div>
+                </section>
             </main>
         </div>
     )
 }
+
 
 export default Dsi

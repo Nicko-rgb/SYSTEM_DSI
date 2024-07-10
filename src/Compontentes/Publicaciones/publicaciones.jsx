@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import './publicacion.css';
-import { FaHeart, FaRegShareSquare } from "react-icons/fa";
+import { FaHeart, FaRegShareSquare, FaPlus } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { SlOptionsVertical } from "react-icons/sl";
 import imagen1 from '../../IMG/std2.jpg';
+import meme from '../../IMG/meme.jpg'
+import texto from '../../IMG/texto.png'
 
+import Navegador from '../Navegador/Navegador';
+import Cabeza from '../Navegador/Cabeza';
 import Comentarios from './Comentarios';
+import UploadForm from './SubirNuevo';
+import EstadoSesion from '../Formularios/Sesion';
 
 const Publicaciones = () => {
+    //verificar si el usuario inicio sesion
+    const { isLoggedIn } = EstadoSesion()
+
     const [showComments, setShowComments] = useState(false);
     const [liked, setLiked] = useState(false);
+    const [showUploadForm, setShowUploadForm] = useState(false);
 
     const handleLike = () => {
         setLiked(!liked);
@@ -19,14 +29,42 @@ const Publicaciones = () => {
         setShowComments(!showComments);
     };
 
-    return (
-        <div class="publicaciones">
-            <div class="subPubli">
+    const mostrarSubirPublic = () => {
+        setShowUploadForm(true);
+    };
 
-                <div class="content-publicacion">
+    const cerrarSubirPublic = () => {
+        setShowUploadForm(false);
+    };
+
+    return (
+        <div className="publicaciones">
+            <Navegador />
+            <Cabeza />
+            <main className="subPubli">
+                {!isLoggedIn && (
+                    <div className="noLogueado">
+                        <h2>Para subir publicaciones debes iniciar sesión</h2>
+                        <button onClick={() => window.location.href = "/login"}>INICIA SESION</button>
+                    </div>
+                )}
+                {isLoggedIn && (
+                    <div className="subirNuevo">
+                    <img src={texto} alt="" />
+                    <div onClick={mostrarSubirPublic}>
+                        <input type="text" placeholder='Escribe Aquí'  />
+                        <FaPlus className='iconPlus'/>
+                    </div>
+                </div>
+                )}
+                {showUploadForm && (
+                    <UploadForm cerrarSubir={cerrarSubirPublic} />
+                )}
+
+                <div className="content-publicacion">
                     <header>
-                        <i class="fa fa-user"></i>
-                        <div class="datoUser">
+                        <i className="fa fa-user"></i>
+                        <div className="datoUser">
                             <h3>Joseph Padilla Alvan</h3>
                             <div>
                                 <p>12/05/2024</p>
@@ -41,7 +79,8 @@ const Publicaciones = () => {
                             <p>Borrar Publicacion</p>
                         </div>
                     </header>
-                    <div class="fotoPublicacion">
+                    <p className='descrip'>Los cachimbos en su primer día</p>
+                    <div className="fotoPublicacion">
                         <img src={imagen1} alt="" id="myImg" />
                     </div>
                     <footer>
@@ -71,11 +110,11 @@ const Publicaciones = () => {
                     </div>
                 </div>
 
-                <div class="content-publicacion">
+                <div className="content-publicacion">
                     <header>
-                        <i class="fa fa-user"></i>
-                        <div class="datoUser">
-                            <h3>Romer Alejandro Ursua</h3>
+                        <i className="fa fa-user"></i>
+                        <div className="datoUser">
+                            <h3>Cesar Soria Paima</h3>
                             <div>
                                 <p>12/05/2024</p>
                                 <p>8:45 am</p>
@@ -89,8 +128,9 @@ const Publicaciones = () => {
                             <p>Borrar Publicacion</p>
                         </div>
                     </header>
-                    <div class="fotoPublicacion">
-                        <img src='https://i.pinimg.com/originals/2a/20/0a/2a200a11257c75be4ab598675f59ab4a.jpg' alt="" id="myImg" />
+                    <p className='descrip'>Esto es otro nivel</p>
+                    <div className="fotoPublicacion">
+                        <img src={meme} alt="" id="myImg" />
                     </div>
                     <footer>
                         <div className={`divGusta ${liked ? 'liked' : ''}`} onClick={handleLike}>
@@ -118,11 +158,9 @@ const Publicaciones = () => {
                         <TiMessages className='ico-comment' />
                     </div>
                 </div>
-
-
-            </div>
+            </main>
         </div>
-    )
+    );
 };
 
 export default Publicaciones;

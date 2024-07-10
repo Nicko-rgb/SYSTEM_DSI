@@ -1,113 +1,359 @@
 .inicio {
-    margin-top: 110px;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 110px);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    background: rgb(24, 20, 60);
-    background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
-    z-index: 1;
+    background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
+    height: 100vh;
+    overflow-y: auto;
 }
-.inicio .fotosTransis{
-    position: absolute;
-    z-index: -1;
-    overflow: hidden;
-    left: 0;
-    height: 100%;
+
+.inicio .navegador .link1 {
+    color: orangered;
+}
+
+.inicio .navegador .link1::before {
     width: 100%;
 }
 
-.inicio .Inst {
-    font-size: 25px;
-    color: white;
-    position: absolute;
-    text-align: center;
-    top: 5px;
-
-}
-.inicio .subInicio{
-    background: none;
-}
-
-.inicio h1 {
-    font-size: 6rem;
-    color: white;
-    text-shadow: 0 0 10px rgb(245, 50, 235);
-    background: none;
-    text-transform: uppercase;
-    -webkit-text-stroke: 2px rgb(3, 3, 105);
+.inicio main {
     position: relative;
-}
-
-
-
-.inicio h3{
-    font-size: 2rem;
-    text-decoration: underline;
-    text-shadow: 0 0 3px black;
-    
-}
-.inicio .frase {
-    color: white;
-    text-shadow: 0 0 2px blue,
-                0 0 2px blue,
-                0 0 2px blue;
-    background: none;
-    font-family: Courier, "Lucida Console", monospace;
-    font-size: 25px;
-    text-decoration: none;
-}
-.inicio img{
-    width: 500px;
-}
-.inicio .buton{
-    position: absolute;
-    z-index: 1;
-    bottom: 50px;
-    cursor: pointer;
-}
-.inicio .uneteIcon{
-    font-size: 19px;
-}
-.inicio button{
-    height: 40px;
-    width: 170px;
-    border-radius: 9px;
-    border: none;
-    font-weight: bold;
-    background: rgb(5, 180, 250);
-    color: white;
-    box-shadow: 0 0 3px white;
-    animation: flotar 1s linear infinite;
-    cursor: pointer;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    padding-top: 35px;
+    height: calc(100% - 70px);
+    width: 100%;
+    transform: scale(0);
+    transition: transform 1s ease-in-out;
+}
+
+
+.inicio .loaded {
+    transform: scale(1);
+}
+
+.inicio main>div {
+    margin: auto 0;
+}
+
+.inicio main .bienvenida {
+    position: absolute;
+    color: white;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family: 'Montserrat';  */
+    /* font-family: 'Open Sans'; */
+    /* font-family: 'Lato'; */
+    /* font-family: 'Raleway'; */
+    /* font-family: 'Merriweather'; */
+}
+
+.inicio .icoNav {
+    position: absolute;
+    color: white;
+    font-size: 28px;
+    padding: 5px;
+    left: 10px;
+    z-index: 1;
+}
+
+.inicio .navHidde {
+    position: absolute;
+    left: -150px;
+    display: flex;
+    flex-direction: column;
     gap: 5px;
+    padding-left: 10px;
+    width: 150px;
+    padding-top: 35px;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+    z-index: 1;
 }
-@keyframes flotar {
-    0%{
-        transform: scale(1);
-    }
-    50%{
-        transform: scale(1.1);
-    }
-    100%{
-        transform: scale(1);
-    }
+
+.inicio .navHidde:hover {
+    left: 0px;
 }
-@media  (max-width: 1400px) {
-    .inicio h1{
-        font-size: 4rem;
+
+.inicio .icoNav:hover~.navHidde {
+    left: 0;
+}
+
+.inicio .navHidde .linkHidde {
+    color: white;
+    text-decoration: none;
+    position: relative
+}
+
+.linkHidde::before {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, white, white);
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+    transition: width 0.3s ease-in-out;
+}
+
+.linkHidde:hover::before {
+    width: 100%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
 
-@media  (max-width: 800px) {
-    .inicio h1{
-        font-size: 2rem;
+.inicio main>div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 4vw;
+    color: white;
+    /* min-width: 50%; */
+    max-width: 55%;
+}
+
+main div h3,
+h1 {
+    font-family: arial;
+    margin: 0;
+}
+
+main h3 {
+    font-size: 1.2vw;
+}
+main .bienvenida{
+    font-size: 22px;
+}
+
+main div h1 {
+    font-size: 2.5vw;
+}
+
+main div p {
+    font-family: arial;
+    text-align: justify;
+    font-size: 1vw;
+}
+
+.inicio main .butons {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-left: 0;
+    gap: 5vw;
+    margin-top: 2.5vw;
+    padding-bottom: 2.5vw;
+}
+
+.inicio main .butons button {
+    border: orangered solid 1px;
+    border-radius: 5px;
+    width: 130px;
+    height: 37px;
+    cursor: pointer;
+    transition: .3s ease;
+    margin-bottom: 20px;
+}
+
+main .butons .btn1 {
+    background: orangered;
+    color: white;
+}
+
+.inicio main .butons .btn1:hover {
+    background: transparent;
+    color: orangered;
+}
+
+main .butons .btn2 {
+    background: transparent;
+    color: orangered;
+}
+
+.inicio main .butons .btn2:hover {
+    background: orangered;
+    color: white;
+}
+
+.code-example {
+    position: relative;
+    background-color: #282c34;
+    color: #fff;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: initial;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-x: auto;
+    width: 100%;
+    height: 280px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.code-example button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    background-color: transparent;
+    color: white;
+    border: none;
+    box-shadow: 0 0 1px white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.code-example code span {
+    color: white;
+    animation: cursor .5s linear infinite;
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 0;
     }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.inicio main .img {
+    position: relative;
+    min-width: 20%;
+    height: 300px;
+    width: 400px;
+    margin-right: 4vw;
+}
+
+.inicio main .img img {
+    position: absolute;
+    left: 0;
+    object-fit: cover;
+    overflow-y: hidden;
+    backface-visibility: hidden;
+    height: 300px;
+    width: 400px;
+}
+
+@media (max-width:1180px) {
+    main>div {
+        /* max-width: 70%; */
+        min-width: 60%;
+    }
+
+    main h3 {
+        font-size: 1.5vw;
+    }
+    main .bienvenida{
+        font-size: 22px;
+    }
+
+    main div h1 {
+        font-size: 2.8vw;
+    }
+
+    main div p {
+        font-family: arial;
+        text-align: justify;
+        font-size: 1.3vw;
+    }
+
+    .inicio main .img {
+        height: 200px;
+        width: 300px;
+    }
+
+    .inicio main .img img {
+        height: 200px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .inicio main h3 {
+        font-size: 20px;
+    }
+    .inicio main .bienvenida{
+        font-size: 23px;
+    }
+
+    .inicio main h1 {
+        font-size: 34px;
+    }
+
+    .inicio main p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width:800px) {
+    .inicio main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inicio main>div {
+        min-width: 100%;
+        padding-left: 0;
+        padding: 4vw;
+        gap: 1vw;
+        margin-top: 50px;
+    }
+
+    .inicio main .bienvenida {
+        top: 30px;
+        padding: 0 4vw;
+    }
+
+    .inicio main .img {
+        height: 500px;
+        width: 400px;
+        min-width: 100%;
+        margin-right: 0;
+        margin-top: -30px;
+        padding-bottom: 170px;
+    }
+
+    .inicio main .img img {
+        position: initial;
+        height: 300px;
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .inicio .code-example {
+        font-size: initial;
+        width: auto;
+        height: 280px;
+    }
+}
+
+@media (max-width: 700px) {
+    .inicio {
+        padding-top: 70px;
+        position: relative;
+    }
+
 }

@@ -1,75 +1,129 @@
-.periodico{
-    position: fixed;
-    top: 110px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background: rgb(24, 20, 60);
-    background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
-}
-.periodico .cajaPadre{
-    width: 100%;
+.periodico {
+    position: relative;
+    overflow-y: auto;
     height: 100vh;
-    border: 2px solid green;
-    display: flex;
-    gap: 50px;
-    justify-content: center;
-    overflow: hidden;
-    margin: 20px;
+    background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
-.periodico .cajaPadre .Menu1{
+
+.periodico .navegador .link4 {
+    color: orangered;
+}
+.periodico .navegador .link4::before {
+    width: 100%;
+}
+
+.periodico header {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    position: sticky;
+    top: 70px;
+}
+
+.periodico header div {
+    border-radius: 10px;
+    border: orangered solid 1px;
+    width: 260px;
+    padding: .5vw;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.periodico header h4 {
+    color: orangered;
+    font-family: 'Lato';
+}
+
+.periodico section {
+    display: flex;
+}
+
+.periodico section div {
+    padding: 20px;
+    width: 100%;
+    border-right: orangered solid 1px;
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     width: 600px;
     height: 75%;
     margin-top: 30px;
     justify-content: center;
     position: relative;
     border: 2px solid green;
-
-}
-.Menu1>.title{
-    display: flex;
-    width: 300px;
-    height: 50px;
-    border-radius: 30px;
-    justify-content: center;
+=======
     align-items: center;
-    color: wheat;
-    background: rgb(71,66,155);
-    background: linear-gradient(90deg, rgba(71,66,155,1) 0%, rgba(13,8,50,1) 2%, rgba(19,47,52,1) 78%);
+    gap: 20px;
+    overflow-y: auto;
+    margin-bottom: 20px;
 }
-.Menu1>.Menu-Caja{
-    border-radius: 30px;
-    width: 360px;
-    height: 400px;
-    max-width: 360px;
-    max-height: 400px;
-    background: rgb(71,66,155);
-    background: linear-gradient(90deg, rgba(71,66,155,1) 0%, rgba(13,8,50,1) 2%, rgba(19,47,52,1) 78%);
-    color: aliceblue;
-    overflow: hidden;
+>>>>>>> 969a277eb980bff33624d7d2681827dbaaabd17a
+
+.periodico section .curiosidades {
+    border-right: none;
+}
+
+.periodico section p {
+    color: white;
+    width: 90%;
+    margin-top: -15px;
     text-align: center;
 }
 
-.Menu1>.Subir{
-    width: 16rem;
-    height: 70px;
+.periodico section img {
+    width: 90%;
+    height: 250px;
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 0 0 2px orangered;
+}
+
+
+
+
+/*************************************************/
+.modal {
     display: flex;
-    border-radius: 30px;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    color: beige;
-    gap:10px;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 29%, rgba(0,212,255,1) 100%);
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
 }
-.Subir:hover{
-    transition: 0.2s; 
-    background-color: #45a049; /* Cambiar color de fondo al pasar el ratón */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra de caja */
-    transform: scale(1.3); /* Ligeramente más grande */
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 700px;
+    max-height: 90%;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: -15px;
+    right: 0px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal .modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }

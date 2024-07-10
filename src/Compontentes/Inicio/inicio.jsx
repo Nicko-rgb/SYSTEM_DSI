@@ -1,42 +1,168 @@
-import React, { useState, useEffect } from 'react';
 import './Inicio.css';
-import imagen1 from '../../IMG/Suiza.jpg';
-import imagen3 from '../../IMG/std1.jpg'
-import imagen4 from '../../IMG/std2.jpg'
-import imagen5 from '../../IMG/std3.jpg'
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { FaBarsStaggered } from "react-icons/fa6";
+import { FiLogIn } from "react-icons/fi";
+import { FaUserPlus } from 'react-icons/fa';
+import { IoMdPhotos } from "react-icons/io";
+import { IoCopyOutline } from "react-icons/io5";
+import { TbCopyCheckFilled } from "react-icons/tb";
 
-import { FaUserFriends } from "react-icons/fa";
+import Navegador from '../Navegador/Navegador';
+import Cabeza from '../Navegador/Cabeza';
+import EstadoSesion from '../Formularios/Sesion';
+import useLogout from './useLogout';
+
+import aa from '../../IMG/dev1.png';
+import bb from '../../IMG/studentInformatica.jpeg';
+import cc from '../../IMG/std2.jpg';
 
 const Inicio = () => {
-    const [imagenActual, setImagenActual] = useState(0);
-    const imagenes = [imagen1, imagen3, imagen4, imagen5];
+    const { userName, isLoggedIn, handleLogout } = EstadoSesion();
+
+
+    //para cambiar estado de Incio de sesion
+    const handleLogoutAndReload = useLogout(handleLogout);
+
+    //codigo de efecto de escritura de bienvenida
+    const [bienvenida, setBienvenida] = useState('');
+    const [index, setIndex] = useState(0);
 
     useEffect(() => {
-        const intervalo = setInterval(() => {
-            setImagenActual((prevImagenActual) => (prevImagenActual + 1) % imagenes.length);
-        }, 2500);
+        const tituloTexto = `LOS DESARROLLADORES DE D'SYSTEM BLOG TE DAN LA BIENVENIDA`;
 
-        return () => clearInterval(intervalo);
-    }, [imagenes]);
+        const interval = setInterval(() => {
+            setBienvenida(tituloTexto.slice(0, index + 1));
+            setIndex(index + 1);
+        }, 50);
+
+        return () => clearInterval(interval);
+    }, [index]);
+
+    //codigo para efecto zoom de main
+    const [zoom, setZoom] = useState(false);
+
+    useEffect(() => {
+        setZoom(true);
+    }, []);
+
+    //codigo para dar estilo a las img 
+    const [imagenIndex, setImagenIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setImagenIndex((prevIndex) => (prevIndex + 1) % 3);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    //codigo para escritura de codigo ejemplo
+    const [code, setCode] = useState('');
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const codeExample =
+        `  1   import Data from './data.js'
+  2   const Coding = (data) => {
+  3       const User = {
+  4           name: 'Juan',
+  5           email: 'juan54@gmail.com',
+  6           age: 30,
+  7       }
+  8       Data.push(User)
+  9       console.log(Data)
+  10  }`;
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (currentIndex < codeExample.length) {
+                setCode(codeExample.slice(0, currentIndex + 1));
+                setCurrentIndex(currentIndex + 1);
+            }
+            //este codigo para que vuelva a repetir
+            // else {
+            //     setCurrentIndex(0);
+            // }
+        }, 50);
+
+        return () => clearInterval(interval);
+    }, [currentIndex, codeExample]);
+
+    //codigo para copiar texto de "code"
+    const [copyText, setCopyText] = useState(false);
+    const copiarCode = () => {
+        setCopyText(true)
+        navigator.clipboard.writeText(code);
+    };
+    const cerrarCopiar = () => {
+        setCopyText(false)
+    }
 
     return (
-        <div className='inicio'>
-            <h3 className='Inst'>INSTITUTO DE EDUCACION SUPERIOR TECNOLOGICO PUBLICO SUIZA</h3>
-            <div className='subInicio'>
-                <h1>DESARROLLO DE SISTEMAS DE INFORMACION - SUIZA</h1>
-                <h3 className='frase'>Cada línea de código que escribes es un paso hacia la transformación digital. Abraza el poder de la innovación y deja que tu pasión por el desarrollo de sistemas te guíe hacia el éxito.</h3>
-            </div>
-            <div className='fotosTransis'>
-                <img
-                    src={imagenes[imagenActual]}
-                    alt={`Imagen ${imagenActual + 1}`}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
-            </div>
-            <div className="buton">
-                <button><FaUserFriends className='uneteIcon icons'/>UNETE A NOSOTROS</button>
-            </div>
-            
+        <div className="inicio">
+            <Navegador className="navegador" />
+            <Cabeza />
+            <FaBarsStaggered className='icoNav' />
+            <nav className='navHidde'>
+                <Link to='/login' className='linkHidde'><FiLogIn /> Incias Sesion</Link>
+                <Link to='/login' className='linkHidde'><FaUserPlus />Registrarse</Link>
+                <Link to='/login' className='linkHidde'><IoMdPhotos />Ver Galeria</Link>
+            </nav>
+            <main className={zoom ? 'loaded' : ''}>
+                {!isLoggedIn && (
+                    <h3 className='bienvenida'>{bienvenida} </h3>
+                )}
+                {isLoggedIn && (
+                    <h3 className='bienvenida'>Bienvenido {userName}</h3>
+                )}
+                <div>
+                    <h3>NSTITUTO DE EDUCACION SUPERIOR TECNOLOGICO PUBLICO SUIZA</h3>
+                    <h1>DESARROLLO DE SISTEMAS DE INFORMACION</h1>
+                    <p>Cada línea que escribes tiene el poder de transformar ideas en realidad, optimizar procesos y mejorar
+                        vidas. Sé el artífice de soluciones que dejan huella en el mundo digital.
+                        Únete a una comunidad global de desarrolladores apasionados que construyen el futuro, uno commit a
+                        la vez.
+                    </p>
+                    <div className="butons">
+                        {!isLoggedIn && (
+                            <div className="butons">
+                                <button className="btn1" onClick={() => window.location.href = "/register"}>REGISTRATE</button>
+                                <button className="btn2" onClick={() => window.location.href = "/login"}>INICIA SESION</button>
+                            </div>
+                        )}
+                        {isLoggedIn && (
+                            <div className="butons">
+                                <Link to='/'>
+                                    <button onClick={() => handleLogoutAndReload()}>CERRAR SESIÓN</button>
+                                </Link>
+                            </div>
+                        )}
+
+                    </div>
+                    <div className="code-example">
+                        <pre>
+                            <code>{code}<span>|</span></code>
+                        </pre>
+                        {!copyText && (
+                            <button onClick={copiarCode}>
+                                <IoCopyOutline />
+                            </button>
+                        )}
+                        {copyText && (
+                            <button onClick={cerrarCopiar}>
+                                <TbCopyCheckFilled />
+                            </button>
+                        )}
+                    </div>
+                </div>
+                <div className="img">
+                    <img
+                        src={[aa, bb, cc][imagenIndex]}
+                        alt="imagen"
+                        className="image-slide"
+                    />
+                </div>
+            </main>
         </div>
     );
 };

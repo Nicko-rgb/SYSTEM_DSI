@@ -1,26 +1,88 @@
 .publicaciones {
-    /* position: fixed; */
-    height: auto;
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: calc(100vh - 110px);
-    background: rgb(24, 20, 60);
-    background: linear-gradient(180deg, rgba(24, 20, 60, 1) 0%, rgba(24, 57, 59, 1) 100%);
-    margin-top: 110px;
-}
-
-.publicaciones .subPubli {
-    width: 100%;
-    display: grid;
-    height: 100%;
+    position: relative;
     overflow-y: auto;
-    place-items: center;
-    gap: 10px;
+    height: 100vh;
+    background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
+
+}
+.publicaciones .navegador .link2{
+    color: orangered;
+}
+.publicaciones .navegador .link2::before {
+    width: 100%;
+}
+.publicaciones .noLogueado{
+    max-width: 650px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 5px orangered;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 12px;
+    box-shadow: inset 0 0 5px aqua;
+    background-color: #edfcf7;
+}
+.publicaciones .noLogueado button{
+    border: orangered solid 1px;
+    background: orangered;
+    color: white;
+    border-radius: 5px;
+    width: 130px;
+    height: 37px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.publicaciones .subirNuevo{
+    padding: 10px;
+    border-radius: 15px;
+    background-color: transparent;
+    max-width: 670px;
+    width: 100%;
+}
+.publicaciones .subPubli .subirNuevo img{
+    width: 100%;
+    height: 50px;
+    object-fit: cover;
+}
+.publicaciones .subPubli .subirNuevo div{
+    position: relative;
+    box-shadow: inset 0 0 2px aqua;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #edfcf7;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.publicaciones .subPubli .subirNuevo div:hover{
+    box-shadow: 0 0 5px aqua;
+    transform: scale(1.007);
+}
+.publicaciones .subPubli .subirNuevo div .iconPlus{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: rgb(5, 163, 163);
+}
+.publicaciones .subirNuevo input{
+    font-family: calibri;
+    font-size: 16px;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    background-color: #edfcf7;
+    outline: none;
+    pointer-events: none;
+}
+.publicaciones .subPubli {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .publicaciones .subPubli .content-publicacion {
-    border: black solid 1px;
+    border: white solid 1px;
     border-radius: 10px;
     width: 650px;
     height: auto;
@@ -36,6 +98,8 @@
     display: flex;
     height: 65px;
     position: relative;
+    z-index: 0;
+    color: white;
 }
 
 .content-publicacion header .fa-user {
@@ -46,6 +110,7 @@
     display: grid;
     place-items: center;
     font-size: 55px;
+
 }
 
 .content-publicacion header .datoUser {
@@ -105,7 +170,8 @@ p {
 .publicaciones .content-publicacion img {
     width: 100%;
     height: 100%;
-    max-height: 770px;
+    /*aqui controla el tamaño maximo de imagen*/
+    max-height: 650px;
     object-fit: cover;
 }
 
@@ -147,11 +213,12 @@ p {
 
 
 .publicaciones .content-publicacion section div {
-    border: black solid 1px;
+    border: white solid 1px;
     border-radius: 10px;
     padding: 5px;
     padding-bottom: 10px;
     margin-top: 10px;
+    color: white;
 }
 
 .publicaciones .content-publicacion section .infoComment {
@@ -165,12 +232,13 @@ p {
 
 .publicaciones .content-publicacion section .infoComment h4 {
     margin: 0;
+    margin-top: -10px;
     font-family: calibri;
     font-size: 16px;
 }
 
 .publicaciones .content-publicacion section .infoComment i {
-    border: black solid 1px;
+    border: white solid 1px;
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -200,16 +268,31 @@ p {
     height: 100%;
     width: 40px;
 }
+.publicaciones .content-publicacion p{
+    font-size: inherit;
+    color: white;
+}
+.publicaciones .subPubli header h3{
+    font-size: 20px;
+}
+
 /* ::-webkit-scrollbar {
     width: 1px;
 } */
 /*******************************************************************************/
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
+    .publicaciones .subPubli{
+        padding: 5px;
+        padding-bottom: 150px;
+    }
     .publicaciones .subPubli .content-publicacion {
         width: 100%;
     }
     .publicaciones .subPubli .content-publicacion img{
         width: 100%;
+    }
+    .publicaciones .subPubli{
+        margin-top: 70px;
     }
 }

@@ -1,9 +1,10 @@
 .dsiNav{
     display: flex;
     align-items: center;
-    height: 80vh;
     display: flex;
-    z-index: 1;
+    z-index: 0;
+    position: fixed;
+    height: 100%;
 }
 .dsiNav .lateral{
     display: flex;
@@ -11,118 +12,116 @@
     overflow-y: auto;
     overflow-x: hidden;
     position: relative;
-    border-radius: 15px;
-    width: 260px;
+    width: 205px;
     pointer-events: none;
     box-shadow: 0 0 5px rgb(50, 224, 255);
 }
 .dsiNav .lateral .lateralIcons{
     display: flex;
     flex-direction: column;
-    background: rgb(8, 8, 49);
-    width: 60px;
+    background: rgb(7, 2, 27);
+    width: 55px;
     height: 100%;
     pointer-events: initial;
     z-index: 1;
 }
 .dsiNav .lateral .lateralIcons .div{
     border-bottom: black solid 1px;
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
     display: grid;
     place-items: center;
+    color: white;
 }
 .dsiNav .lateral .lateralIcons .div:hover{
     background: #0c2435;
+    color: orangered;
 }
-.dsiNav .lateral .lateralIcons .div .icons-lateral{
-    width: 45%;
-    height: 45%;
-    color: rgb(255, 255, 255);
-    background: none;
-}
-
 
 .dsiNav .lateral .lateral-hidde{
-    width: 200px;
+    position: relative;
+    width: 150px;
     height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     border: black solid 1px;
-    background: rgb(7, 27, 68);
+    background: rgb(6, 22, 53);
     border-left: none;
     transition: 0.3s ease;
     pointer-events: initial;
     z-index: 0;
 }
-.dsiNav .lateral .lateral-hidde .iconsRedes{
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    place-items: center;
-    place-self: center;
-    row-gap: 20px;
-}
 
-.dsiNav .lateral .lateral-hidde .iconsRedes .ico{
-    border: white solid 1px;
-    font-size: 50px;
-    border-radius: 50%;
-    padding: 5px;
-    color: white;
-    cursor: pointer;
-}
 
 .lateral-hidde .dsiLink{
     width: 100%;
     color: white;
     text-decoration: none;
     border-bottom: black solid 1px;
-    height: 60px;
+    height: 55px;
     display: flex;
     align-items: center;
-    font-family: calibri;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family: 'Montserrat';  */
+    /* font-family: 'Open Sans'; */
+    font-family: 'Lato';
+    /* font-family: 'Raleway'; */
+    /* font-family: 'Merriweather'; */
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
     padding-left: 10px;
     
 }
 .lateral-hidde .dsiLink:hover{
-    background: #162c68;
+    color: orangered;
+    background: rgb(12, 6, 37);
 }
 
+.lateral .lateral-hidde .dsiLink:focus{
+    color: orangered;
+    background: rgb(12, 6, 37);
+}
+.dsiNav .lateral-hidde .iconsRedes{
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 10px;
+    place-items: center;
+    place-self: center;
+}
+.dsiNav .lateral-hidde .ico{
+    color: white;
+    border-radius: 50%;
+    font-size: 35px;
+    padding: 5px;
+}
+.dsiNav .lateral-hidde .iconsRedes .fb{
+    color: rgb(25, 59, 255);
+    box-shadow: 0 0 10px rgb(25, 59, 255);
+}
+.dsiNav .lateral-hidde .iconsRedes .wsp{
+    color: green;
+    box-shadow: 0 0 10px green;
+}
+.dsiNav .lateral-hidde .iconsRedes .map{
+    color: rgb(29, 255, 217);
+    box-shadow:  0 0 10px rgb(29, 255, 217);
+}
+.dsiNav .lateral-hidde .iconsRedes .mail{
+    color: orangered;
+    box-shadow:  0 0 10px orangered;
+}
 
-@media (max-width: 1200px) {
-    .dsiNav{
-        height: 98%;
-    }
+@media (max-width: 800px){
     .dsiNav .lateral{
+        width: 55px;
         box-shadow: none;
-        border-radius: 0;
-        height: calc(100% + 20px);
-        padding: 10px;
-        padding-right: none;
-    }
-    .dsiNav .lateralIcons{
-        box-shadow: 0 0 5px rgb(50, 224, 255);
-        border-radius: 15px;
     }
     .dsiNav .lateral .lateral-hidde{
-        width: 0px;
-    }
-    .dsiNav .lateralIcons:hover ~ .lateral-hidde{
-        width: 100%;
-    }
-    .dsiNav .lateral-hidde:hover{
-        width: 100%;
-    }
-}
-@media (max-width: 800px) {
-    .dsiNav .lateral {
-        padding: 0;
-    }
-    .dsiNav .lateral .lateralIcons{
-        border-radius: 0;
+        display: none;
     }
 }

@@ -1,32 +1,45 @@
 .docentes{
     position: relative;
-    margin-top: 110px;
-    height: calc(100vh - 110px);
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1vw;
-    padding: 5px;
+    flex-direction: column;
+    overflow-y: auto;
+    background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
+
 .docentes .container{
-    width: 80%;
-    height: 80vh;
-    border-radius: 15px;
-    box-shadow: 0 0 5px rgb(50, 224, 255);
     padding: 20px;
     color: white;
     transition: 0.3s ease;
+    height: calc(100vh - 70px);
+    margin-left: 205px;
+    width: calc(100% - 205px);
 }
+.container h3{
+    text-align: center;
+}
+.docentes .container .box-profes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10%;
+    row-gap: 20px;
+    margin-top: 20px;
+}
+.docentes .container .box {
+    box-shadow:  0 0 2px orangered;
+    border-radius: 12px;
+    width: 100%;
+    padding: 15px;
+}
+.docentes .container .box h5{
+    text-align: center;
+    /* -webkit-text-stroke: 1px orangered; */
+    text-shadow: 0 0 5px green,
+                0 0 5px green,
+                0 0 5px green;
 
-@media (max-width: 1200px){
-    .docentes{
-        gap: 17px;
-        padding: 0;
-    }
-    .docentes .container {
-        width: 93%;
-        height: 98%;
-        margin-left: -200px;
-    }
+}
+.docentes .container .box img{
+    width: 100%;
+    transition: .3s ease;
 }
