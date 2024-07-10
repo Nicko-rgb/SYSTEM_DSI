@@ -1,6 +1,6 @@
-import { BsDatabaseFillGear } from "react-icons/bs";
 import Python from '../../ICO/python.ico'
 import java from '../../ICO/java.ico'
+import db from '../../ICO/db.ico'
 import javascript from '../../ICO/js.ico'
 import html from '../../ICO/html.ico'
 import node from '../../ICO/node.ico'
@@ -32,7 +32,7 @@ const lenguajes = [
         descripcion: 'Desarrollo web interactivo y aplicaciones móviles. Creación de juegos y animaciones.'
     },
     {
-        img: BsDatabaseFillGear,
+        img: db,
         nombre: 'BASE DE DATOS',
         descripcion: 'Almacenamiento y gestión de datos. Acceso y manipulación de datos.'
     },

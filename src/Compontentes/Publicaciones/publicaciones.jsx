@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import './publicacion.css';
-import { FaHeart, FaRegShareSquare } from "react-icons/fa";
+import { FaHeart, FaRegShareSquare, FaPlus } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { SlOptionsVertical } from "react-icons/sl";
 import imagen1 from '../../IMG/std2.jpg';
 import meme from '../../IMG/meme.jpg'
+import texto from '../../IMG/texto.png'
 
 import Navegador from '../Navegador/Navegador';
 import Cabeza from '../Navegador/Cabeza';
 import Comentarios from './Comentarios';
 import UploadForm from './SubirNuevo';
+import EstadoSesion from '../Formularios/Sesion';
 
 const Publicaciones = () => {
+    //verificar si el usuario inicio sesion
+    const { isLoggedIn } = EstadoSesion()
+
     const [showComments, setShowComments] = useState(false);
     const [liked, setLiked] = useState(false);
     const [showUploadForm, setShowUploadForm] = useState(false);
@@ -24,11 +29,11 @@ const Publicaciones = () => {
         setShowComments(!showComments);
     };
 
-    const handleInputClick = () => {
+    const mostrarSubirPublic = () => {
         setShowUploadForm(true);
     };
 
-    const handleUploadFormClose = () => {
+    const cerrarSubirPublic = () => {
         setShowUploadForm(false);
     };
 
@@ -37,13 +42,23 @@ const Publicaciones = () => {
             <Navegador />
             <Cabeza />
             <main className="subPubli">
-                <div className="subirNuevo">
-                    <p>Sube algo nuevo para la comunidad</p>
-                    <input type="text" placeholder='Escribe Aquí' onClick={handleInputClick} />
+                {!isLoggedIn && (
+                    <div className="noLogueado">
+                        <h2>Para subir publicaciones debes iniciar sesión</h2>
+                        <button onClick={() => window.location.href = "/login"}>INICIA SESION</button>
+                    </div>
+                )}
+                {isLoggedIn && (
+                    <div className="subirNuevo">
+                    <img src={texto} alt="" />
+                    <div onClick={mostrarSubirPublic}>
+                        <input type="text" placeholder='Escribe Aquí'  />
+                        <FaPlus className='iconPlus'/>
+                    </div>
                 </div>
-
+                )}
                 {showUploadForm && (
-                    <UploadForm onClose={handleUploadFormClose} />
+                    <UploadForm cerrarSubir={cerrarSubirPublic} />
                 )}
 
                 <div className="content-publicacion">

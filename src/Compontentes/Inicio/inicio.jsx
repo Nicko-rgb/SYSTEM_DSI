@@ -126,12 +126,8 @@ const Inicio = () => {
                     <div className="butons">
                         {!isLoggedIn && (
                             <div className="butons">
-                                <Link to="/register">
-                                    <button className="btn1">REGISTRATE</button>
-                                </Link>
-                                <Link to="/login">
-                                    <button className="btn2">INICIA SESION</button>
-                                </Link>
+                                <button className="btn1" onClick={() => window.location.href = "/register"}>REGISTRATE</button>
+                                <button className="btn2" onClick={() => window.location.href = "/login"}>INICIA SESION</button>
                             </div>
                         )}
                         {isLoggedIn && (
@@ -154,7 +150,7 @@ const Inicio = () => {
                         )}
                         {copyText && (
                             <button onClick={cerrarCopiar}>
-                                <TbCopyCheckFilled  />
+                                <TbCopyCheckFilled />
                             </button>
                         )}
                     </div>

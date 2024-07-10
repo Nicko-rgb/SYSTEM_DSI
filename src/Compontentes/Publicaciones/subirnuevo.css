@@ -4,20 +4,35 @@
     left: 0;
     width: 100%;
     height: 100%;
+    padding: 30px;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 999;
+    overflow-y: auto;
 }
 
 .contenedor {
-    background-color: #fff;
-    padding: 2rem;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.formSubir .contenedor .subContend{
+    display: flex;
+    flex-direction: column;
+    border: red solid 1px;
+    height: 100%;
+    background-color: #edfcf7;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
+    max-width: 600px;
+    min-width: 600px;
+    height: auto;
+    margin: auto auto;
 }
 
 .subirCabeza {
@@ -45,15 +60,80 @@
     color: #333;
 }
 .formSubir .contenedor form{
+    position: relative;
     display: flex;
     flex-direction: column;
 }
 
 .formSubir form textarea {
+    border: none;
+    box-shadow: 0 0 1px orangered;
+    border-radius: 7px;
     width: 100%;
-    max-width: calc(500px - 4rem);
+    max-width: 100%;
+    min-width: 100%;
     max-height: 400px;
     outline: none;
     padding: 10px;
-    font-size: 16px;
+    font-size: 20px;
+    font-family: calibri;
 }
+.formSubir form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: initial;
+    gap: 5px;
+}
+.formSubir form .icoSubir{
+    font-size: 25px;
+    margin-top: -3px;
+}
+
+.formSubir form .ico_subir_img{
+    font-size: 35px;
+    margin-left: calc(100% - 40px);
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 1px orangered;
+    padding: 5px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.formSubir form .ico_subir_img:hover{
+    box-shadow: 0 0 5px orangered;
+}
+.formSubir form div p{
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 120px;
+    font-size: 15px;
+    background-color: #1d1a1a;
+    text-align: center;
+    padding: 4px;
+    color: white;
+    border-radius: 7px;
+    transition: 1s ease;
+}
+.formSubir form div .ico_subir_img:hover ~ p{
+    display: block;
+}
+.formSubir form div p:hover {
+    background-color: #1d1a1a;
+    display: block;
+}
+.formSubir form .archivo{
+    margin-top: 10px;
+}
+.formSubir form  .verArchivo .file-preview img, source{
+    margin-top: 10px;
+    background: white;
+    box-shadow: 0 0 2px orangered;
+    border-radius: 7px;
+    padding: 10px 0;
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+}
+

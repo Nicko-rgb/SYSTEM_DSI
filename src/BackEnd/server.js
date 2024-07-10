@@ -2,11 +2,26 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const cors = require('cors');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const crypto = require('crypto');
+const path = require('path');
 
-// Conectar a la base de datos MongoDB
-mongoose.connect('mongodb://localhost/system_blog');
+// Conectar a la base de datos MongoDB y configurar GridFS
+mongoose.connect('mongodb://localhost/system_blog', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
-// Definir la estructura de la colección "users"
+let gfs;
+mongoose.connection.once('open', () => {
+    gfs = Grid(mongoose.connection.db, mongoose.mongo);
+    gfs.collection('uploads');
+});
+
+// Definir la estructura para registrar usuario en la colección "users"
 const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
     lastName: { type: String, required: true },
@@ -16,13 +31,52 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: true },
     fecha_registro: { type: Date, default: Date.now }
 });
-
-// Crear el modelo de usuario
 const User = mongoose.model('users', userSchema);
+
+// Definir el modelo para registrar las publicaciones de los usuarios
+const publicationSchema = new mongoose.Schema({
+    userName: { type: String, required: true },
+    text: { type: String },
+    textArchivo: { type: String },
+    image: { type: String },
+    createdAt: { type: Date, default: Date.now },
+    createdAtDate: { type: Date, default: Date.now },
+    createdAtTime: {
+        type: String, default: () => {
+            const date = new Date();
+            return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+        }
+    }
+});
+const Publicacion = mongoose.model('Publicacion', publicationSchema);
 
 // Middleware para parsear el cuerpo de las solicitudes
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
+// Configurar Multer para usar GridFS como almacenamiento
+const storage = new GridFsStorage({
+    url: 'mongodb://localhost/system_blog',
+    file: (req, file) => {
+        return new Promise((resolve, reject) => {
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err);
+                }
+                const filename = buf.toString('hex') + path.extname(file.originalname);
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: 'uploads'
+                };
+                resolve(fileInfo);
+            });
+        });
+    }
+});
+const upload = multer({ storage });
+
+// Configurar CORS
+app.use(cors());
 
 // Ruta para obtener todos los usuarios
 app.get('/api/users', async (req, res) => {
@@ -65,24 +119,14 @@ app.post('/api/users', async (req, res) => {
 app.post('/api/login', async (req, res) => {
     try {
         const { email, password } = req.body;
-
-        // Buscar el usuario por el correo electrónico
         const user = await User.findOne({ email });
-
-        // Si no se encuentra el usuario, devolver un error de autenticación
         if (!user) {
             return res.status(401).json({ message: 'Correo electrónico o contraseña incorrectos (email)' });
         }
-
-        // comparar la contraseña ingresada con la contraseña almacenada
         const isMatch = await bcrypt.compare(password, user.password);
-
-        // Si las contraseñas no coinciden, devolver un error de autenticación
         if (!isMatch) {
             return res.status(401).json({ message: 'Correo electrónico o contraseña incorrectos (password)' });
         }
-
-        // Si las credenciales son válidas, enviar una respuesta exitosa
         res.json({
             message: 'Inicio de sesión exitoso',
             name: `${user.name} ${user.lastName}`
@@ -94,10 +138,27 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
+// Ruta para guardar una nueva publicación
+app.post('/api/publicaciones', upload.single('file'), async (req, res) => {
+    try {
+        const { userName, text, textArchivo } = req.body;
+        const newPublicacion = new Publicacion({
+            userName,
+            text,
+            textArchivo,
+            image: req.file ? req.file.filename : null
+        });
+        await newPublicacion.save();
+        res.status(201).json({ message: 'Publicación enviada' });
+        console.log("Nueva Publicación guardada en el servidor");
+    } catch (error) {
+        res.status(500).json({ message: 'Error al enviar la publicación' });
+        console.log("Error al guardar la publicación en el servidor");
+    }
+});
 
 // Iniciar el servidor
 const port = 5000;
 app.listen(port, () => {
     console.log('\x1b[32mServidor Iniciado en el puerto \x1b[0m', port);
-    // console.log('\x1b[31mError al conectar con el servidor\nError en configurar MariaDB de MongoDB en server.js\x1b[0m');
 });
