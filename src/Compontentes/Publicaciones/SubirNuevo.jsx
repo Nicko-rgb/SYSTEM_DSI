@@ -62,6 +62,8 @@ const UploadForm = ({ cerrarSubir }) => {
 
             await axios.post('/api/publicaciones', newPublicacion);
             cerrarSubir();
+            //recargar ventana
+            window.location.reload();
             console.log("Publicación exitosa");
         } catch (error) {
             console.error("Error al publicar:", error);

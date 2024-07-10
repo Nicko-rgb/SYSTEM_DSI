@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
 import './publicacion.css';
+import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 import { FaHeart, FaRegShareSquare, FaPlus } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { SlOptionsVertical } from "react-icons/sl";
-import imagen1 from '../../IMG/std2.jpg';
 import meme from '../../IMG/meme.jpg'
 import texto from '../../IMG/texto.png'
 
@@ -16,17 +16,25 @@ import EstadoSesion from '../Formularios/Sesion';
 const Publicaciones = () => {
     //verificar si el usuario inicio sesion
     const { isLoggedIn } = EstadoSesion()
+    const [publicaciones, setPublicaciones] = useState([]);
 
-    const [showComments, setShowComments] = useState(false);
-    const [liked, setLiked] = useState(false);
+    // Agrega un estado local para cada publicación
+    const [showComments, setShowComments] = useState({});
+    const [liked, setLiked] = useState({});
     const [showUploadForm, setShowUploadForm] = useState(false);
 
-    const handleLike = () => {
-        setLiked(!liked);
+    const handleLike = (id) => {
+        setLiked((prevLiked) => ({
+            ...prevLiked,
+            [id]: !prevLiked[id]
+        }));
     };
 
-    const handleComments = () => {
-        setShowComments(!showComments);
+    const handleComments = (id) => {
+        setShowComments((prevShowComments) => ({
+            ...prevShowComments,
+            [id]: !prevShowComments[id]
+        }));
     };
 
     const mostrarSubirPublic = () => {
@@ -35,6 +43,33 @@ const Publicaciones = () => {
 
     const cerrarSubirPublic = () => {
         setShowUploadForm(false);
+    };
+
+    //obtener las publicaciones
+    useEffect(() => {
+        const fechPublicacion = async () => {
+            try {
+                const dataPublicacion = await fetch("/api/publicaciones")
+                const publicaciones = await dataPublicacion.json()
+                setPublicaciones(publicaciones)
+
+                // Inicializa los estados locales para cada publicación
+                setShowComments(publicaciones.reduce((acc, pub) => ({ ...acc, [pub._id]: false }), {}));
+                setLiked(publicaciones.reduce((acc, pub) => ({ ...acc, [pub._id]: false }), {}));
+            } catch (error) {
+                console.log(error)
+            }
+        };
+        fechPublicacion();
+    }, []);
+
+    //para formatear la fecha y la hora
+    const formatDate = (dateString) => {
+        return moment.utc(dateString).format('DD/MM/YYYY');
+    };
+
+    const formatTime = (timeString) => {
+        return moment(timeString, 'HH:mm:ss').format('HH:mm');
     };
 
     return (
@@ -50,114 +85,67 @@ const Publicaciones = () => {
                 )}
                 {isLoggedIn && (
                     <div className="subirNuevo">
-                    <img src={texto} alt="" />
-                    <div onClick={mostrarSubirPublic}>
-                        <input type="text" placeholder='Escribe Aquí'  />
-                        <FaPlus className='iconPlus'/>
+                        <img src={texto} alt="" />
+                        <div onClick={mostrarSubirPublic}>
+                            <input type="text" placeholder='Escribe Aquí' />
+                            <FaPlus className='iconPlus' />
+                        </div>
                     </div>
-                </div>
                 )}
                 {showUploadForm && (
                     <UploadForm cerrarSubir={cerrarSubirPublic} />
                 )}
 
-                <div className="content-publicacion">
-                    <header>
-                        <i className="fa fa-user"></i>
-                        <div className="datoUser">
-                            <h3>Joseph Padilla Alvan</h3>
-                            <div>
-                                <p>12/05/2024</p>
-                                <p>8:45 am</p>
+                {[...publicaciones].reverse().map((datos) => (
+                    <div className="content-publicacion" key={datos._id}>
+                        <header>
+                            <i className="fa fa-user"></i>
+                            <div className="datoUser">
+                                <h3>{datos.userName} </h3>
+                                <div>
+                                    <p> {formatDate(datos.createdAtDate)} </p>
+                                    <p> {formatTime(datos.createdAtTime)} </p>
+                                </div>
                             </div>
-                        </div>
-                        <SlOptionsVertical className='ico-publiAction' />
-                        <div className='accionPubli'>
-                            <p>Denuncia</p>
-                            <p>Ver la Publicacion</p>
-                            <p>Informacion</p>
-                            <p>Borrar Publicacion</p>
-                        </div>
-                    </header>
-                    <p className='descrip'>Los cachimbos en su primer día</p>
-                    <div className="fotoPublicacion">
-                        <img src={imagen1} alt="" id="myImg" />
-                    </div>
-                    <footer>
-                        <div className={`divGusta ${liked ? 'liked' : ''}`} onClick={handleLike}>
-                            <FaHeart className={`ico meGusta ${liked ? 'liked' : ''}`} />
-                            <p style={{ color: 'white' }}>120 k</p>
-                        </div>
-                        <div className='divCompartir'>
-                            <FaRegShareSquare className='ico compartir' />
-                            <p>Compartir</p>
-                        </div>
-                        <div className={`divComentar ${showComments ? 'show-comments' : ''}`} onClick={handleComments}>
-                            <TiMessages className='ico comentar' />
-                            <p>Comentarios</p>
-                        </div>
-                    </footer>
-
-                    {
-                        showComments && (
-                            <Comentarios className={`comments ${showComments ? 'show-comments' : ''}`} />
-                        )
-                    }
-
-                    <div style={{ position: 'relative' }}>
-                        <input type="text" placeholder="Comentar aquí ..." />
-                        <TiMessages className='ico-comment' />
-                    </div>
-                </div>
-
-                <div className="content-publicacion">
-                    <header>
-                        <i className="fa fa-user"></i>
-                        <div className="datoUser">
-                            <h3>Cesar Soria Paima</h3>
-                            <div>
-                                <p>12/05/2024</p>
-                                <p>8:45 am</p>
+                            <SlOptionsVertical className='ico-publiAction' />
+                            <div className='accionPubli'>
+                                <p>Denuncia</p>
+                                <p>Ver la Publicacion</p>
+                                <p>Informacion</p>
+                                <p>Borrar Publicacion</p>
                             </div>
+                        </header>
+                        <p className='descrip'> {datos.text} </p>
+                        <div className="fotoPublicacion">
+                            <img src={meme} alt="" id="myImg" />
                         </div>
-                        <SlOptionsVertical className='ico-publiAction' />
-                        <div className='accionPubli'>
-                            <p>Denuncia</p>
-                            <p>Ver la Publicacion</p>
-                            <p>Informacion</p>
-                            <p>Borrar Publicacion</p>
-                        </div>
-                    </header>
-                    <p className='descrip'>Esto es otro nivel</p>
-                    <div className="fotoPublicacion">
-                        <img src={meme} alt="" id="myImg" />
-                    </div>
-                    <footer>
-                        <div className={`divGusta ${liked ? 'liked' : ''}`} onClick={handleLike}>
-                            <FaHeart className={`ico meGusta ${liked ? 'liked' : ''}`} />
-                            <p style={{ color: 'white' }}>120 k</p>
-                        </div>
-                        <div className='divCompartir'>
-                            <FaRegShareSquare className='ico compartir' />
-                            <p>Compartir</p>
-                        </div>
-                        <div className={`divComentar ${showComments ? 'show-comments' : ''}`} onClick={handleComments}>
-                            <TiMessages className='ico comentar' />
-                            <p>Comentarios</p>
-                        </div>
-                    </footer>
+                        <footer>
+                            <div className={`divGusta ${liked[datos._id] ? 'liked' : ''}`} onClick={() => handleLike(datos._id)}>
+                                <FaHeart className={`ico meGusta ${liked[datos._id] ? 'liked' : ''}`} />
+                                <p style={{ color: 'white' }}>120 k</p>
+                            </div>
+                            <div className='divCompartir'>
+                                <FaRegShareSquare className='ico compartir' />
+                                <p>Compartir</p>
+                            </div>
+                            <div className={`divComentar ${showComments[datos._id] ? 'show-comments' : ''}`} onClick={() => handleComments(datos._id)}>
+                                <TiMessages className='ico comentar' />
+                                <p>Comentarios</p>
+                            </div>
+                        </footer>
 
-                    {
-                        showComments && (
-                            <Comentarios className={`comments ${showComments ? 'show-comments' : ''}`} />
-                        )
-                    }
+                        {
+                            showComments[datos._id] && (
+                                <Comentarios className={`comments ${showComments[datos._id] ? 'show-comments' : ''}`} />
+                            )
+                        }
 
-                    <div style={{ position: 'relative' }}>
-                        <input type="text" placeholder="Comentar aquí ..." />
-                        <TiMessages className='ico-comment' />
+                        <div style={{ position: 'relative' }}>
+                            <input type="text" placeholder="Comentar aquí ..." />
+                            <TiMessages className='ico-comment' />
+                        </div>
                     </div>
-                </div>
+                ))}
             </main>
         </div>
     );
