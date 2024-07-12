@@ -43,21 +43,18 @@
     width: 100%;
     border-right: orangered solid 1px;
     display: flex;
-    flex-direction: column;
-<<<<<<< HEAD
+    flex-direction: colum;
     width: 600px;
     height: 75%;
     margin-top: 30px;
     justify-content: center;
     position: relative;
     border: 2px solid green;
-=======
     align-items: center;
     gap: 20px;
     overflow-y: auto;
     margin-bottom: 20px;
 }
->>>>>>> 969a277eb980bff33624d7d2681827dbaaabd17a
 
 .periodico section .curiosidades {
     border-right: none;
