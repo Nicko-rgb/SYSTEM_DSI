@@ -9,9 +9,10 @@ import EstadoSesion from '../Formularios/Sesion';
 const UploadForm = ({ cerrarSubir }) => {
     const { userName } = EstadoSesion();
     const [conArchivo, setConArchivo] = useState(false)
-    const [text, setText] = useState('');
+    const [text, setText] = useState(``);
     const [textArchivo, setTextArchivo] = useState('');
-    const [file, setFile] = useState(null);
+    const [image, setImage] = useState(null);
+    const [video, setVideo] = useState(null);
 
     const subirArchivo = () => {
         setConArchivo(true)
@@ -29,7 +30,7 @@ const UploadForm = ({ cerrarSubir }) => {
         const maxDuration = 30; // Duración máxima en segundos
 
         if (selectedFile.type.startsWith('image/')) {
-            setFile(selectedFile);
+            setImage(selectedFile);
             setConArchivo(true); // Establecer conArchivo en true después de seleccionar el archivo
         } else if (selectedFile.type.startsWith('video/')) {
             // Validar la duración del video
@@ -37,30 +38,36 @@ const UploadForm = ({ cerrarSubir }) => {
             video.src = URL.createObjectURL(selectedFile);
             video.onloadedmetadata = () => {
                 if (video.duration <= maxDuration) {
-                    setFile(selectedFile);
+                    setVideo(selectedFile);
                     setConArchivo(true); // Establecer conArchivo en true después de seleccionar el archivo
                 } else {
                     alert(`El video debe tener una duración máxima de ${maxDuration} segundos.`);
+                    cerrarSubir()
                 }
             };
         } else {
             alert('Solo se permiten archivos de imagen o video.');
+            cerrarSubir();
         }
     };
 
+    //codigo para enviar datos de publicacion
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const newPublicacion = {
-                userName,
-                text,
-                textArchivo,
-                image: file?.type.startsWith('image/') ? file : null,
-                video: file?.type.startsWith('video/') ? file : null
-            };
+            const formData = new FormData();
+            formData.append('userName', userName);
+            formData.append('text', `${text}`);
+            formData.append('textArchivo', textArchivo);
+            if (image) {
+                formData.append('image', image);
+            }
+            if (video) {
+                formData.append('video', video);
+            }
 
-            await axios.post('/api/publicaciones', newPublicacion);
+            await axios.post('/api/publicaciones', formData);
             cerrarSubir();
             //recargar ventana
             window.location.reload();
@@ -101,20 +108,20 @@ const UploadForm = ({ cerrarSubir }) => {
                                         onChange={conTextoArchivo}
                                     ></textarea>
                                 </div>
-                                {!file && (
+                                {!image && !video && (
                                     <input type="file" className='archivo' onChange={handleFileChange} />
                                 )}
                                 <div className="verArchivo">
-                                    {file && (
+                                    {image && (
                                         <div className="file-preview">
-                                            {file.type.startsWith('image/') && (
-                                                <img src={URL.createObjectURL(file)} alt="Archivo subido" />
-                                            )}
-                                            {file.type.startsWith('video/') && (
-                                                <video controls>
-                                                    <source src={URL.createObjectURL(file)} type={file.type} />
-                                                </video>
-                                            )}
+                                            <img src={URL.createObjectURL(image)} alt="Archivo subido" />
+                                        </div>
+                                    )}
+                                    {video && (
+                                        <div className="file-preview">
+                                            <video controls>
+                                                <source src={URL.createObjectURL(video)} type={video.type} />
+                                            </video>
                                         </div>
                                     )}
                                 </div>

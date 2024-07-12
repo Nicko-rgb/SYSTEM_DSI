@@ -12,7 +12,7 @@
     width: 100%;
 }
 .publicaciones .noLogueado{
-    max-width: 650px;
+    max-width: 620px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -38,7 +38,7 @@
     padding: 10px;
     border-radius: 15px;
     background-color: transparent;
-    max-width: 670px;
+    max-width: 620px;
     width: 100%;
 }
 .publicaciones .subPubli .subirNuevo img{
@@ -82,9 +82,9 @@
 }
 
 .publicaciones .subPubli .content-publicacion {
-    border: white solid 1px;
+    box-shadow:  0 0 2px aqua;
     border-radius: 10px;
-    width: 650px;
+    width: 600px;
     height: auto;
     padding: 15px;
     display: flex;
@@ -166,13 +166,39 @@ p {
     position: relative;
     overflow: hidden;
 }
-
-.publicaciones .content-publicacion img {
+.publicaciones .content-publicacion .publicArchivo p{
+    padding-bottom: 10px;
+}
+.publicaciones .content-publicacion .publicArchivo .fotoPublicacion, .videoPublicacion{
+    background-color: rgb(19, 17, 17);
+}
+.publicaciones .content-publicacion .publicArchivo  img {
     width: 100%;
     height: 100%;
     /*aqui controla el tamaño maximo de imagen*/
-    max-height: 650px;
+    max-height: 600px;
     object-fit: cover;
+}
+
+.publicaciones .content-publicacion .publicArchivo .videoPublicacion video{
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: contain;
+}
+.publicaciones .subPubli .content-publicacion .soloTextoPublic{
+    padding: 10px;
+    min-height: 300px;
+    color: white;
+    border-radius: 10px;
+    background: rgb(26, 25, 25);
+    display: grid;
+    place-items: center;
+}
+.publicaciones .subPubli .content-publicacion .soloTextoPublic h4{
+    text-align: center;
+    font-size: 20px;
+    /* font-style: oblique; */
 }
 
 .publicaciones .content-publicacion footer {
@@ -210,45 +236,9 @@ p {
     display: flex;
     flex-direction: column;
 }
-
-
-.publicaciones .content-publicacion section div {
-    border: white solid 1px;
-    border-radius: 10px;
-    padding: 5px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    color: white;
+.publicaciones .content-publicacion .formComent{
+    position: relative;
 }
-
-.publicaciones .content-publicacion section .infoComment {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    border: none;
-    padding: 0;
-    padding-bottom: 0;
-}
-
-.publicaciones .content-publicacion section .infoComment h4 {
-    margin: 0;
-    margin-top: -10px;
-    font-family: calibri;
-    font-size: 16px;
-}
-
-.publicaciones .content-publicacion section .infoComment i {
-    border: white solid 1px;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-}
-
-.publicaciones .content-publicacion section p {
-    padding-left: 30px;
-    margin-top: -5px;
-}
-
 .publicaciones .content-publicacion input {
     border: rgb(63, 186, 190) solid 1px;
     width: 100%;
@@ -258,6 +248,13 @@ p {
     outline: none;
     padding: 5px;
     border-radius: 7px;
+}
+.publicaciones .content-publicacion button{
+    position: absolute;
+    width: 90px;
+    height: 30px;
+    top: -19px;
+    right: 1px;
 }
 
 .publicaciones .content-publicacion .ico-comment {
@@ -276,6 +273,17 @@ p {
     font-size: 20px;
 }
 
+.publicaciones  .close-btn{
+    position: absolute;
+    top: 5px;
+    right: 14px;
+}
+.publicaciones .modal img{
+    margin-top: 15px;
+    max-width: 100%;
+    max-height: calc();
+    object-fit: contain;
+}
 /* ::-webkit-scrollbar {
     width: 1px;
 } */

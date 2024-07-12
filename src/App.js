@@ -12,6 +12,7 @@ import Modulos from './Compontentes/Dsi_component/Modulos/Modulos';
 import Beneficios from './Compontentes/Dsi_component/Beneficios/Beneficios';
 import Developers from './Compontentes/Dsi_component/Developers/Developers';
 import CursorEffect from './CursorEfect/CursorEfect';
+import Perfil from './Compontentes/Perfil/Perfil';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
 
                     <Route path="/register" element={<RegistroUser />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/user/perfil s" element={<Perfil />} />
 
                     <Route path="/dsi/docentes" element={<Docentes />} />
                     <Route path="/dsi/modulos" element={<Modulos />} />

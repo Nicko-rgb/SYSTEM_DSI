@@ -42,24 +42,24 @@ const Mural = () => {
                     </div>
                 </header>
                 <section>
-                    <div className="actividades">
+                    <aside className="actividades">
                         <img src={activi1} alt="activi1" onClick={() => handleImageClick(activi1)} />
                         <p>El area academica organiza concurso de programacion</p>
                         <img src={activi2} alt="activi2" onClick={() => handleImageClick(activi2)} />
                         <p>Se programa la semana tecnica con las siguientes actividades</p>
                         <img src={activi3} alt="activi3" onClick={() => handleImageClick(activi3)} />
                         <p>Gran partido por semana tecnica</p>
-                    </div>
-                    <div className="tecnologia">
+                    </aside>
+                    <aside className="tecnologia">
                         <img src={img1} alt="tecnologia1" onClick={() => handleImageClick(img1)} />
                         <img src={img2} alt="tecnologia2" onClick={() => handleImageClick(img2)} />
                         <img src={img3} alt="tecnologia3" onClick={() => handleImageClick(img3)} />
-                    </div>
-                    <div className="curiosidades">
+                    </aside>
+                    <aside className="curiosidades">
                         <img src={tip1} alt="curiosidad1" onClick={() => handleImageClick(tip1)} />
                         <img src={tip2} alt="curiosidad2" onClick={() => handleImageClick(tip2)} />
                         <img src={tip3} alt="curiosidad3" onClick={() => handleImageClick(tip3)} />
-                    </div>
+                    </aside>
                 </section>
             </main>
             {selectedImage && (
