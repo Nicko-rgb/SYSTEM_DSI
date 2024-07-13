@@ -34,11 +34,13 @@
     font-family: 'Lato';
 }
 
-.periodico section {
+.periodico main section {
     display: flex;
+    flex-direction: row;
 }
 
-.periodico section div {
+.periodico section aside {
+    border: none;
     padding: 20px;
     width: 100%;
     border-right: orangered solid 1px;
@@ -87,7 +89,7 @@
     position: fixed;
     z-index: 2;
     left: 0;
-    top: 0px;
+    top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -95,32 +97,45 @@
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #1f1c1c;
     padding: 20px;
-    border: 1px solid #888;
-    max-width: 700px;
-    max-height: 90%;
+    max-width: 90%;
+    min-width: 90%;
+    max-height: 100%;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
-.close {
+.close-btn {
     color: #aaa;
     position: absolute;
-    top: -15px;
-    right: 0px;
-    font-size: 35px;
+    top: -10px;
+    right:5px;
+    font-size: 40px;
     font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
 }
 
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+}
+
 .modal .modal-content img {
+    margin-top: 25px;
     max-width: 100%;
-    max-height: 100%;
+    min-width: 100%;
+    max-height: calc();
     object-fit: contain;
+}
+@media (max-width: 700px){
+    .modal-content{
+        padding: 0;
+        max-width: 100%;
+        min-width: 100%;
+    }
 }

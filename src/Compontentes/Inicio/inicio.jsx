@@ -113,7 +113,7 @@ const Inicio = () => {
                     <h3 className='bienvenida'>{bienvenida} </h3>
                 )}
                 {isLoggedIn && (
-                    <h3 className='bienvenida'>Bienvenido {userName}</h3>
+                    <h3 className='bienvenida'>Bienvenido/a {userName}</h3>
                 )}
                 <div>
                     <h3>NSTITUTO DE EDUCACION SUPERIOR TECNOLOGICO PUBLICO SUIZA</h3>

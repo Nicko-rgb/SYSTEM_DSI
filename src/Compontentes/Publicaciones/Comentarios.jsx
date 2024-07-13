@@ -1,32 +1,20 @@
-import React from 'react'
-import './publicacion.css'
+import './coment.css'
+import React from 'react';
 
-const Comentarios = () => {
+const Comentarios = ({ comentarios }) => {
     return (
         <section>
-            <div>
-                <div class="infoComment">
-                    <i></i>
-                    <h4>Marco Erick Rodrigues</h4>
+            {[...comentarios].reverse().map((comentario, index) => (
+                <div key={index} className='sub'>
+                    <div className="infoComent">
+                        <i></i>
+                        <h4>{comentario.usuario}</h4>
+                    </div>
+                    <p style={{ color: 'white' }}>{comentario.texto}</p>
                 </div>
-                <p>Aqui va el comentarion de la publicacion </p>
-            </div>
-            <div>
-                <div class="infoComment">
-                    <i></i>
-                    <h4>Michel Manihuari flores</h4>
-                </div>
-                <p>Aqui va el comentarion de la publicacion </p>
-            </div>
-            <div>
-                <div class="infoComment">
-                    <i></i>
-                    <h4>Cesar Soria Paima</h4>
-                </div>
-                <p>Aqui va el comentarion de la publicacion </p>
-            </div>
+            ))}
         </section>
-    )
-}
+    );
+};
 
-export default Comentarios
+export default Comentarios;

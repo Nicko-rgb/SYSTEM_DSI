@@ -40,7 +40,6 @@
 }
 
 .acerca .subContent section {
-    box-shadow: 0 0 2px orangered;
     padding: 15px;
 }
 
@@ -49,6 +48,7 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+    border-right: orangered solid 1px;
 }
 
 .acerca .subContent .div1 .infoCarre {

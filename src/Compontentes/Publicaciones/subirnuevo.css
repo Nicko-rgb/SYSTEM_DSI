@@ -21,9 +21,10 @@
     flex-direction: column;
 }
 .formSubir .contenedor .subContend{
+    position: relative;
     display: flex;
     flex-direction: column;
-    border: red solid 1px;
+    border: rgb(0, 255, 8) solid 1px;
     height: 100%;
     background-color: #edfcf7;
     padding: 30px;
@@ -34,6 +35,7 @@
     height: auto;
     margin: auto auto;
 }
+
 
 .subirCabeza {
     display: flex;
@@ -48,12 +50,14 @@
     width: 100%;
 }
 
-.close-btn {
+.subirCabeza .close-btn {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-size: 1.5rem;
-    color: #888;
+    color: gray;
+    position: absolute;
+    top: 15px;
+    right: 26px;
 }
 
 .close-btn:hover {
@@ -137,3 +141,13 @@
     object-fit: contain;
 }
 
+@media (max-width: 700px){
+    .formSubir{
+        padding: 0;
+    }
+    .formSubir .contenedor .subContend{
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
+}

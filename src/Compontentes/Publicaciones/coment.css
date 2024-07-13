@@ -1,0 +1,28 @@
+section{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+section .sub{
+    box-shadow: 0 0 2px white;
+    border-radius: 10px;
+    padding: 10px;
+}
+section div .infoComent{
+    display: flex;
+    align-items: center;
+}
+section div .infoComent i{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: white solid 1px;
+}
+section div .infoComent h4{
+    font-size: 15px;
+    margin-left: 5px;
+    color: orangered;
+}
+section div p{
+    margin-left: 35px;
+}

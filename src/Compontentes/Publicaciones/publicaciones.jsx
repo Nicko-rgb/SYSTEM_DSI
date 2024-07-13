@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
 import './publicacion.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import moment from 'moment';
 import { FaHeart, FaRegShareSquare, FaPlus } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
-import { SlOptionsVertical } from "react-icons/sl";
-import imagen1 from '../../IMG/std2.jpg';
-import meme from '../../IMG/meme.jpg'
+import { FaTimes } from "react-icons/fa";
+import { SlOptionsVertical } from "react-icons/sl"
 import texto from '../../IMG/texto.png'
 
 import Navegador from '../Navegador/Navegador';
@@ -15,18 +16,30 @@ import EstadoSesion from '../Formularios/Sesion';
 
 const Publicaciones = () => {
     //verificar si el usuario inicio sesion
-    const { isLoggedIn } = EstadoSesion()
+    const { userName, isLoggedIn } = EstadoSesion()
+    const [publicaciones, setPublicaciones] = useState([]);
+    const [comment, setComment] = useState('');
 
-    const [showComments, setShowComments] = useState(false);
-    const [liked, setLiked] = useState(false);
+
+    // Agrega un estado local para cada publicación
+    const [showComments, setShowComments] = useState({});
+    const [liked, setLiked] = useState({});
     const [showUploadForm, setShowUploadForm] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
 
-    const handleLike = () => {
-        setLiked(!liked);
-    };
+    // const handleLike = (id) => {
+    //     setLiked((prevLiked) => ({
+    //         ...prevLiked,
+    //         [id]: !prevLiked[id]
+    //     }));
+    // };
 
-    const handleComments = () => {
-        setShowComments(!showComments);
+    const handleComments = (id) => {
+        setShowComments((prevShowComments) => ({
+            ...prevShowComments,
+            [id]: !prevShowComments[id]
+        }));
     };
 
     const mostrarSubirPublic = () => {
@@ -35,6 +48,98 @@ const Publicaciones = () => {
 
     const cerrarSubirPublic = () => {
         setShowUploadForm(false);
+    };
+
+    const handleImageClick = (image) => {
+        setSelectedImage(image);
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+        setSelectedImage(null);
+    };
+
+    //obtener las publicaciones
+    useEffect(() => {
+        const fechPublicacion = async () => {
+            try {
+                const dataPublicacion = await fetch("/api/publicaciones")
+                const publicaciones = await dataPublicacion.json()
+                setPublicaciones(publicaciones)
+
+                // Inicializa los estados locales para cada publicación
+                setShowComments(publicaciones.reduce((acc, pub) => ({ ...acc, [pub._id]: false }), {}));
+                setLiked(publicaciones.reduce((acc, pub) => ({ ...acc, [pub._id]: false }), {}));
+            } catch (error) {
+                console.log(error)
+            }
+        };
+        fechPublicacion();
+    }, []);
+
+    //para formatear la fecha y la hora
+    const formatDate = (dateString) => {
+        return moment.utc(dateString).format('DD/MM/YYYY');
+    };
+
+    const formatTime = (timeString) => {
+        return moment(timeString, 'HH:mm:ss').format('HH:mm');
+    };
+
+    //codigo de los likes de cada publicacion
+    const handleLike = async (publicacionId) => {
+        try {
+            // Actualizar el estado local de likes
+            setLiked((prevLiked) => ({ ...prevLiked, [publicacionId]: !prevLiked[publicacionId] }));
+
+            // Enviar la acción de like al servidor
+            await axios.post(`/api/publicaciones/${publicacionId}/like`, {
+                userName: userName,
+            });
+
+            // Actualizar el estado local de la publicación
+            setPublicaciones((prevPublicaciones) =>
+                prevPublicaciones.map((pub) =>
+                    pub._id === publicacionId
+                        ? { ...pub, likes: pub.likes + 1 }
+                        : pub
+                )
+            );
+        } catch (error) {
+            console.error('Error al dar like:', error);
+        }
+    };
+
+    //codigo para enviar comentarios de cada publicacion
+    const handleCommentSubmit = async (publicacionId) => {
+        try {
+            // Enviar el comentario al servidor
+            await fetch(`/api/publicaciones/${publicacionId}/comentar`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    usuario: userName,
+                    texto: comment,
+                }),
+            });
+
+            // Limpiar el campo de comentario
+            setComment('');
+
+            // Opcionalmente, actualizar el estado local con la publicación actualizada
+            const response = await fetch(`/api/publicaciones/${publicacionId}`);
+            const updatedPublicacion = await response.json();
+            setPublicaciones((prevPublicaciones) =>
+                prevPublicaciones.map((pub) =>
+                    pub._id === publicacionId ? updatedPublicacion : pub
+                )
+            );
+        } catch (error) {
+            console.error('Error al enviar comentario:', error);
+        }
     };
 
     return (
@@ -50,115 +155,105 @@ const Publicaciones = () => {
                 )}
                 {isLoggedIn && (
                     <div className="subirNuevo">
-                    <img src={texto} alt="" />
-                    <div onClick={mostrarSubirPublic}>
-                        <input type="text" placeholder='Escribe Aquí'  />
-                        <FaPlus className='iconPlus'/>
+                        <img src={texto} alt="" />
+                        <div onClick={mostrarSubirPublic}>
+                            <input type="text" placeholder='Escribe Aquí' />
+                            <FaPlus className='iconPlus' />
+                        </div>
                     </div>
-                </div>
                 )}
                 {showUploadForm && (
                     <UploadForm cerrarSubir={cerrarSubirPublic} />
                 )}
 
-                <div className="content-publicacion">
-                    <header>
-                        <i className="fa fa-user"></i>
-                        <div className="datoUser">
-                            <h3>Joseph Padilla Alvan</h3>
-                            <div>
-                                <p>12/05/2024</p>
-                                <p>8:45 am</p>
+                {[...publicaciones].reverse().map((datos) => (
+                    <div className="content-publicacion" key={datos._id}>
+                        <header>
+                            <i className="fa fa-user"></i>
+                            <div className="datoUser">
+                                <h3>{datos.userName} </h3>
+                                <div>
+                                    <p> {formatDate(datos.createdAtDate)} </p>
+                                    <p> {formatTime(datos.createdAtTime)} </p>
+                                </div>
                             </div>
-                        </div>
-                        <SlOptionsVertical className='ico-publiAction' />
-                        <div className='accionPubli'>
-                            <p>Denuncia</p>
-                            <p>Ver la Publicacion</p>
-                            <p>Informacion</p>
-                            <p>Borrar Publicacion</p>
-                        </div>
-                    </header>
-                    <p className='descrip'>Los cachimbos en su primer día</p>
-                    <div className="fotoPublicacion">
-                        <img src={imagen1} alt="" id="myImg" />
-                    </div>
-                    <footer>
-                        <div className={`divGusta ${liked ? 'liked' : ''}`} onClick={handleLike}>
-                            <FaHeart className={`ico meGusta ${liked ? 'liked' : ''}`} />
-                            <p style={{ color: 'white' }}>120 k</p>
-                        </div>
-                        <div className='divCompartir'>
-                            <FaRegShareSquare className='ico compartir' />
-                            <p>Compartir</p>
-                        </div>
-                        <div className={`divComentar ${showComments ? 'show-comments' : ''}`} onClick={handleComments}>
-                            <TiMessages className='ico comentar' />
-                            <p>Comentarios</p>
-                        </div>
-                    </footer>
-
-                    {
-                        showComments && (
-                            <Comentarios className={`comments ${showComments ? 'show-comments' : ''}`} />
-                        )
-                    }
-
-                    <div style={{ position: 'relative' }}>
-                        <input type="text" placeholder="Comentar aquí ..." />
-                        <TiMessages className='ico-comment' />
-                    </div>
-                </div>
-
-                <div className="content-publicacion">
-                    <header>
-                        <i className="fa fa-user"></i>
-                        <div className="datoUser">
-                            <h3>Cesar Soria Paima</h3>
-                            <div>
-                                <p>12/05/2024</p>
-                                <p>8:45 am</p>
+                            <SlOptionsVertical className='ico-publiAction' />
+                            <div className='accionPubli'>
+                                <p>Denuncia</p>
+                                <p>Ver la Publicacion</p>
+                                <p>Informacion</p>
+                                <p>Borrar Publicacion</p>
                             </div>
-                        </div>
-                        <SlOptionsVertical className='ico-publiAction' />
-                        <div className='accionPubli'>
-                            <p>Denuncia</p>
-                            <p>Ver la Publicacion</p>
-                            <p>Informacion</p>
-                            <p>Borrar Publicacion</p>
-                        </div>
-                    </header>
-                    <p className='descrip'>Esto es otro nivel</p>
-                    <div className="fotoPublicacion">
-                        <img src={meme} alt="" id="myImg" />
-                    </div>
-                    <footer>
-                        <div className={`divGusta ${liked ? 'liked' : ''}`} onClick={handleLike}>
-                            <FaHeart className={`ico meGusta ${liked ? 'liked' : ''}`} />
-                            <p style={{ color: 'white' }}>120 k</p>
-                        </div>
-                        <div className='divCompartir'>
-                            <FaRegShareSquare className='ico compartir' />
-                            <p>Compartir</p>
-                        </div>
-                        <div className={`divComentar ${showComments ? 'show-comments' : ''}`} onClick={handleComments}>
-                            <TiMessages className='ico comentar' />
-                            <p>Comentarios</p>
-                        </div>
-                    </footer>
+                        </header>
 
-                    {
-                        showComments && (
-                            <Comentarios className={`comments ${showComments ? 'show-comments' : ''}`} />
-                        )
-                    }
+                        {datos.image || datos.video ? (
+                            <div className="publicArchivo">
+                                <p className='descrip'> {datos.textArchivo} </p>
+                                {datos.image && (
+                                    <div className="fotoPublicacion" onClick={() => handleImageClick(datos.image)}>
+                                        <img src={`/uploads/${datos.image.filename}`} alt='imagenPublic' />
+                                    </div>
+                                )}
+                                {datos.video && (
+                                    <div className="videoPublicacion">
+                                        <video controls>
+                                            <source src={`/uploads/${datos.video.filename}`} type={datos.video.contentType} />
+                                        </video>
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <div className="soloTextoPublic">
+                                <h4>{datos.text}</h4>
+                            </div>
+                        )}
 
-                    <div style={{ position: 'relative' }}>
-                        <input type="text" placeholder="Comentar aquí ..." />
-                        <TiMessages className='ico-comment' />
+                        <footer>
+                            <div className={`divGusta ${liked[datos._id] ? 'liked' : ''}`} onClick={() => handleLike(datos._id)}>
+                                <FaHeart className={`ico meGusta ${liked[datos._id] ? 'liked' : ''}`} />
+                                <p style={{ color: 'white' }}>{datos.likes}</p>
+                            </div>
+                            <div className='divCompartir'>
+                                <FaRegShareSquare className='ico compartir' />
+                                <p>Compartir</p>
+                            </div>
+                            <div className={`divComentar ${showComments[datos._id] ? 'show-comments' : ''}`} onClick={() => handleComments(datos._id)}>
+                                <TiMessages className='ico comentar' />
+                                <p>Comentarios</p>
+                            </div>
+                        </footer>
+
+                        {
+                            showComments[datos._id] && (
+                                <Comentarios className={`comments ${showComments[datos._id] ? 'show-comments' : ''}`} comentarios={datos.comentarios} />
+                            )
+                        }
+
+                        <div style={{ position: 'relative' }} className='formComent'>
+                            <form onSubmit={(e) => {
+                                e.preventDefault();
+                                handleCommentSubmit(datos._id);
+                            }}>
+                                <input
+                                    type="text"
+                                    placeholder="Comentar aquí ..."
+                                    value={comment}
+                                    onChange={(e) => setComment(e.target.value)}
+                                />
+                                <button type="submit">COMENTAR</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                ))}
             </main>
+            {showModal && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <button className="close-btn" onClick={closeModal}><FaTimes /></button>
+                        <img src={`/uploads/${selectedImage.filename}`} alt="Imagen ampliada" />
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
