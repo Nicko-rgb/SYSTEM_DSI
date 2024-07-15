@@ -61,6 +61,7 @@ form aside{
     width: 18px;
 }
 .registroUser form div{
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -104,6 +105,11 @@ form .errorPassword-message{
     color: orangered;
     text-align: center;
 }
+form div .icon{
+    position: absolute;
+    right: 5px;
+    top: 30px;
+}
 
 form button{
     width: 150px;
@@ -120,6 +126,7 @@ form button{
 button.disabled {
     background-color: #c6c4c4;
     cursor: not-allowed;
+    pointer-events: none;
 }
 @media (max-width: 700px){
     .registroUser .subRegistro{

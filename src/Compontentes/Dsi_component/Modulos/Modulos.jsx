@@ -13,14 +13,24 @@ const Modulos = () => {
             <main>
                 <NavegadorDsi />
                 <div className="container">
-                    <h1>MODULOS</h1>
-                    <h1>MODULO 1</h1>
-                    <div><img alt='' src={modulo1}></img></div>
-                    <h1>MODULO 2</h1>
-                    <div> <img alt='' src={modulo2}></img></div>
-                    <h1>MODULO 3</h1>
-                    <div> <img alt='' src={modulo3}></img></div>
-
+                    <h1>MODULOS DE DESARROLLO DE SISTEMAS DE INFORMACION</h1>
+                    <p>El area academica de Desarrollo de Sistemas de Información cuenta con 3 mudulos que se
+                        desarrollara durante tiempo de estudios, un módula por año.
+                    </p>
+                    <div className='moduls'>
+                        <div>
+                            <h3>MODULO 1</h3>
+                            <img alt='' src={modulo1}></img>
+                        </div>
+                        <div>
+                            <h3>MODULO 2</h3>
+                            <img alt='' src={modulo2}></img>
+                        </div>
+                        <div>
+                            <h3>MODULO 3</h3>
+                            <img alt='' src={modulo3}></img>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>

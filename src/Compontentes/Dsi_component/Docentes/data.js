@@ -46,7 +46,7 @@ const Profes = [
         foto: fotosecretaria,
         email: 'lisnairit@gmail.com',
         numero : '960 717 265',
-        cargo: 'SECRETARIA'
+        cargo: 'SECRETARIA DSI'
     },
     
 ]

@@ -11,15 +11,17 @@ const Docentes = () => {
             <main>
                 <NavegadorDsi />
                 <div className="container">
-                    <h3>MAESTROS 2024 DEL AREA DE ESTUDIOS DE DESARROLLO DE DISTEMAS DE INFORMACION</h3>
+                    <h2>MAESTROS 2024 DEL AREA DE ESTUDIOS DE DESARROLLO DE DISTEMAS DE INFORMACION</h2>
                     <div className="box-profes">
                         {Profes.map(dato => (
                             <div className='box'>
                                 <h5>{dato.nombre} </h5>
                                 <img src={dato.foto} alt="" />
-                                <p>{dato.email} </p>
-                                <p>{dato.numero} </p>
-                                <h6>{dato.cargo} </h6>
+                                <div>
+                                    <p>{dato.email} </p>
+                                    <p>{dato.numero} </p>
+                                    <h4>{dato.cargo} </h4>
+                                </div>
                             </div>
                         ))}
                     </div>

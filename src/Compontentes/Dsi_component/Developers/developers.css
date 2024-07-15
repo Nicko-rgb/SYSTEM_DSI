@@ -16,6 +16,9 @@
     width: calc(100% - 205px);
     overflow-y: auto;
 }
+.developers .dsiNav .link6{
+    color: orangered;
+}
 .container .imgs{
     display: grid;
     grid-template-columns: repeat(3, 1fr);

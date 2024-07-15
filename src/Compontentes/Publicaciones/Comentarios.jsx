@@ -4,7 +4,7 @@ import React from 'react';
 const Comentarios = ({ comentarios }) => {
     return (
         <section>
-            {[...comentarios].reverse().map((comentario, index) => (
+            {comentarios.map((comentario, index) => (
                 <div key={index} className='sub'>
                     <div className="infoComent">
                         <i></i>

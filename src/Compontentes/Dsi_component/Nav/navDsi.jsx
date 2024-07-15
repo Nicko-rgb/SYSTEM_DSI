@@ -13,33 +13,33 @@ const NavegadorDsi = () => {
         <div className='dsiNav'>
             <nav className="lateral">
                 <div className='lateralIcons'>
-                    <Link className='div' to="/dsi/">
+                    <Link className='div link1' to="/dsi/">
                         <FaInfoCircle className='icons-lateral' />
                     </Link >
-                    <Link className='div' to="/dsi/docentes">
+                    <Link className='div link2' to="/dsi/docentes">
                         <FaChalkboardTeacher className='icons-lateral' />
                     </Link >
-                    <Link className='div' to="/dsi/modulos">
+                    <Link className='div link3' to="/dsi/modulos">
                         <FaServer className='icons-lateral' />
                     </Link >
-                    <Link className='div' to="/dsi/biblioteca">
+                    <Link className='div link4' to="/dsi/biblioteca">
                         <PiBooksFill className='icons-lateral' />
                     </Link >
-                    <Link className='div' to="/dsi/beneficios">
+                    <Link className='div link5' to="/dsi/beneficios">
                         <FaHandshakeSimple className='icons-lateral' />
                     </Link >
-                    <Link className='div' to="/dsi/developers">
+                    <Link className='div link6' to="/dsi/developers">
                         <FaPeopleLine className='icons-lateral' />
                     </Link >
                 </div>
                 
                 <div className='lateral-hidde'>
-                    <Link className='dsiLink' to="/dsi/">Acerca de</Link>
-                    <Link className='dsiLink' to="/dsi/docentes">Docentes</Link>
-                    <Link className='dsiLink' to="/dsi/modulos">Módulos</Link>
-                    <Link className='dsiLink' to="/dsi/biblioteca">Biblioteca</Link>
-                    <Link className='dsiLink' to="/dsi/beneficios">Beneficios</Link>
-                    <Link className='dsiLink' to="/dsi/developers">Desarrolladores</Link>
+                    <Link className='dsiLink link1' to="/dsi/">Acerca de</Link>
+                    <Link className='dsiLink link2' to="/dsi/docentes">Docentes</Link>
+                    <Link className='dsiLink link3' to="/dsi/modulos">Módulos</Link>
+                    <Link className='dsiLink link4' to="/dsi/biblioteca">Biblioteca</Link>
+                    <Link className='dsiLink link5' to="/dsi/beneficios">Beneficios</Link>
+                    <Link className='dsiLink link6' to="/dsi/developers">Desarrolladores</Link>
 
                     <div className="iconsRedes">
                         <Link className='lIco' to='https://www.facebook.com/nick.mancillaleon' title='Facebook'>

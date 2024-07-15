@@ -21,8 +21,10 @@ section div .infoComent i{
 section div .infoComent h4{
     font-size: 15px;
     margin-left: 5px;
-    color: orangered;
+    color: white;
+    font-weight: bold;
 }
 section div p{
     margin-left: 35px;
+    font-weight: lighter;
 }

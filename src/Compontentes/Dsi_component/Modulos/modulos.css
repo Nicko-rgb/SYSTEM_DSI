@@ -15,3 +15,30 @@
     border: red solid 1px;
     width: calc(100% - 205px);
 }
+.modulos .dsiNav .link3{
+    color: orangered;
+}
+.modulos .moduls{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7vw;
+    row-gap: 5vh;
+}
+.modulos .moduls div{
+    border: green solid;
+    flex: 1;
+}
+.moduls div:last-child {
+    grid-column: 3 / -3;
+    justify-self: center;
+}.modulos .moduls div img{
+    width: 100%;
+    margin-left: 0;
+}
+
+@media (max-width: 800px){
+    .modulos .container{
+        margin-left: 55px;
+        width: calc(100% - 55px);
+    }
+}

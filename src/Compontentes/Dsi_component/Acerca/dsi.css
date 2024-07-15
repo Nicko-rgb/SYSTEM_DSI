@@ -8,6 +8,9 @@
 .acerca .navegador .link3 {
     color: orangered;
 }
+.acerca .dsiNav .link1{
+    color: orangered;
+}
 
 .acerca .navegador .link3::before {
     width: 100%;
@@ -116,7 +119,7 @@
     box-shadow: 0 0 5px orangered;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: 7px 30px;
     align-items: center;
     padding: 10px;
     background: rgb(237, 255, 254);

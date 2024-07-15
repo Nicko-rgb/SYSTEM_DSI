@@ -6,6 +6,10 @@
     overflow-y: auto;
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
+
+.beneficios .dsiNav .link5{
+    color: orangered;
+}
 .beneficios .container{
     padding: 20px;
     color: white;

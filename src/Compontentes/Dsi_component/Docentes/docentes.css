@@ -15,31 +15,67 @@
     margin-left: 205px;
     width: calc(100% - 205px);
 }
-.container h3{
+.docentes .dsiNav .link2{
+    color: orangered;
+}
+.container h2{
     text-align: center;
+    font-size: 25px;
+    text-decoration: underline orangered;
 }
 .docentes .container .box-profes{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10%;
-    row-gap: 20px;
+    gap: 50px;
     margin-top: 20px;
+    padding-bottom: 50px;
 }
 .docentes .container .box {
-    box-shadow:  0 0 2px orangered;
+    box-shadow:  0 0 5px white;
     border-radius: 12px;
     width: 100%;
-    padding: 15px;
+    padding: 7%;
+    background: rgba(21, 21, 21, 0.45);
+    transition: 0.3s ease;
+}
+.docentes .container .box:hover{
+    transform: scale(1.03);
+    box-shadow:  0 0 10px white;
 }
 .docentes .container .box h5{
     text-align: center;
     /* -webkit-text-stroke: 1px orangered; */
-    text-shadow: 0 0 5px green,
-                0 0 5px green,
-                0 0 5px green;
-
+    text-shadow: 0 0 5px orangered,
+                0 0 5px orangered,
+                0 0 5px orangered;
+                font-size: 20px;
 }
 .docentes .container .box img{
     width: 100%;
     transition: .3s ease;
+    max-height: 400px;
+    object-fit: cover;
+    margin-left: 0;
+}
+.docentes .container .box div{
+    background: white;
+    color: black;
+    padding:  10px;
+    border-radius: 7px;
+    box-shadow: 0 0 3px orangered;
+}
+.docentes .container .box div p, h4{
+    text-align: center;
+}
+@media (max-width: 1000px){
+    .docentes .container .box-profes{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+@media (max-width: 800px){
+    .docentes .container{
+        margin-left: 55px;
+        width: calc(100% - 55px);
+    }
 }
