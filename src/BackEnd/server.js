@@ -59,12 +59,12 @@ const Publicacion = mongoose.model('Publicacion', publicationSchema);
 
 
 //modelo para likes
-const likeSchema = new mongoose.Schema({
-    usuario: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuario', required: true },
-    publicacion: { type: mongoose.Schema.Types.ObjectId, ref: 'Publicacion', required: true },
-    fecha: { type: Date, default: Date.now }
+const LikeSchema = new mongoose.Schema({
+    userName: { type: String, required: true },
+    publicacionId: { type: mongoose.Schema.Types.ObjectId, ref: 'Publicacion', required: true },
+    createdAt: { type: Date, default: Date.now }
 });
-const Like = mongoose.model('Like', likeSchema);
+const Like = mongoose.model('likes', LikeSchema);;
 
 // Configurar Multer para manejar la subida de archivos
 const storage = multer.diskStorage({
@@ -194,11 +194,20 @@ app.post('/api/publicaciones', upload.fields([
 app.post('/api/publicaciones/:publicacionId/like', async (req, res) => {
     try {
         const { publicacionId } = req.params;
+        const { userName } = req.body;
 
-        // Buscar la publicación por su ID
+        // Verificar si el usuario ya ha dado like a la publicación
+        const existingLike = await Like.findOne({ userName, publicacionId });
+        if (existingLike) {
+            return res.status(400).json({ error: 'Ya has dado like a esta publicación' });
+        }
+
+        // Crear un nuevo like
+        const newLike = new Like({ userName, publicacionId });
+        await newLike.save();
+
+        // Actualizar el número de likes en la publicación
         const publicacion = await Publicacion.findById(publicacionId);
-
-        // Actualizar el número de likes
         publicacion.likes += 1;
         await publicacion.save();
 
@@ -207,6 +216,18 @@ app.post('/api/publicaciones/:publicacionId/like', async (req, res) => {
         res.status(500).json({ error: 'Error al dar like a la publicación' });
     }
 });
+
+//ruta para obtener los likes
+app.get('/api/likes/:userName', async (req, res) => {
+    try {
+        const { userName } = req.params;
+        const likes = await Like.find({ userName });
+        res.status(200).json(likes);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener los likes del usuario' });
+    }
+});
+
 
 //ruta para guardar los comentarios de cada publicacion
 app.post('/api/publicaciones/:publicacionId/comentar', async (req, res) => {

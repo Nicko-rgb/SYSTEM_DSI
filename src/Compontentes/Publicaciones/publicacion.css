@@ -284,9 +284,21 @@ p {
     max-height: calc();
     object-fit: contain;
 }
-/* ::-webkit-scrollbar {
-    width: 1px;
-} */
+
+
+.divGusta {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.ico.meGusta {
+    color: white;
+}
+
+.divGusta.liked .ico.meGusta {
+    color: red;
+}
 /*******************************************************************************/
 
 @media (max-width: 700px) {
@@ -299,8 +311,5 @@ p {
     }
     .publicaciones .subPubli .content-publicacion img{
         width: 100%;
-    }
-    .publicaciones .subPubli{
-        margin-top: 70px;
     }
 }

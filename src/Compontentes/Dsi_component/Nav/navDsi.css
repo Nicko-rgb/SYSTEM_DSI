@@ -119,7 +119,6 @@
 @media (max-width: 800px){
     .dsiNav .lateral{
         width: 55px;
-        box-shadow: none;
     }
     .dsiNav .lateral .lateral-hidde{
         display: none;

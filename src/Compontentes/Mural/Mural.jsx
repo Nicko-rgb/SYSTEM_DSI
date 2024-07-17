@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './mural.css';
 import Navegador from '../Navegador/Navegador';
-import ImageModal from './ImageModal';
+import ModalImg from '../Modal/Modal';
 
 import activi1 from './IMG/activi1.jpeg';
 import activi2 from './IMG/activi2.jpeg';
@@ -16,14 +16,17 @@ import tip2 from './IMG/tip2.jpeg';
 import tip3 from './IMG/tip3.jpeg';
 
 const Mural = () => {
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [verModal, setVerModal] = useState(false);
+    const [imagenActual, setImagenActual] = useState(null);
 
-    const handleImageClick = (image) => {
-        setSelectedImage(image);
+    const abrirModal = (imagen) => {
+        setImagenActual(imagen);
+        setVerModal(true);
     };
 
-    const handleModalClose = () => {
-        setSelectedImage(null);
+    const cerrarModal = () => {
+        setVerModal(false);
+        setImagenActual(null);
     };
 
     return (
@@ -43,27 +46,30 @@ const Mural = () => {
                 </header>
                 <section>
                     <aside className="actividades">
-                        <img src={activi1} alt="activi1" onClick={() => handleImageClick(activi1)} />
+                        <img src={activi1} alt="activi1" onClick={() => abrirModal(activi1)} />
                         <p>El area academica organiza concurso de programacion</p>
-                        <img src={activi2} alt="activi2" onClick={() => handleImageClick(activi2)} />
+                        <img src={activi2} alt="activi2" onClick={() => abrirModal(activi2)} />
                         <p>Se programa la semana tecnica con las siguientes actividades</p>
-                        <img src={activi3} alt="activi3" onClick={() => handleImageClick(activi3)} />
+                        <img src={activi3} alt="activi3" onClick={() => abrirModal(activi3)} />
                         <p>Gran partido por semana tecnica</p>
                     </aside>
                     <aside className="tecnologia">
-                        <img src={img1} alt="tecnologia1" onClick={() => handleImageClick(img1)} />
-                        <img src={img2} alt="tecnologia2" onClick={() => handleImageClick(img2)} />
-                        <img src={img3} alt="tecnologia3" onClick={() => handleImageClick(img3)} />
+                        <img src={img1} alt="tecnologia1" onClick={() => abrirModal(img1)} />
+                        <img src={img2} alt="tecnologia2" onClick={() => abrirModal(img2)} />
+                        <img src={img3} alt="tecnologia3" onClick={() => abrirModal(img3)} />
                     </aside>
                     <aside className="curiosidades">
-                        <img src={tip1} alt="curiosidad1" onClick={() => handleImageClick(tip1)} />
-                        <img src={tip2} alt="curiosidad2" onClick={() => handleImageClick(tip2)} />
-                        <img src={tip3} alt="curiosidad3" onClick={() => handleImageClick(tip3)} />
+                        <img src={tip1} alt="curiosidad1" onClick={() => abrirModal(tip1)} />
+                        <img src={tip2} alt="curiosidad2" onClick={() => abrirModal(tip2)} />
+                        <img src={tip3} alt="curiosidad3" onClick={() => abrirModal(tip3)} />
                     </aside>
                 </section>
             </main>
-            {selectedImage && (
-                <ImageModal image={selectedImage} onClose={handleModalClose} />
+            {verModal && (
+                <ModalImg
+                    imagenActual={imagenActual}
+                    cerrarModal={cerrarModal}
+                />
             )}
         </div>
     );

@@ -18,10 +18,9 @@
 .docentes .dsiNav .link2{
     color: orangered;
 }
-.container h2{
+.container h1{
     text-align: center;
-    font-size: 25px;
-    text-decoration: underline orangered;
+    font-size: 37px;
 }
 .docentes .container .box-profes{
     display: grid;
@@ -74,6 +73,9 @@
     }
 }
 @media (max-width: 800px){
+    .docentes h1{
+        font-size: 25px;
+    }
     .docentes .container{
         margin-left: 55px;
         width: calc(100% - 55px);

@@ -3,7 +3,7 @@
     padding: 0 25px;
     align-items: center;
     background: linear-gradient(135deg, rgba(4, 4, 27, 1) 0%, rgba(64, 2, 2, 1) 200%);
-    width: 97%;
+    width: 100%;
     z-index: 1;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -52,9 +52,10 @@
 @media (max-width: 700px) {
     .cabeza{
         z-index: 2;
-        position: fixed;
+        position: sticky;
         top: 0px;
         display: flex;
         justify-content: space-between;
+        height: 70px;
     }
 }

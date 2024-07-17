@@ -1,8 +1,11 @@
-import React from 'react'
 import './dsi.css'
+import React from 'react'
+import { useState } from 'react';
 import Navegador from '../../Navegador/Navegador'
 import NavegadorDsi from '../Nav/navDsi';
 import lenguajes from './lenguajes';
+import Cabeza from '../../Navegador/Cabeza';
+import ModalImg from '../../Modal/Modal';
 
 import foto1 from '../../../IMG/codigo.png'
 import foto2 from '../../../IMG/foto1.jpg'
@@ -11,8 +14,23 @@ import foto3 from '../../../IMG/std2.jpg'
 import stdInfor from '../../../IMG/studentInformatica.jpeg'
 
 const Dsi = () => {
+
+    const [verModal, setVerModal] = useState(false);
+    const [imagenActual, setImagenActual] = useState(null);
+
+    const abrirModal = (imagen) => {
+        setImagenActual(imagen);
+        setVerModal(true);
+    };
+
+    const cerrarModal = () => {
+        setVerModal(false);
+        setImagenActual(null);
+    };
+
     return (
         <div className='acerca'>
+            <Cabeza />
             <Navegador />
             <main>
                 <NavegadorDsi className='dsiNav' />
@@ -21,7 +39,7 @@ const Dsi = () => {
                         <section className='div1'>
                             <p className='aa'>PROGRAMA DE ESTUDIOS</p>
                             <h1>DESARROLLO DE SISTEMAS DE INFORMACION IESTP - SUIZA</h1>
-                            <div>
+                            <div className='titulo'>
                                 <h4>TITULO A NOMBRE DE LA NACION</h4>
                                 <p>Profesional Técnico en Desarrollo de Sistemas de Información</p>
                             </div>
@@ -81,16 +99,22 @@ const Dsi = () => {
                                 width="100%" height="250px" allowfullscreen="" title='MapaSuiza' loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                             <div className="galeria">
-                                <img src={foto1} alt="" />
-                                <img src={foto2} alt="" />
-                                <img src={foto3} alt="" />
-                                <img src={stdInfor} alt="" />
-                                <img src={foto2} alt="" />
+                                <img src={foto1} alt="" onClick={() => abrirModal(foto1)} />
+                                <img src={foto2} alt="" onClick={() => abrirModal(foto2)}/>
+                                <img src={foto3} alt="" onClick={() => abrirModal(foto3)}/>
+                                <img src={stdInfor} alt=""onClick={() => abrirModal(stdInfor)} />
+                                <img src={foto2} alt="" onClick={() => abrirModal(foto2)}/>
                             </div>
                         </section>
                     </div>
                 </section>
             </main>
+            {verModal && (
+                <ModalImg
+                    imagenActual={imagenActual}
+                    cerrarModal={cerrarModal}
+                />
+            )}
         </div>
     )
 }

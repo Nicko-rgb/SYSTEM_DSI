@@ -1,6 +1,8 @@
 import React from 'react'
 import './modulos.css'
 import Navegador from '../../Navegador/Navegador'
+import Cabeza from '../../Navegador/Cabeza'
+
 import NavegadorDsi from '../Nav/navDsi'
 import modulo1 from '../../../IMG/DSI-Mod1.png'
 import modulo2 from '../../../IMG/DSI-Mod2.png'
@@ -9,6 +11,7 @@ import modulo3 from '../../../IMG/DSI-Mod3.png'
 const Modulos = () => {
     return (
         <div className='modulos'>
+            <Cabeza />
             <Navegador />
             <main>
                 <NavegadorDsi />
@@ -29,6 +32,9 @@ const Modulos = () => {
                         <div>
                             <h3>MODULO 3</h3>
                             <img alt='' src={modulo3}></img>
+                        </div>
+                        <div className='modulFinal'>
+
                         </div>
                     </div>
                 </div>

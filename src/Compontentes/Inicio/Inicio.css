@@ -144,7 +144,6 @@ main div h1 {
 main div p {
     font-family: arial;
     text-align: justify;
-    font-size: 1vw;
 }
 
 .inicio main .butons {
@@ -258,10 +257,11 @@ main .butons .btn2 {
 }
 
 @media (max-width:1180px) {
-    main>div {
-        /* max-width: 70%; */
+    /* main>div {
+        max-width: 70%;
         min-width: 60%;
-    }
+    } */
+    
 
     main h3 {
         font-size: 1.5vw;
@@ -348,12 +348,4 @@ main .butons .btn2 {
         width: auto;
         height: 280px;
     }
-}
-
-@media (max-width: 700px) {
-    .inicio {
-        padding-top: 70px;
-        position: relative;
-    }
-
 }

@@ -1,4 +1,4 @@
-.developers{
+.developers {
     position: relative;
     width: 100%;
     display: flex;
@@ -6,7 +6,8 @@
     overflow-y: auto;
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
-.developers .container{
+
+.developers .container {
     padding: 20px;
     color: white;
     transition: 0.3s ease;
@@ -14,17 +15,23 @@
     margin-left: 205px;
     border: red solid 1px;
     width: calc(100% - 205px);
-    overflow-y: auto;
 }
-.developers .dsiNav .link6{
+
+.developers .dsiNav .link6 {
     color: orangered;
 }
-.container .imgs{
+
+.container .imgs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 20px;
 }
-.container img{
+
+.container img {
     width: 400px;
     margin-left: 10px;
+    max-height: 500px;
+    object-fit: cover;
+    margin-left: 0;
 }
+

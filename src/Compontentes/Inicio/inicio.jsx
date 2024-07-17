@@ -100,8 +100,8 @@ const Inicio = () => {
 
     return (
         <div className="inicio">
-            <Navegador className="navegador" />
             <Cabeza />
+            <Navegador className="navegador" />
             <FaBarsStaggered className='icoNav' />
             <nav className='navHidde'>
                 <Link to='/login' className='linkHidde'><FiLogIn /> Incias Sesion</Link>
@@ -115,7 +115,7 @@ const Inicio = () => {
                 {isLoggedIn && (
                     <h3 className='bienvenida'>Bienvenido/a {userName}</h3>
                 )}
-                <div>
+                <div className='contend'>
                     <h3>NSTITUTO DE EDUCACION SUPERIOR TECNOLOGICO PUBLICO SUIZA</h3>
                     <h1>DESARROLLO DE SISTEMAS DE INFORMACION</h1>
                     <p>Cada línea que escribes tiene el poder de transformar ideas en realidad, optimizar procesos y mejorar

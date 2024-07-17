@@ -3,15 +3,17 @@ import './docentes.css'
 import NavegadorDsi from '../Nav/navDsi'
 import Profes from './data'
 import Navegador from '../../Navegador/Navegador'
+import Cabeza from '../../Navegador/Cabeza'
 
 const Docentes = () => {
     return (
         <div className='docentes'>
+            <Cabeza />
             <Navegador />
             <main>
                 <NavegadorDsi />
                 <div className="container">
-                    <h2>MAESTROS 2024 DEL AREA DE ESTUDIOS DE DESARROLLO DE DISTEMAS DE INFORMACION</h2>
+                    <h1>MAESTROS 2024 DEL AREA DE ESTUDIOS DE DESARROLLO DE DISTEMAS DE INFORMACION</h1>
                     <div className="box-profes">
                         {Profes.map(dato => (
                             <div className='box'>
