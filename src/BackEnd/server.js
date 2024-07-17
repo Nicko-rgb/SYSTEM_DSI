@@ -257,37 +257,8 @@ app.post('/api/publicaciones/:publicacionId/comentar', async (req, res) => {
     }
 });
 
-app.get('/api/user/:identifier', async (req, res) => {
-    try {
-        const identifier = req.params.identifier;
-        const user = await User.findOne({
-            $or: [
-                { name: { $regex: new RegExp(identifier, 'i') } },
-                { email: identifier }
-            ]
-        });
-        
-        if (!user) {
-            return res.status(404).json({ message: 'Usuario no encontrado' });
-        }
-        
-        res.json({
-            nombre: `${user.name} ${user.lastName}`,
-            email: user.email
-        });
-    } catch (error) {
-        console.error('Error al obtener los datos del usuario:', error);
-        res.status(500).json({ message: 'Error al obtener los datos del usuario' });
-    }
-});
-
-
-
-
 // Iniciar el servidor
 const port = 5000;
 app.listen(port, () => {
     console.log('\x1b[32mServidor Iniciado en el puerto \x1b[0m', port);
-
-    
 });
