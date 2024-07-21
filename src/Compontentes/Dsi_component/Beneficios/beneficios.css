@@ -6,7 +6,6 @@
     overflow-y: auto;
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
-
 .beneficios .dsiNav .link5{
     color: orangered;
 }
@@ -18,13 +17,12 @@
     margin-left: 205px;
     width: calc(100% - 205px);
 }
-
-
-
 .beneficios-lista {
+    margin-top: 25px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    padding-bottom: 150px;
 }
 
 .beneficio-item {
@@ -35,7 +33,6 @@
     animation: aparecer 0.5s ease-in-out forwards;
     opacity: 0;
 }
-
 .beneficio-item h2 {
     color: #007bff;
     margin: 0 0 10px;
@@ -45,7 +42,6 @@
     color: #555;
     font-size: 16px;
 }
-
 @keyframes aparecer {
     0% {
         opacity: 0;
@@ -56,4 +52,9 @@
         transform: translateY(0);
     }
 }
-
+@media (max-width: 800px){
+    .beneficios .container{
+        margin-left: 55px;
+        width: calc(100% - 55px);
+    }
+}

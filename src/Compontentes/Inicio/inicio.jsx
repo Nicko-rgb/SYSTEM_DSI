@@ -34,7 +34,7 @@ const Inicio = () => {
         const interval = setInterval(() => {
             setBienvenida(tituloTexto.slice(0, index + 1));
             setIndex(index + 1);
-        }, 10);
+        }, 40);
 
         return () => clearInterval(interval);
     }, [index]);

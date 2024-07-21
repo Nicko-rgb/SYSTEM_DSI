@@ -24,6 +24,7 @@
     gap: 15px;
     position: relative;
     margin-top: 20px;
+    padding-bottom: 200px;
 }
 .carpetas .folder{
     box-shadow: 0 0 3px aqua;
@@ -49,6 +50,9 @@
     font-weight: bold;
     font-size: 14px;
 }
+.folder p{
+    font-size: 14px;
+}
 .folder .folderIco{
     width: 30px;
 }
@@ -64,3 +68,12 @@
     }
 }
 
+@media (max-width: 800px){
+    .biblioteca .container{
+        margin-left: 55px;
+        width: calc(100% - 55px);
+    }
+    .biblioteca .carpetas{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

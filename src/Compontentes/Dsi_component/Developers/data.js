@@ -2,6 +2,8 @@ import nixon from '../../../IMG/nick.jpg';
 import romer from '../../../IMG/ROMER.jpg';
 import soria from '../../../IMG/SORIA.jpg';
 import bruno from '../../../IMG/BRUNO.jpg';
+import josep from '../../../IMG/joseph.jpg'
+import castillo from '../../../IMG/castillon.jpg'
 
 const datDev = [
     {
@@ -35,6 +37,22 @@ const datDev = [
         email: "brunoperezrodrigues@gmail.com",
         img: bruno,
         github: "https://github.com/brunoperezrodrigues",
+    },
+    {
+        id: '5',
+        name: 'Padilla Alban Joseph',
+        cargo: 'Diseñador HTML',
+        email: "josephpadillaalban@gmail.com",
+        img: josep,
+        github: "https://github.com/josephpadillaalban",
+    },
+    {
+        id: '5',
+        name: 'Castro Fuentes Bartolito',
+        cargo: 'Diseñador CSS',
+        email: "bartolito.castro@gmail.com",
+        img: castillo,
+        github: "https://github.com/bartolito-castro",
     }
 ];
 
