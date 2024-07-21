@@ -7,16 +7,60 @@
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
 .biblioteca .container{
-    padding: 20px;
+    padding: 10px;
     color: white;
     transition: 0.3s ease;
     height: calc(100vh - 70px);
     margin-left: 205px;
-    border: red solid 1px;
     width: calc(100% - 205px);
-    overflow-y: auto;
 }
 
 .biblioteca .dsiNav .link4{
     color: orangered;
 }
+.carpetas{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   
+    gap: 15px;
+    position: relative;
+    margin-top: 20px;
+}
+.carpetas .folder{
+    box-shadow: 0 0 3px aqua;
+    border-radius: 10px;
+    padding: 8px;
+    /* max-width: 500px; */
+    cursor: pointer;
+    transition: 0.3s ease;
+    animation: aparecer 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+.carpetas .folder:hover{
+    text-decoration: underline orangered 1px;
+}
+.folder .subFolder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.carpetas .folder{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+.folder .folderIco{
+    width: 30px;
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

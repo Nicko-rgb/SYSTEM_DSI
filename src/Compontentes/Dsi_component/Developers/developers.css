@@ -13,25 +13,78 @@
     transition: 0.3s ease;
     height: calc(100vh - 70px);
     margin-left: 205px;
-    border: red solid 1px;
     width: calc(100% - 205px);
+    border: red solid 1px;
 }
 
 .developers .dsiNav .link6 {
     color: orangered;
 }
 
-.container .imgs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 20px;
+.dev-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 15px;
 }
 
-.container img {
-    width: 400px;
-    margin-left: 10px;
-    max-height: 500px;
+.dev-list .box{
+    position: relative;
+    box-shadow:  0 0 1px aqua;
+    background: rgba(21, 21, 21, 0.45);
+    max-width: 300px;
+    width: 100%;
+    height: 320px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    animation: aparecer 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+.dev-list .box:hover{
+    background: rgba(21, 21, 21, 0.45);
+    box-shadow: 0 0 5px aqua;
+}
+.dev-list .box .name{
+    margin-top: 20px;
+}
+.dev-list .box .name, .box a {
+    transition: color 0.3s ease;
+    color: white;
+    text-decoration: none;
+}
+.dev-list .box:hover .name, .box:hover a {
+    color: aqua;
+}
+
+.dev-list img{
+    width: 100%;
     object-fit: cover;
-    margin-left: 0;
+    border: aqua solid 1px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dev-list .box .icoGusta{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    font-size: 25px;
+    color: aqua;
+    cursor: pointer;
+}
+.dev-list .box span{
+    position: absolute;
+    top: 28px;
+    right: 16px;
+}
+.icoGusta.liked {
+    color: red; /* Color cuando se da like */
 }
 

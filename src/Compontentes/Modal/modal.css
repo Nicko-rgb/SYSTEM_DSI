@@ -18,7 +18,7 @@
     object-fit: contain;
     padding: 20px;
     background: rgb(31, 29, 29);
-    border-radius: 15px;
+    border-radius: 5px;
 }
 
 .modal button {

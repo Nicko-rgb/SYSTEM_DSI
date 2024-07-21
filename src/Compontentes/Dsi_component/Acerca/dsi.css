@@ -134,6 +134,8 @@
     color: black;
     transition: 0.3s ease;
     position: relative;
+    animation: aparecer 0.5s ease-in-out forwards;
+    opacity: 0;
 }
 
 .div1 .lenguajes .box-lenguajes .card:hover {

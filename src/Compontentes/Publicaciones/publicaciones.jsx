@@ -228,7 +228,7 @@ const Publicaciones = () => {
                             </div>
                         ) : (
                             <div className="soloTextoPublic">
-                                <h4>{datos.text}</h4>
+                                <h4 style={{ whiteSpace: 'pre-wrap' }}>{datos.text}</h4>
                             </div>
                         )}
 

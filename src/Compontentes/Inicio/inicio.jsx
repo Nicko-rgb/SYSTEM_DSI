@@ -34,7 +34,7 @@ const Inicio = () => {
         const interval = setInterval(() => {
             setBienvenida(tituloTexto.slice(0, index + 1));
             setIndex(index + 1);
-        }, 50);
+        }, 10);
 
         return () => clearInterval(interval);
     }, [index]);
@@ -83,7 +83,7 @@ const Inicio = () => {
             // else {
             //     setCurrentIndex(0);
             // }
-        }, 50);
+        }, 40);
 
         return () => clearInterval(interval);
     }, [currentIndex, codeExample]);

@@ -30,12 +30,14 @@
     padding-bottom: 50px;
 }
 .docentes .container .box {
-    box-shadow:  0 0 5px white;
+    box-shadow:  0 0 3px white;
     border-radius: 12px;
     width: 100%;
-    padding: 7%;
+    padding: 2%;
     background: rgba(21, 21, 21, 0.45);
     transition: 0.3s ease;
+    animation: aparecer 0.5s ease-in-out forwards;
+    opacity: 0;
 }
 .docentes .container .box:hover{
     transform: scale(1.03);
@@ -52,8 +54,8 @@
 .docentes .container .box img{
     width: 100%;
     transition: .3s ease;
-    max-height: 400px;
-    object-fit: cover;
+    max-height: 200px;
+    object-fit: contain;
     margin-left: 0;
 }
 .docentes .container .box div{

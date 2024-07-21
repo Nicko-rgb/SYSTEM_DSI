@@ -34,8 +34,8 @@
     position: relative;
     box-shadow: 0 0 2px orangered;
     border-radius: 7px 30px;
-    height: 20vw;
     padding: 1vw;
+    max-width: 500px;
     background: rgba(21, 21, 21, 0.548);
 }
 .modulos .moduls div h3{

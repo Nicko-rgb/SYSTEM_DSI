@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './mural.css';
 import Navegador from '../Navegador/Navegador';
-import ModalImg from '../Modal/Modal';
+import ModalImg from '../Modal/ModalImg';
 
 import activi1 from './IMG/activi1.jpeg';
 import activi2 from './IMG/activi2.jpeg';

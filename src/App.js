@@ -13,11 +13,9 @@ import Beneficios from './Compontentes/Dsi_component/Beneficios/Beneficios';
 import Developers from './Compontentes/Dsi_component/Developers/Developers';
 import CursorEffect from './CursorEfect/CursorEfect';
 import Perfil from './Compontentes/Perfil/Perfil';
-
 import ServirIMG from './BackEnd/SerImg';
 
 function App() {
-
     return (
         <div className="App">
             <CursorEffect />

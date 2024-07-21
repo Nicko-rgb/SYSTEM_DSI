@@ -5,7 +5,7 @@ import Navegador from '../../Navegador/Navegador'
 import NavegadorDsi from '../Nav/navDsi';
 import lenguajes from './lenguajes';
 import Cabeza from '../../Navegador/Cabeza';
-import ModalImg from '../../Modal/Modal';
+import ModalImg from '../../Modal/ModalImg';
 
 import foto1 from '../../../IMG/codigo.png'
 import foto2 from '../../../IMG/foto1.jpg'
@@ -61,8 +61,8 @@ const Dsi = () => {
                             <div className="lenguajes">
                                 <h5>Lenguajes de Programación y Herramientas</h5>
                                 <div className="box-lenguajes">
-                                    {lenguajes.map(dato => (
-                                        <div className='card'>
+                                    {lenguajes.map((dato, index) => (
+                                        <div className='card' style={{ animationDelay: `${index * 0.3}s` }}>
                                             <img src={dato.img} alt="" />
                                             <h6>{dato.nombre}</h6>
                                             <p>{dato.descripcion} </p>

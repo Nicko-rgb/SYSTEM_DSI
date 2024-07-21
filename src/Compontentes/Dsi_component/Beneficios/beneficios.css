@@ -16,7 +16,44 @@
     transition: 0.3s ease;
     height: calc(100vh - 70px);
     margin-left: 205px;
-    border: red solid 1px;
     width: calc(100% - 205px);
-    overflow-y: auto;
 }
+
+
+
+.beneficios-lista {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.beneficio-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    animation: aparecer 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+.beneficio-item h2 {
+    color: #007bff;
+    margin: 0 0 10px;
+}
+
+.beneficio-item p {
+    color: #555;
+    font-size: 16px;
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

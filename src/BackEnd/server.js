@@ -6,7 +6,6 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const path = require('path');
 
-
 // Configurar el middleware para servir archivos estáticos
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -90,6 +89,9 @@ app.use((req, res, next) => {
     next();
 });
 app.use(cors());
+
+// Middleware para servir archivos estáticos desde la carpeta "uploads"
+app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Ruta para obtener todos los usuarios
 app.get('/api/users', async (req, res) => {
@@ -190,7 +192,7 @@ app.post('/api/publicaciones', upload.fields([
     }
 });
 
-//para actulizar el numero de likes
+//para actulizar el numero de likes de publicaciones
 app.post('/api/publicaciones/:publicacionId/like', async (req, res) => {
     try {
         const { publicacionId } = req.params;
@@ -257,8 +259,54 @@ app.post('/api/publicaciones/:publicacionId/comentar', async (req, res) => {
     }
 });
 
+
+// Modelo de datos para cada "Me Gusta" de desarrolladores
+const LikeDeveloperSchema = new mongoose.Schema({
+    desarrolladorId: { type: String, required: true },
+    likes: [
+        {
+            userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+            userName: { type: String, required: true },
+            value: { type: Number, default: 0 },
+        },
+    ],
+});
+
+const LikeDeveloper = mongoose.model('LikeDeveloper', LikeDeveloperSchema);
+
+// Ruta para obtener todos los "Me Gusta" de desarrolladores
+app.get('/api/likesdev', async (req, res) => {
+    try {
+        const likes = await LikeDeveloper.find({});
+        res.json(likes);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error al obtener los "Me Gusta"' });
+    }
+});
+// Ruta para actualizar los "Me Gusta" de desarrolladores
+app.put('/api/likesdev/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { userName, likes } = req.body;
+
+        const likeDeveloper = await LikeDeveloper.findOneAndUpdate(
+            { desarrolladorId: id },
+            { likes },
+            { new: true, upsert: true }
+        );
+
+        res.json(likeDeveloper);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error al actualizar los "Me Gusta"' });
+    }
+});
+
+
+
 // Iniciar el servidor
-const port = 5000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log('\x1b[32mServidor Iniciado en el puerto \x1b[0m', port);
 });
