@@ -1,6 +1,6 @@
 import nixon from '../../../IMG/nick.jpg';
 import romer from '../../../IMG/ROMER.jpg';
-import soria from '../../../IMG/SORIA.jpg';
+import SORIA from '../../../IMG/SORIA.jpg';
 import bruno from '../../../IMG/BRUNO.jpg';
 import josep from '../../../IMG/joseph.jpg'
 import castillo from '../../../IMG/castillon.jpg'
@@ -27,7 +27,7 @@ const datDev = [
         name: 'Soria Paima Cesar',
         cargo: 'Desarrollador FrontEnd',
         email: "csoria.1999@gmail.com",
-        img: soria,
+        img: SORIA,
         github: "https://github.com/cesar-soria",
     },
     {
