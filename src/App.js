@@ -13,7 +13,6 @@ import Beneficios from './Compontentes/Dsi_component/Beneficios/Beneficios';
 import Developers from './Compontentes/Dsi_component/Developers/Developers';
 import CursorEffect from './CursorEfect/CursorEfect';
 import Perfil from './Compontentes/Perfil/Perfil';
-import ServirIMG from './BackEnd/SerImg';
 
 function App() {
     return (
@@ -35,7 +34,6 @@ function App() {
                     <Route path="/dsi/biblioteca" element={<Biblioteca />} />
                     <Route path="/dsi/beneficios" element={<Beneficios />} />
                     <Route path="/dsi/developers" element={<Developers />} />
-                    <Route path='/servir/img/' element={<ServirIMG /> } />
                 </Routes>
             </BrowserRouter>
         </div>
