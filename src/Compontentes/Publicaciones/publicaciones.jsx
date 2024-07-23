@@ -271,7 +271,7 @@ const Publicaciones = () => {
                 <div className="modal">
                     <div className="modal-content">
                         <button className="close-btn" onClick={closeModal}><FaTimes /></button>
-                        <img src={`/uploads/${selectedImage.filename}`} alt="Imagen ampliada" />
+                        <img src={`https://backend-systemblog-production.up.railway.app/uploads/${selectedImage.filename}`} alt="Imagen ampliada" />
                     </div>
                 </div>
             )}
