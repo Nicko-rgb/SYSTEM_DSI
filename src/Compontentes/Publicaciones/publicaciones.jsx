@@ -2,11 +2,12 @@ import './publicacion.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import { FaHeart, FaPlus } from "react-icons/fa";
+import { FaHeart, FaRegShareSquare, FaPlus } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { FaTimes } from "react-icons/fa";
 import { SlOptionsVertical } from "react-icons/sl"
 import texto from '../../IMG/texto.png'
+
 import Navegador from '../Navegador/Navegador';
 import Cabeza from '../Navegador/Cabeza';
 import Comentarios from './Comentarios';
@@ -19,12 +20,20 @@ const Publicaciones = () => {
     const [publicaciones, setPublicaciones] = useState([]);
     const [comment, setComment] = useState('');
 
+
     // Agrega un estado local para cada publicación
     const [showComments, setShowComments] = useState({});
     const [likes, setLikes] = useState({});
     const [showUploadForm, setShowUploadForm] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+
+    // const handleLike = (id) => {
+    //     setLiked((prevLiked) => ({
+    //         ...prevLiked,
+    //         [id]: !prevLiked[id]
+    //     }));
+    // };
 
     const handleComments = (id) => {
         setShowComments((prevShowComments) => ({
@@ -69,9 +78,10 @@ const Publicaciones = () => {
         fechPublicacion();
     }, []);
 
+    
+
     //codigo para enviar comentarios de cada publicacion
-    const handleCommentSubmit = async (publicacionId, e) => {
-        e.preventDefault();
+    const handleCommentSubmit = async (publicacionId) => {
         try {
             // Enviar el comentario al servidor
             await fetch(`https://backend-systemblog-production.up.railway.app/api/publicaciones/${publicacionId}/comentar`, {
@@ -84,6 +94,7 @@ const Publicaciones = () => {
                     texto: comment,
                 }),
             });
+
             // Limpiar el campo de comentario
             setComment('');
 
@@ -226,6 +237,7 @@ const Publicaciones = () => {
                                 <FaHeart className={`ico meGusta ${likes[datos._id] ? 'liked' : ''}`} />
                                 <p style={{ color: 'white' }}>{datos.likes}</p>
                             </div>
+
                             <div className={`divComentar ${showComments[datos._id] ? 'show-comments' : ''}`} onClick={() => handleComments(datos._id)}>
                                 <TiMessages className='ico comentar' />
                                 <p>Comentarios</p>
@@ -240,6 +252,7 @@ const Publicaciones = () => {
 
                         <div style={{ position: 'relative' }} className='formComent'>
                             <form onSubmit={(e) => {
+                                e.preventDefault();
                                 handleCommentSubmit(datos._id);
                             }}>
                                 <input
