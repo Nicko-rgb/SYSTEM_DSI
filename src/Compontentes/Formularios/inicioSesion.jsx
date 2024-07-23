@@ -19,7 +19,7 @@ const Login = () => {
         e.preventDefault()
 
         try {
-            const response = await axios.post('/api/login', { email, password })
+            const response = await axios.post('https://backend-systemblog-production.up.railway.app/api/login', { email, password })
             console.log("Inicio de Sesion de usuario Exitoso");
             handleLogin(response.data.name, response.data.token)
             navigate('/')
