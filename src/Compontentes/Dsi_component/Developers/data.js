@@ -1,9 +1,9 @@
-import nixon from '../../../IMG/nick.jpg';
-import romer from '../../../IMG/romer.jpg';
-import soria from '../../../IMG/soria.jpg';
-import bruno from '../../../IMG/bruno.jpg';
-import josep from '../../../IMG/joseph.jpg'
-import castillo from '../../../IMG/castillon.jpg'
+import nixon from './IMG/nick.jpg';
+import romer from './IMG/romer.jpg';
+import soria from './IMG/soria.jpg';
+import bruno from './IMG/bruno.jpg';
+import josep from './IMG/joseph.jpg'
+import castillo from './IMG/castillon.jpg'
 
 const datDev = [
     {
