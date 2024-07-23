@@ -215,13 +215,13 @@ const Publicaciones = () => {
                                 <p className='descrip'> {datos.textArchivo} </p>
                                 {datos.image && (
                                     <div className="fotoPublicacion" onClick={() => handleImageClick(datos.image)}>
-                                        <img src={`/uploads/${datos.image.filename}`} alt='imagenPublic' />
+                                        <img src={`https://backend-systemblog-production.up.railway.app/uploads/${datos.image.filename}`} alt='imagenPublic' />
                                     </div>
                                 )}
                                 {datos.video && (
                                     <div className="videoPublicacion">
                                         <video controls>
-                                            <source src={`/uploads/${datos.video.filename}`} type={datos.video.contentType} />
+                                            <source src={`https://backend-systemblog-production.up.railway.app/uploads/${datos.video.filename}`} type={datos.video.contentType} />
                                         </video>
                                     </div>
                                 )}
