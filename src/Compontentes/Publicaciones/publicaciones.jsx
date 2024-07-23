@@ -64,7 +64,7 @@ const Publicaciones = () => {
     useEffect(() => {
         const fechPublicacion = async () => {
             try {
-                const dataPublicacion = await fetch("/api/publicaciones")
+                const dataPublicacion = await fetch("https://backend-systemblog-production.up.railway.app/api/publicaciones")
                 const publicaciones = await dataPublicacion.json()
                 setPublicaciones(publicaciones)
 
@@ -84,7 +84,7 @@ const Publicaciones = () => {
     const handleCommentSubmit = async (publicacionId) => {
         try {
             // Enviar el comentario al servidor
-            await fetch(`/api/publicaciones/${publicacionId}/comentar`, {
+            await fetch(`https://backend-systemblog-production.up.railway.app/api/publicaciones/${publicacionId}/comentar`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ const Publicaciones = () => {
         // Cargar los likes del usuario al iniciar el componente
         const fetchLikes = async () => {
             try {
-                const response = await axios.get(`/api/likes/${userName}`);
+                const response = await axios.get(`https://backend-systemblog-production.up.railway.app/api/likes/${userName}`);
                 setLikes(response.data.reduce((acc, like) => {
                     acc[like.publicacionId] = true;
                     return acc;
@@ -137,7 +137,7 @@ const Publicaciones = () => {
             }
 
             // Enviar la acción de like al servidor
-            await axios.post(`/api/publicaciones/${publicacionId}/like`, {
+            await axios.post(`https://backend-systemblog-production.up.railway.app/api/publicaciones/${publicacionId}/like`, {
                 userName: userName,
             });
 

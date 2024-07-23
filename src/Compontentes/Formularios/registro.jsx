@@ -26,7 +26,7 @@ const RegistroUser = () => {
 
         try {
             // Verificar si el correo electrónico ya existe en la base de datos
-            const existingUser = await axios.get(`/api/users?email=${email}`);
+            const existingUser = await axios.get(`https://backend-systemblog-production.up.railway.app/api/users?email=${email}`);
     
             if (existingUser.data.email === email) {
                 setErrorMessage('Correo electrónico ya está en uso');
@@ -50,7 +50,7 @@ const RegistroUser = () => {
                 fecha_registro: new Date()
             };
     
-            await axios.post('/api/users', newUser);
+            await axios.post('https://backend-systemblog-production.up.railway.app/api/users', newUser);
             navigate('/login');
         } catch (error) {
             console.error("Error al registrar usuario:", error);

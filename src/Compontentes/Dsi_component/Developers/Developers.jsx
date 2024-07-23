@@ -19,7 +19,7 @@ const Developers = () => {
         // Cargar los "Me Gusta" iniciales desde el servidor
         const fetchLikes = async () => {
             try {
-                const response = await axios.get('/api/likesdev');
+                const response = await axios.get('https://backend-systemblog-production.up.railway.app/api/likesdev');
                 const likesData = response.data.reduce((acc, like) => {
                     acc[like.desarrolladorId] = like.likes;
                     return acc;
@@ -63,7 +63,7 @@ const Developers = () => {
             }
 
             // Actualizar los likes en el servidor
-            const response = await axios.put(`/api/likesdev/${desarrolladorId}`, {
+            const response = await axios.put(`https://backend-systemblog-production.up.railway.app/api/likesdev/${desarrolladorId}`, {
                 userName,
                 likes: newLikes,
             });

@@ -67,7 +67,7 @@ const UploadForm = ({ cerrarSubir }) => {
                 formData.append('video', video);
             }
 
-            await axios.post('/api/publicaciones', formData);
+            await axios.post('https://backend-systemblog-production.up.railway.app/api/publicaciones', formData);
             cerrarSubir();
             //recargar ventana
             window.location.reload();
