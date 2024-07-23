@@ -10,7 +10,12 @@ const path = require('path');
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Conectar a la base de datos MongoDB
-mongoose.connect('mongodb://localhost/system_blog');
+// Conectar a la base de datos MongoDB Atlas
+const uri = "mongodb+srv://mancillanixon7:um8xTFnPbq9eMwnx@systemdsi.mouqdaf.mongodb.net/system_blog?retryWrites=true&w=majority";
+mongoose.connect(uri)
+.then(() => console.log('Conectado a MongoDB Atlas!'))
+.catch((error) => console.error('Error conectando a MongoDB Atlas:', error));
+
 
 // Definir la estructura para registrar usuario en la colección "users"
 const userSchema = new mongoose.Schema({
