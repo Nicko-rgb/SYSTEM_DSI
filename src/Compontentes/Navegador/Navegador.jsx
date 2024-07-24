@@ -36,7 +36,7 @@ const Navegador = () => {
                         </Link>
                     )}
                     {isLoggedIn && (
-                        <Link to='/user/perfil s' className="perfilUser">
+                        <Link to='/user/perfil' className="perfilUser">
                             <FaRegUser />
                         </Link>
                     )}
