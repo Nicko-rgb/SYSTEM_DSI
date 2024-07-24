@@ -1,7 +1,7 @@
 import './publicacion.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import moment from 'moment';
+// import moment from 'moment';
 import { FaHeart, FaPlus } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { FaTimes } from "react-icons/fa";
@@ -28,33 +28,22 @@ const Publicaciones = () => {
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
 
-    // const handleLike = (id) => {
-    //     setLiked((prevLiked) => ({
-    //         ...prevLiked,
-    //         [id]: !prevLiked[id]
-    //     }));
-    // };
-
     const handleComments = (id) => {
         setShowComments((prevShowComments) => ({
             ...prevShowComments,
             [id]: !prevShowComments[id]
         }));
     };
-
     const mostrarSubirPublic = () => {
         setShowUploadForm(true);
     };
-
     const cerrarSubirPublic = () => {
         setShowUploadForm(false);
     };
-
     const handleImageClick = (image) => {
         setSelectedImage(image);
         setShowModal(true);
     };
-
     const closeModal = () => {
         setShowModal(false);
         setSelectedImage(null);
@@ -77,9 +66,6 @@ const Publicaciones = () => {
         };
         fechPublicacion();
     }, []);
-
-    
-
     //codigo para enviar comentarios de cada publicacion
     const handleCommentSubmit = async (publicacionId) => {
         try {
@@ -158,12 +144,22 @@ const Publicaciones = () => {
     };
 
     //para formatear la fecha y la hora
+    // const formatDate = (dateString) => {
+    //     return moment.utc(dateString).format('DD/MM/YYYY');
+    // };
+
+    // const formatTime = (timeString) => {
+    //     return moment(timeString, 'HH:mm:ss').format('HH:mm');
+    // };
+    //formatear menos 5 horas
+    const moment = require('moment-timezone'); // Asegúrate de que moment-timezone esté instalado
+
     const formatDate = (dateString) => {
-        return moment.utc(dateString).format('DD/MM/YYYY');
+        return moment.utc(dateString).local().format('DD/MM/YYYY');
     };
 
     const formatTime = (timeString) => {
-        return moment(timeString, 'HH:mm:ss').format('HH:mm');
+        return moment.utc(timeString, 'HH:mm:ss').local().format('HH:mm');
     };
 
     return (
@@ -240,7 +236,7 @@ const Publicaciones = () => {
 
                             <div className={`divComentar ${showComments[datos._id] ? 'show-comments' : ''}`} onClick={() => handleComments(datos._id)}>
                                 <TiMessages className='ico comentar' />
-                                <p>Comentarios</p>
+                                <p>{datos.comentarios.length} </p>
                             </div>
                         </footer>
 

@@ -14,7 +14,6 @@
     height: calc(100vh - 70px);
     margin-left: 205px;
     width: calc(100% - 205px);
-    border: red solid 1px;
 }
 
 .developers .dsiNav .link6 {
@@ -26,6 +25,7 @@
     flex-wrap: wrap;
     margin-top: 30px;
     gap: 15px;
+    padding-bottom: 140px;
 }
 
 .dev-list .box{
@@ -55,11 +55,11 @@
 }
 .dev-list .box p{
     font-size: 16px;
+    text-align: center;
 }
 .dev-list .box .name, .box a {
     transition: color 0.3s ease;
     color: white;
-    text-decoration: none;
 }
 .dev-list .box a:hover{
     text-decoration: underline;
@@ -102,10 +102,12 @@
     .dev-list{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        width: 100%;
     }
     .dev-list .box{
         width: 100%;
         max-width: 100%;
+        min-width: 100%;
     }
     .dev-list .box .name{
         font-size: 18px;

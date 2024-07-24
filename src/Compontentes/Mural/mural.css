@@ -11,67 +11,65 @@
 .periodico .navegador .link4::before {
     width: 100%;
 }
-
-.periodico header {
+.periodico main{
     display: flex;
-    justify-content: space-around;
-    color: white;
-    position: sticky;
-    top: 70px;
-}
-
-.periodico header div {
-    border-radius: 10px;
-    border: orangered solid 1px;
-    width: 260px;
-    padding: .5vw;
-    text-align: center;
-    backdrop-filter: blur(10px);
-}
-
-.periodico header h4 {
-    color: orangered;
-    font-family: 'Lato';
-}
-
-.periodico main section {
-    display: flex;
-    flex-direction: row;
-}
-
-.periodico section aside {
-    border: none;
-    padding: 20px;
     width: 100%;
-    border-right: orangered solid 1px;
+    gap: 5vw;
+    padding: 0 5vw;
+    background: rgb(26, 24, 24);
+}
+.periodico main section{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    overflow-y: auto;
-    margin-bottom: 20px;
+    flex: 1;
 }
-
-.periodico section .curiosidades {
-    border-right: none;
-}
-
-.periodico section p {
-    color: white;
-    width: 90%;
-    margin-top: -15px;
-    text-align: center;
-}
-
-.periodico section img {
-    width: 90%;
-    height: 250px;
-    object-fit: cover;
+.periodico section h4{
+    color: aqua;
     padding: 10px;
-    border-radius: 7px;
-    box-shadow: 0 0 2px orangered;
 }
-
+.periodico section .content{
+    display: flex;
+    flex-direction: column;
+}
+.periodico .content aside{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.periodico .content aside > div{
+    padding: 10px;
+    box-shadow: 0 0 1px aqua;
+    border-radius: 10px;
+    background: rgb(33, 32, 32);
+    transition: 0.3s ease;
+}
+.periodico .content aside > div:hover{
+    box-shadow: 0 0 5px aqua;
+}
+.periodico main section img{
+    width: 100%;
+    transition: .3s ease;
+    max-height: 200px;
+    min-height: 200px;
+    object-fit: contain;
+}
+.periodico main section img:hover{
+    transform: scale(1.07);
+}
+.periodico main section p{
+    color: white;
+    margin-left: 0;
+    text-align: center;
+    padding: 2px;
+    font-size: initial;
+}
+@media (max-width: 800px){
+    .periodico main{
+        display: grid;
+        grid-template-columns: repeat(2, fr);
+        padding-bottom: 140px;
+    }
+}
 
 
 

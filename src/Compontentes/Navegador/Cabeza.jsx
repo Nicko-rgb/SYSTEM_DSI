@@ -4,10 +4,13 @@ import logo from '../../IMG/logo.png'
 import { IoExitOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import EstadoSesion from '../Formularios/Sesion';
+import useLogout from '../Inicio/useLogout';
 
 const Cabeza = () => {
 
-    const { isLoggedIn } = EstadoSesion();
+    const { isLoggedIn, handleLogout } = EstadoSesion();
+    //para cambiar estado de Incio de sesion
+    const handleLogoutAndReload = useLogout(handleLogout);
 
     return (
         <div className="cabeza">
@@ -21,7 +24,7 @@ const Cabeza = () => {
             )}
             {isLoggedIn && (
                 <div>
-                    <Link to='/' className="salirUser">
+                    <Link to='/' className="salirUser" onClick={handleLogoutAndReload}>
                         <IoExitOutline />
                     </Link>
                     <Link to='/user/perfil' className="perfilUser">

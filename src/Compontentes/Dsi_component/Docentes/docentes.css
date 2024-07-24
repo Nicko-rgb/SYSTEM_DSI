@@ -27,10 +27,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
     margin-top: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 130px;
 }
 .docentes .container .box {
-    box-shadow:  0 0 3px white;
+    box-shadow:  0 0 3px aqua;
     border-radius: 12px;
     width: 100%;
     padding: 2%;
@@ -41,15 +41,13 @@
 }
 .docentes .container .box:hover{
     transform: scale(1.03);
-    box-shadow:  0 0 10px white;
+    box-shadow:  0 0 10px aqua;
 }
 .docentes .container .box h5{
     text-align: center;
     /* -webkit-text-stroke: 1px orangered; */
-    text-shadow: 0 0 5px orangered,
-                0 0 5px orangered,
-                0 0 5px orangered;
-                font-size: 20px;
+    text-shadow: 0 0 5px aqua;
+                font-size: 18px;
 }
 .docentes .container .box img{
     width: 100%;
@@ -67,6 +65,7 @@
 }
 .docentes .container .box div p, h4{
     text-align: center;
+    font-size: initial;
 }
 @media (max-width: 1000px){
     .docentes .container .box-profes{

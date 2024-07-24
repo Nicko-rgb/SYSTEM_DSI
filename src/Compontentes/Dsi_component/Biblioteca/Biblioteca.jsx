@@ -4,6 +4,8 @@ import Navegador from '../../Navegador/Navegador';
 import NavegadorDsi from '../Nav/navDsi';
 import Cabeza from '../../Navegador/Cabeza';
 import Carpeta from './carpeta';
+import python from '../../../IMG/python.png'
+import js from '../../../IMG/js.png'
 
 
 const Biblioteca = () => {
@@ -35,6 +37,16 @@ const Biblioteca = () => {
                                 </div>
                             </a>
                         ))}
+                    </div>
+                    <div className="imgs">
+                        <div>
+                            <h4>Sintaxis de JavaScript</h4>
+                            <img src={js} alt="" />
+                        </div>
+                        <div>
+                            <h4>Sintaxis de Python</h4>
+                            <img src={python} alt="" />
+                        </div>
                     </div>
                 </div>
             </main>

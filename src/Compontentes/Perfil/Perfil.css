@@ -1,14 +1,15 @@
 .perfil-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #5a86c7;
   background: linear-gradient(135deg, rgba(4, 4, 27, 1) 0%, rgba(64, 2, 2, 1) 200%);
+  padding: 20px;
 }
 
 .perfil-card {
-  background: linear-gradient(135deg, rgba(4, 4, 27, 1) 0%, rgba(64, 2, 2, 1) 200%);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
               0 10px 20px rgba(0, 0, 0, 0.1),
@@ -19,7 +20,8 @@
   border: 2px solid white;
 }
 
-.perfil-card h2, .perfil-card p {
+.perfil-card h2,
+.perfil-card p {
   color: white;
 }
 
@@ -35,6 +37,7 @@
   margin: 0 auto 20px;
   display: block;
   object-fit: cover;
+  border: 2px solid white;
 }
 
 .perfil-info {
@@ -46,12 +49,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.perfil-card:hover .perfil-opciones {
-  opacity: 1;
 }
 
 .opcion {
@@ -67,6 +64,7 @@
 .opcion:hover {
   background-color: #8bb095;
 }
+
 .boton-regresar {
   position: absolute;
   top: 20px;
@@ -82,4 +80,38 @@
 
 .boton-regresar:hover {
   background-color: #3e8e41;
+}
+
+.form-editar,
+.form-cambiar-contrasena {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #4267B2;
+  box-shadow: 0 0 5px rgba(66, 103, 178, 0.5);
+}
+
+.perfil-container button[type="submit"] {
+  background-color: #4267B2;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.perfil-container button[type="submit"]:hover {
+  background-color: #8bb095;
 }

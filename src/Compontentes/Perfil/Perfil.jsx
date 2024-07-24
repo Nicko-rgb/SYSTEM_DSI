@@ -11,7 +11,7 @@ const Perfil = () => {
     useEffect(() => {
         setUsuario({
             nombre: userName,
-            email: `${userName}@gmai.com`,
+            email: `${userName}@gmail.com`,
             fotoPerfil: 'https://img.freepik.com/foto-gratis/colores-arremolinados-interactuan-danza-fluida-sobre-lienzo-que-muestra-tonos-vibrantes-patrones-dinamicos-que-capturan-caos-belleza-arte-abstracto_157027-2892.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1720742400&semt=sph'
         });
     }, [userName]);
@@ -60,17 +60,17 @@ const Perfil = () => {
                         style={{ display: 'none' }}
                         accept="image/*"
                     />
-                    <button className="opcion">Editar perfil</button>
-                    <button className="opcion">Cambiar contraseña</button>
+                    <button className="opcion" onClick={handleEditarPerfil}>Editar perfil</button>
+                    <button className="opcion" onClick={handleCambiarContrasena}>Cambiar contraseña</button>
                 </div>
             </div>
-            <form onSubmit={handleEditarPerfil}>
+            <form onSubmit={handleEditarPerfil} className="form-editar">
                 <input name="nombre" defaultValue={usuario.nombre} placeholder="Nombre" required />
                 <input name="email" defaultValue={usuario.email} placeholder="Email" type="email" required />
                 <button type="submit">Guardar</button>
             </form>
 
-            <form onSubmit={handleCambiarContrasena}>
+            <form onSubmit={handleCambiarContrasena} className="form-cambiar-contrasena">
                 <input name="oldPassword" type="password" placeholder="Contraseña actual" required />
                 <input name="newPassword" type="password" placeholder="Nueva contraseña" required />
                 <input name="confirmPassword" type="password" placeholder="Confirmar nueva contraseña" required />

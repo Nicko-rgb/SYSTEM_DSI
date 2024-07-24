@@ -54,7 +54,7 @@ const RegistroUser = () => {
             navigate('/login');
         } catch (error) {
             console.error("Error al registrar usuario:", error);
-            setErrorMessage('Error al registrar el usuariooo');
+            setErrorMessage('Error: posiblemente el Correo ya esta en uso');
         }
     };
 

@@ -48,9 +48,9 @@ const datDev = [
     },
     {
         id: '5',
-        name: 'Castro Fuentes Bartolito',
+        name: 'Vargas Castillon Edinson',
         cargo: 'Diseñador CSS',
-        email: "bartolito.castro@gmail.com",
+        email: "castillonfor7@gmail.com",
         img: castillo,
         github: "https://github.com/bartolito-castro",
     }
