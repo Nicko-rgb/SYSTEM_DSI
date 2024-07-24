@@ -2,7 +2,7 @@ import './publicacion.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import { FaHeart, FaRegShareSquare, FaPlus } from "react-icons/fa";
+import { FaHeart, FaPlus } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { FaTimes } from "react-icons/fa";
 import { SlOptionsVertical } from "react-icons/sl"
@@ -197,8 +197,8 @@ const Publicaciones = () => {
                             <div className="datoUser">
                                 <h3>{datos.userName} </h3>
                                 <div>
-                                    <p> {formatDate(datos.createdAtDate)} </p>
-                                    <p> {formatTime(datos.createdAtTime)} </p>
+                                    <p>{formatDate(datos.createdAtDate)} </p>
+                                    <p>{formatTime(datos.createdAtTime)} </p>
                                 </div>
                             </div>
                             <SlOptionsVertical className='ico-publiAction' />
