@@ -33,12 +33,12 @@ const Docentes = () => {
                     <div className="box-profes">
                         {Profes.map((dato, index) => (
                             <div className='box' style={{ animationDelay: `${index * 0.2}s` }}>
-                                <h5>{dato.nombre} </h5>
+                                <p className='txtPr'>{dato.nombre} </p>
                                 <img src={dato.foto} alt="" onClick={() => abrirModal(dato.foto)}/>
                                 <div>
-                                    <p>{dato.email} </p>
-                                    <p>{dato.numero} </p>
-                                    <h4>{dato.cargo} </h4>
+                                    <p className='txtPr'>{dato.email} </p>
+                                    <p className='txtPr'>{dato.numero} </p>
+                                    <p className='txtPr'>{dato.cargo} </p>
                                 </div>
                             </div>
                         ))}

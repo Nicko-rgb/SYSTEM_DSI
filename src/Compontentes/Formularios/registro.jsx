@@ -8,6 +8,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cabeza from '../Navegador/Cabeza';
+import Terminos from '../Terminos Condic/Terminos'
 
 const RegistroUser = () => {
     const [name, setName] = useState('');
@@ -19,6 +20,7 @@ const RegistroUser = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false); // State for modal
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -100,15 +102,16 @@ const RegistroUser = () => {
                         <label>Confirmar Contraseña:</label>
                         <input type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                     </div>
-                    <div className="terminos">
+                    <div className="term">
                         <input type="checkbox" checked={termsAccepted} onChange={(e) => setTermsAccepted(e.target.checked)} />
-                        <p>Al Registrarse Acepta los <a href="/wiki/term-condic"> Términos y condicones</a> </p>
+                        <p style={{background: 'transparent'}}>Al Registrarse Acepta los <span onClick={() => setIsModalOpen(true)} > Términos y condiciones</span> </p>
                     </div>
                     {errorMessage && <p className='errorPassword-message'>{errorMessage}</p>}
                     <button type="submit" className={`${termsAccepted ? '' : 'disabled'}`}>REGISTRAR</button>
                     <p>¿Ya tienes cuenta?<Link to='/login/' className='link'> Iniciar Sesión</Link></p>
                 </form>
             </div>
+            <Terminos isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 };

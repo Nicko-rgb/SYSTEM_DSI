@@ -20,7 +20,7 @@ const ModalCambiarContrasena = ({ onClose, onSave }) => {
     };
 
     return (
-        <div className="modal">
+        <div className="modalPerfil">
             <div className="modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
                 <h2>Cambiar Contraseña</h2>

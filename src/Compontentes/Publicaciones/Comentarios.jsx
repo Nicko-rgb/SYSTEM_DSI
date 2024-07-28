@@ -1,16 +1,17 @@
 import './coment.css'
 import React from 'react';
+import { FaUser } from "react-icons/fa";
 
 const Comentarios = ({ comentarios }) => {
     return (
-        <section>
+        <section className='comentarios'>
             {comentarios.map((comentario, index) => (
                 <div key={index} className='sub'>
                     <div className="infoComent">
-                        <i></i>
+                        <FaUser className='userComent' />
                         <h4>{comentario.usuario}</h4>
                     </div>
-                    <p style={{ color: 'white' }}>{comentario.texto}</p>
+                    <p className='txtCom' style={{ color: 'white', fontSize: '15px' }}>{comentario.texto}</p>
                 </div>
             ))}
         </section>

@@ -33,7 +33,7 @@ const Dsi = () => {
             <Cabeza />
             <Navegador />
             <main>
-                <NavegadorDsi className='dsiNav' />
+                <NavegadorDsi/>
                 <section className="container">
                     <div className='subContent'>
                         <section className='div1'>

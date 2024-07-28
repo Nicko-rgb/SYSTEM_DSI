@@ -13,6 +13,9 @@
     box-shadow: 0 0 3px aqua;
     border: rgb(57, 68, 68) solid 1px;
 }
+.inicio .cabeza{
+    background: linear-gradient(135deg, rgba(4, 4, 27, 0.834) 0%, rgba(64, 2, 2, 0.246) 200%);
+}
 .inicio .navegador .link1 {
     color: orangered;
 }
@@ -21,10 +24,8 @@
     width: 100%;
 }
 
-.inicio .loaded {
-    transform: scale(1);
-}
 .inicio main{
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -50,7 +51,7 @@
 }
 
 .inicio .icoNav {
-    position: absolute;
+    position: fixed;
     color: white;
     font-size: 28px;
     padding: 5px;
@@ -59,7 +60,7 @@
 }
 
 .inicio .navHidde {
-    position: absolute;
+    position: fixed;
     left: -170px;
     display: flex;
     flex-direction: column;
@@ -198,7 +199,7 @@
 .inicio .box-butons .btn2:hover{
     background: orangered;
 }
-.inicio ,.box-butons .butons2 button{
+.inicio .box-butons .butons2 button{
     background: transparent;
     width: auto;
     backdrop-filter: blur(20px);
@@ -249,13 +250,6 @@
     }
 }
 @media (max-width: 700px) {
-    .inicio .icoNav, .navHidde{
-        margin-top: -70px;
-    }
-    .inicio main{
-        padding: 5px;
-        margin-top: -70px;
-    }
     .inicio main .bienvenida{
         font-size: 20px;
     }
@@ -264,5 +258,8 @@
     }
     .inicio .content .subContent .subContent2{
         box-shadow: none;
+    }
+    .inicio .box-butons{
+        padding-bottom: 200px;
     }
 }

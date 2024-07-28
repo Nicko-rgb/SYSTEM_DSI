@@ -19,6 +19,7 @@
     padding-top: 15px;
     display: flex;
     justify-content: space-between;
+    background: linear-gradient(135deg, rgba(4, 4, 27, 0.643) 0%, rgba(64, 2, 2, 0.338) 200%);
 }
 .registroUser .subRegistro{
     position: relative;
@@ -46,14 +47,14 @@
     text-align: center;
 }
 .registroUser form {
-    box-shadow: 0 0 5px orangered;
+    box-shadow: 0 0 2px aqua;
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 400px;
     padding: 20px;
-    border-radius: 10px; /* Borde redondeado */   
-    backdrop-filter: blur(10px);
+    border-radius: 5px; /* Borde redondeado */   
+    backdrop-filter: blur(20px);
 }
 .registroUser form aside{
     display: flex;
@@ -70,7 +71,7 @@
     flex-direction: column;
     gap: 2px;
 }
-.registroUser form .terminos{
+.registroUser form .term{
     /* border: red solid 1px; */
     display: flex;
     flex-direction: row;
@@ -78,26 +79,25 @@
 .registroUser form p{
     font-size: 17px;
 }
-.registroUser form a,  .link{
+.registroUser form span, a{
     text-decoration: none;
     text-shadow: none;
     color: aqua;
     font-weight: bold;
     font-size: 17px;
+    cursor: pointer;
 }
-.registroUser form a:hover{
+.registroUser form span:hover{
     text-decoration: underline;
     color: rgb(64, 153, 182);
 }
-.registroUser form .link:hover{
+.registroUser form a:hover{
     color: rgb(57, 151, 182);
     text-decoration: underline;
 }
 .registroUser form div label{
     color: orangered;
-    font-weight: bold;
     font-family: 'poppins';
-    font-family: arial narrow;
     font-size: 17px;
     margin-left: 5px;
 }

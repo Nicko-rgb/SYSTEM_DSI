@@ -24,10 +24,16 @@
     margin-top: 10px;
     background: white;
 }
+.publicaciones .noLogueado .noLogIco{
+    font-size: 19px;
+}
 .publicaciones .noLogueado p{
-    font-size: 18px;
+    font-size: 14px;
     color: black;
     font-family: 'poppins';
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 .publicaciones .noLogueado button{
     border: orangered solid 1px;
@@ -179,6 +185,7 @@ p {
 .publicaciones .content-publicacion .publicArchivo .descrip{
     padding-bottom: 10px;
     font-family: 'poppins';
+    font-size: 15px;
     margin-top: -10px;
 }
 .publicaciones .content-publicacion .publicArchivo .fotoPublicacion, .videoPublicacion{
@@ -254,9 +261,8 @@ p {
 .publicaciones .content-publicacion input {
     border: rgb(63, 186, 190) solid 1px;
     width: 100%;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: arial narrow;
+    font-size: 15px;
+    font-family: 'poppins';
     outline: none;
     padding: 5px;
     border-radius: 7px;
@@ -267,9 +273,8 @@ p {
     border: none;
     border-radius: 6px;
     color: white;
-    font-weight: bold;
     width: 90px;
-    height: 32px;
+    height: 35px;
     top: 0;
     right: 0;
     cursor: pointer;
@@ -290,19 +295,7 @@ p {
 .publicaciones .subPubli header h3{
     font-size: 20px;
 }
-
-.publicaciones  .close-btn{
-    position: absolute;
-    top: 5px;
-    right: 14px;
-}
-.publicaciones .modal img{
-    margin-top: 15px;
-    max-width: 100%;
-    max-height: calc();
-    object-fit: contain;
-}
-
+/**********************************/
 
 .divGusta {
     display: flex;
@@ -320,11 +313,8 @@ p {
 /*******************************************************************************/
 
 @media (max-width: 700px) {
-    .publicaciones main{
-        margin-top: -70px;
-    }
     .publicaciones .subPubli{
-        padding: 5px;
+        padding: 2px;
         padding-bottom: 150px;
     }
     .publicaciones .subPubli .content-publicacion img{

@@ -13,11 +13,12 @@ section div .infoComent{
     display: flex;
     align-items: center;
 }
-section div .infoComent i{
-    height: 30px;
-    width: 30px;
+section div .infoComent .userComent{
+    font-size: 28px;
+    padding: 4px;
     border-radius: 50%;
     border: white solid 1px;
+    color: white;
 }
 section div .infoComent h4{
     font-size: 15px;
@@ -27,4 +28,5 @@ section div .infoComent h4{
 }
 section div p{
     margin-left: 35px;
+    font-family: 'poppins';
 }

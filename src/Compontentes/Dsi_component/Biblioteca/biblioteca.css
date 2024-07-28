@@ -6,6 +6,15 @@
     overflow-y: auto;
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
+.biblioteca .navegador .link3 {
+    color: orangered;
+}
+.biblioteca .dsiNav .link4{
+    color: orangered;
+}
+.biblioteca .dsiNav .lateral .link4 .icons-lateral{
+    color: orangered;
+}
 .biblioteca .container{
     padding: 10px;
     color: white;
@@ -89,10 +98,5 @@
     }
     .biblioteca .carpetas{
         grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 700px) {
-    .biblioteca main{
-        margin-top: -70px;
     }
 }

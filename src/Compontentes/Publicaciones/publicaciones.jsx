@@ -4,8 +4,9 @@ import axios from 'axios';
 // import moment from 'moment';
 import { FaHeart, FaPlus, FaUser } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
-import { FaTimes } from "react-icons/fa";
 import { SlOptionsVertical } from "react-icons/sl"
+import { CiCircleInfo } from "react-icons/ci";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 import texto from '../../IMG/texto.png'
 
 import Navegador from '../Navegador/Navegador';
@@ -143,14 +144,6 @@ const Publicaciones = () => {
         }
     };
 
-    //para formatear la fecha y la hora
-    // const formatDate = (dateString) => {
-    //     return moment.utc(dateString).format('DD/MM/YYYY');
-    // };
-
-    // const formatTime = (timeString) => {
-    //     return moment(timeString, 'HH:mm:ss').format('HH:mm');
-    // };
     //formatear menos 5 horas
     const moment = require('moment-timezone'); // Asegúrate de que moment-timezone esté instalado
 
@@ -169,7 +162,7 @@ const Publicaciones = () => {
             <main className="subPubli">
                 {!isLoggedIn && (
                     <div className="noLogueado">
-                        <p>Para subir publicaciones debes iniciar sesión</p>
+                        <p> <CiCircleInfo className='noLogIco' /> Para subir publicaciones debes iniciar sesión</p>
                         <button onClick={() => window.location.href = "/login"}>INICIA SESION</button>
                     </div>
                 )}
@@ -265,10 +258,8 @@ const Publicaciones = () => {
             </main>
             {showModal && (
                 <div className="modal">
-                    <div className="modal-content">
-                        <button className="close-btn" onClick={closeModal}><FaTimes /></button>
-                        <img src={`https://backend-systemblog-production.up.railway.app/uploads/${selectedImage.filename}`} alt="Imagen ampliada" />
-                    </div>
+                    <IoIosCloseCircleOutline className='close-button' onClick={closeModal}/>
+                    <img src={`https://backend-systemblog-production.up.railway.app/uploads/${selectedImage.filename}`} alt="Imagen ampliada" />
                 </div>
             )}
         </div>

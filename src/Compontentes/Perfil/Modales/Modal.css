@@ -1,4 +1,4 @@
-.modal {
+.modalPerfil {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,7 @@
     backdrop-filter: blur(5px);
 }
 
-.modal-content {
+.modalPerfil .modal-content {
     background: rgba(255, 255, 255, 0.1);
     width: 300px   !important;  /* Set the width to 300px */
     max-width: 300px !important;  /* Ensure it doesn't exceed 300px */
@@ -27,7 +27,7 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-.close {
+.modalPerfil .close {
     position: absolute;
     right: 15px;
     top: 15px;
@@ -37,24 +37,24 @@
     transition: color 0.3s ease;
 }
 
-.close:hover {
+.modalPerfil .close:hover {
     color: #8bb095;
 }
 
-h2 {
+.modalPerfil h2 {
     color: white;
     margin-bottom: 25px;
     font-size: 24px;
     text-align: center;
 }
 
-form {
+.modalPerfil form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-label {
+.modalPerfil label {
     display: flex;
     flex-direction: column;
     color: white;
@@ -62,7 +62,7 @@ label {
     gap: 5px;
 }
 
-input {
+.modalPerfil input {
     padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
@@ -72,24 +72,24 @@ input {
     transition: all 0.3s ease;
 }
 
-input:focus {
+.modalPerfil input:focus {
     outline: none;
     border-color: #4267B2;
     box-shadow: 0 0 5px rgba(66, 103, 178, 0.5);
 }
 
-.show-password {
+.modalPerfil .show-password {
     flex-direction: row;
     align-items: center;
     gap: 10px;
 }
 
-.show-password input[type="checkbox"] {
+.modalPerfil .show-password input[type="checkbox"] {
     margin: 0;
     width: auto;
 }
 
-.modal-btn {
+.modalPerfil .modal-btn {
     background-color: #4267B2;
     color: white;
     padding: 12px;
@@ -101,6 +101,6 @@ input:focus {
     margin-top: 10px;
 }
 
-.modal-btn:hover {
+.modalPerfil .modal-btn:hover {
     background-color: #8bb095;
 }

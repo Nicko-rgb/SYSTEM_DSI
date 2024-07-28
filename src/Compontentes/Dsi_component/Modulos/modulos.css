@@ -6,6 +6,15 @@
     overflow-y: auto;
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
+.modulos .navegador .link3 {
+    color: orangered;
+}
+.modulos .dsiNav .link3{
+    color: orangered;
+}
+.modulos .dsiNav .lateral .link3 .icons-lateral{
+    color: orangered;
+}
 .modulos .container{
     padding: 20px;
     color: white;
@@ -62,9 +71,6 @@
     }
 }
 @media (max-width: 700px){
-    .modulos main{
-        margin-top: -70px;
-    }
     .modulos .container h1{
         font-size: 25px;
     }

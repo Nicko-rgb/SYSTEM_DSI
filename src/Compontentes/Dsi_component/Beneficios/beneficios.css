@@ -6,7 +6,13 @@
     overflow-y: auto;
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
+.beneficios .navegador .link3 {
+    color: orangered;
+}
 .beneficios .dsiNav .link5{
+    color: orangered;
+}
+.beneficios .dsiNav .lateral .link5 .icons-lateral{
     color: orangered;
 }
 .beneficios .container{
@@ -56,10 +62,5 @@
     .beneficios .container{
         margin-left: 55px;
         width: calc(100% - 55px);
-    }
-}
-@media (max-width: 700px) {
-    .beneficios main{
-        margin-top: -70px;
     }
 }

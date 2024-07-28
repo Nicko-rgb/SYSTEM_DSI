@@ -11,7 +11,7 @@ const ModalEditarPerfil = ({ usuario, onClose, onSave }) => {
     };
 
     return (
-        <div className="modal">
+        <div className="modalPerfil">
             <div className="modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
                 <h2>Editar Perfil</h2>

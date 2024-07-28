@@ -8,14 +8,21 @@
 }
 
 .docentes .container{
-    padding: 20px;
+    padding: 5px;
     color: white;
     transition: 0.3s ease;
     height: calc(100vh - 70px);
     margin-left: 205px;
     width: calc(100% - 205px);
+    border: red solid 1px;
+}
+.docentes .navegador .link3 {
+    color: orangered;
 }
 .docentes .dsiNav .link2{
+    color: orangered;
+}
+.docentes .dsiNav .lateral .link2 .icons-lateral{
     color: orangered;
 }
 .container h1{
@@ -25,43 +32,41 @@
 .docentes .container .box-profes{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    gap: 20px;
     margin-top: 20px;
     padding-bottom: 130px;
 }
-.docentes .container .box {
-    box-shadow:  0 0 3px aqua;
-    border-radius: 12px;
-    width: 100%;
-    padding: 2%;
+.docentes .container .box-profes .box {
+    position: relative;
+    box-shadow:  0 0 1px aqua;
     background: rgba(21, 21, 21, 0.45);
-    transition: 0.3s ease;
+    max-width: 300px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    margin: 0 auto;
     animation: aparecer 0.5s ease-in-out forwards;
+    transition: 0.3s ease;
     opacity: 0;
 }
-.docentes .container .box:hover{
-    transform: scale(1.03);
-    box-shadow:  0 0 10px aqua;
-}
-.docentes .container .box h5{
+.docentes .container .box p{
     text-align: center;
-    /* -webkit-text-stroke: 1px orangered; */
-    text-shadow: 0 0 5px aqua;
-                font-size: 18px;
+    font-size: 16px;
+    font-family: 'poppins';
+    margin: 0;
 }
 .docentes .container .box img{
-    width: 100%;
+    width: 200px;
+    height: 200px;
     transition: .3s ease;
-    max-height: 200px;
-    object-fit: contain;
-    margin-left: 0;
+    object-fit: cover;
 }
 .docentes .container .box div{
-    background: white;
-    color: black;
-    padding:  10px;
-    border-radius: 7px;
-    box-shadow: 0 0 3px orangered;
+    width: 100%;
+    color: white;
 }
 .docentes .container .box div p, h4{
     text-align: center;
@@ -82,8 +87,15 @@
         width: calc(100% - 55px);
     }
 }
-@media (max-width: 700px){
-    .docentes main{
-        margin-top: -70px;
+@media (max-width: 700px) {
+    .docentes .box-profes .box{
+        padding: 0;
+    }
+    .docentes .box-profes .box img{
+        width: 130px;
+        height: 130px;
+    }
+    .docentes .box-profes .box .txtPr{
+        font-size: 13.5px;
     }
 }

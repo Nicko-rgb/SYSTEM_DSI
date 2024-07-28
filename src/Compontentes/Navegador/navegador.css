@@ -129,13 +129,13 @@
 
 @media (max-width: 700px) {
     .navegador {
-        position: sticky;
-        top: calc(100% - 85px);
+        position: fixed;
+        top: calc(100% - 90px);
         width: 94%;
-        margin: 0 auto;
+        margin-left: 3%;
         background: transparent;
-        box-shadow: 0 0 2px orangered;
-        backdrop-filter: blur(10px);
+        box-shadow: 0 0 2px aqua;
+        background: linear-gradient(135deg, rgba(4, 4, 27, 0.834) 0%, rgba(64, 2, 2, 0.246) 200%);
         border-radius: 30px;
     }
     .navegador .btnLogin{
@@ -148,12 +148,7 @@
         width: 100px;
         font-size: 14px;
         font-family: 'poppins';
-        /* font-family: 'Poppins', sans-serif; */
-        /* font-family: 'Montserrat';  */
-        /* font-family: 'Open Sans'; */
-        /* font-family: 'Lato'; */
-        /* font-family: 'Raleway'; */
-        /* font-family: 'Merriweather'; */
+        font-weight: initial;
     }
 
     .navegador .link .navIco {

@@ -6,6 +6,15 @@
     overflow-y: auto;
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
 }
+.developers .navegador .link3 {
+    color: orangered;
+}
+.developers .dsiNav .link6{
+    color: orangered;
+}
+.developers .dsiNav .lateral .link6 .icons-lateral{
+    color: orangered;
+}
 
 .developers .container {
     padding: 20px;
@@ -52,10 +61,12 @@
 }
 .dev-list .box .name{
     margin-top: 20px;
+    text-align: center;
 }
 .dev-list .box p{
     font-size: 16px;
     text-align: center;
+    font-size: 'poppins';
 }
 .dev-list .box .name, .box a {
     transition: color 0.3s ease;
@@ -114,7 +125,13 @@
     }
 }
 @media (max-width: 700px) {
-    .developers main{
-        margin-top: -70px;
+    .dev-list .box{
+        padding: 3px;
+    }
+    .dev-list .box .name{
+        font-size: 17px;
+    }
+    .dev-list .box p{
+        font-size: 14px;
     }
 }
