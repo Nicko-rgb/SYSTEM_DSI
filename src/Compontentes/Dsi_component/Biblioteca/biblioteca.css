@@ -91,3 +91,8 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+@media (max-width: 700px) {
+    .biblioteca main{
+        margin-top: -70px;
+    }
+}

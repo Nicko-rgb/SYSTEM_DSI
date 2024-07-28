@@ -62,6 +62,9 @@
     }
 }
 @media (max-width: 700px){
+    .modulos main{
+        margin-top: -70px;
+    }
     .modulos .container h1{
         font-size: 25px;
     }

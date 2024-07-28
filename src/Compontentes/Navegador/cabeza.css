@@ -1,9 +1,10 @@
 .cabeza{
-    position: fixed;
+    position: sticky;
+    top: 0;
     display: none;
     padding: 0 25px;
     align-items: center;
-    background: linear-gradient(135deg, rgba(4, 4, 27, 1) 0%, rgba(64, 2, 2, 1) 200%);
+    background: linear-gradient(135deg, rgba(4, 4, 27, 0.834) 0%, rgba(64, 2, 2, 0.246) 200%);
     width: 100%;
     z-index: 1;
     padding-top: 10px;
@@ -22,6 +23,7 @@
     cursor: pointer;
     transition: .3s ease;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 .cabeza div{
     display: flex;

@@ -1,7 +1,7 @@
 .registroUser{
     z-index: 1;
     display: flex;
-    background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
+    background: linear-gradient(to bottom right, #04041b, #400202);
     flex-direction: column;
     color: white;
     display: flex;
@@ -9,24 +9,25 @@
     align-items: center;
     overflow-y: auto;
     height: 100%;
-    padding: 20px;
     padding-top: none;
+    background-image: url('https://www.prasaga.com/wp-content/uploads/2022/11/PoW-Images_0002_PoW3-2400x1260.jpg');
+    background-size: cover;
+    background-position: center;
 }
 .registroUser .cabeza{
-    position: fixed;
-    top: 0;
     padding: 0 20px;
     padding-top: 15px;
     display: flex;
-    width: 96%;
     justify-content: space-between;
 }
 .registroUser .subRegistro{
     position: relative;
     margin: auto 0;
 }
+
 .registroUser .regis{
-    margin-top: 90px;
+    margin-top: 30px;
+    margin-bottom: 120px;
 }
 .registroUser .subRegistro .icoVolver{
     position: absolute;
@@ -44,19 +45,22 @@
 .registroUser .subRegistro >h2{
     text-align: center;
 }
-.registroUser form{
-    box-shadow: 0 0 2px orangered;
+.registroUser form {
+    box-shadow: 0 0 5px orangered;
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 400px;
     padding: 20px;
+    border-radius: 10px; /* Borde redondeado */   
+    backdrop-filter: blur(10px);
 }
-form aside{
+.registroUser form aside{
     display: flex;
     gap: 5px;
     padding-left: 20%;
-}form aside .check{
+}
+.registroUser form aside .check{
     box-shadow: none;
     width: 18px;
 }
@@ -71,47 +75,57 @@ form aside{
     display: flex;
     flex-direction: row;
 }
-.registroUser form .link{
+.registroUser form p{
+    font-size: 17px;
+}
+.registroUser form a,  .link{
     text-decoration: none;
     text-shadow: none;
     color: aqua;
+    font-weight: bold;
+    font-size: 17px;
+}
+.registroUser form a:hover{
+    text-decoration: underline;
+    color: rgb(64, 153, 182);
 }
 .registroUser form .link:hover{
-    color: rgb(0, 125, 167);
+    color: rgb(57, 151, 182);
     text-decoration: underline;
 }
-form div label{
-    text-shadow: orangered 0 0 5px,
-                orangered 0 0 5px,
-                orangered 0 0 5px;
+.registroUser form div label{
+    color: orangered;
+    font-weight: bold;
+    font-family: 'poppins';
     font-family: arial narrow;
     font-size: 17px;
     margin-left: 5px;
 }
-form div input{
-    padding: 5px;
+.registroUser form div input{
+    padding: 7px;
     font-size: 17px;
-    box-shadow: 0 0 2px orangered;
+    box-shadow: 0 0 2px aqua;
     border: none;
     outline: none;
     background: transparent;
     color: white;
 }
-form div input[type="checkbox"]{
+.registroUser form div input[type="checkbox"]{
     box-shadow: none;
     width: 20px;
 }
-form .errorPassword-message{
+.registroUser form .errorPassword-message{
     color: orangered;
     text-align: center;
 }
-form div .icon{
+.registroUser form div .icon{
     position: absolute;
     right: 5px;
     top: 30px;
+    color: aqua;
 }
 
-form button{
+.registroUser form button{
     width: 150px;
     height: 40px;
     margin: 20px auto;
@@ -122,8 +136,25 @@ form button{
     border-radius: 7px;
     cursor: pointer;
     font-weight: bold;
+    transition: transform 0.3s ease; /* Transición suave para el efecto */
+
+    
 }
-button.disabled {
+.registroUser form button:hover {
+    transform: scale(1.1); /* Escalado del 10% */
+}
+.registroUser form .redirectLink{
+    text-decoration: none;
+    color :white;
+    margin-left: 10px;
+
+    
+}
+.registroUser form .redirectLink:hover{
+    color: rgb(0, 125, 167);
+    
+}
+.registroUser button.disabled {
     background-color: #c6c4c4;
     cursor: not-allowed;
     pointer-events: none;

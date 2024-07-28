@@ -3,7 +3,6 @@
     overflow-y: auto;
     height: 100vh;
     background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
-
 }
 .publicaciones .navegador .link2{
     color: orangered;
@@ -12,7 +11,7 @@
     width: 100%;
 }
 .publicaciones .noLogueado{
-    max-width: 620px;
+    max-width: 600px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -21,15 +20,21 @@
     border-radius: 15px;
     padding: 5px;
     font-size: 12px;
-    box-shadow: inset 0 0 5px aqua;
-    background-color: #edfcf7;
+    box-shadow:  0 0 2px aqua;
+    margin-top: 10px;
+    background: white;
+}
+.publicaciones .noLogueado p{
+    font-size: 18px;
+    color: black;
+    font-family: 'poppins';
 }
 .publicaciones .noLogueado button{
     border: orangered solid 1px;
     background: orangered;
     color: white;
     border-radius: 5px;
-    width: 130px;
+    width: 120px;
     height: 37px;
     cursor: pointer;
     transition: .3s ease;
@@ -99,19 +104,19 @@
     display: flex;
     height: 65px;
     position: relative;
+    align-items: center;
     z-index: 0;
     color: white;
 }
 
 .content-publicacion header .fa-user {
     border: aqua solid 1px;
-    height: 65px;
-    width: 65px;
     border-radius: 50%;
     display: grid;
     place-items: center;
     font-size: 55px;
-
+    font-size: 55px;
+    padding: 10px;
 }
 
 .content-publicacion header .datoUser {
@@ -124,6 +129,10 @@
     padding-left: 10px;
 }
 
+.content-publicacion header .datoUser p{
+    font-family: 'poppins';
+    font-size: 13px;
+}
 .content-publicacion header .ico-publiAction {
     position: absolute;
     right: 5px;
@@ -167,8 +176,10 @@ p {
     position: relative;
     overflow: hidden;
 }
-.publicaciones .content-publicacion .publicArchivo p{
+.publicaciones .content-publicacion .publicArchivo .descrip{
     padding-bottom: 10px;
+    font-family: 'poppins';
+    margin-top: -10px;
 }
 .publicaciones .content-publicacion .publicArchivo .fotoPublicacion, .videoPublicacion{
     background-color: rgb(19, 17, 17);
@@ -251,11 +262,17 @@ p {
     border-radius: 7px;
 }
 .publicaciones .content-publicacion button{
+    background: orangered;
     position: absolute;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
     width: 90px;
-    height: 30px;
-    top: -19px;
-    right: 1px;
+    height: 32px;
+    top: 0;
+    right: 0;
+    cursor: pointer;
 }
 
 .publicaciones .content-publicacion .ico-comment {
@@ -303,14 +320,19 @@ p {
 /*******************************************************************************/
 
 @media (max-width: 700px) {
+    .publicaciones main{
+        margin-top: -70px;
+    }
     .publicaciones .subPubli{
         padding: 5px;
         padding-bottom: 150px;
     }
-    .publicaciones .subPubli .content-publicacion {
+    .publicaciones .subPubli .content-publicacion img{
         width: 100%;
     }
-    .publicaciones .subPubli .content-publicacion img{
+}
+@media (max-width: 600px){
+    .publicaciones .subPubli .content-publicacion{
         width: 100%;
     }
 }

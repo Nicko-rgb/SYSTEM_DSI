@@ -2,10 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Perfil.css';
 import EstadoSesion from '../Formularios/Sesion';
 import { Link } from 'react-router-dom';
+import ModalEditarPerfil from './Modales/ModalEditarPerfil';
+import ModalCambiarContrasena from './Modales/ModalCambiarContraseña';
 
 const Perfil = () => {
     const { userName } = EstadoSesion();
     const [usuario, setUsuario] = useState(null);
+    const [isEditarPerfilOpen, setIsEditarPerfilOpen] = useState(false);
+    const [isCambiarContrasenaOpen, setIsCambiarContrasenaOpen] = useState(false);
     const fileInputRef = useRef(null);
 
     useEffect(() => {
@@ -29,17 +33,13 @@ const Perfil = () => {
         }
     };
 
-    const handleEditarPerfil = (e) => {
-        e.preventDefault();
-        const nombre = e.target.nombre.value;
-        const email = e.target.email.value;
+    const handleEditarPerfil = ({ nombre, email }) => {
         setUsuario({ ...usuario, nombre, email });
     };
 
-    const handleCambiarContrasena = (e) => {
-        e.preventDefault();
+    const handleCambiarContrasena = (oldPassword, newPassword) => {
         // Aquí implementarías la lógica para cambiar la contraseña
-        console.log('Contraseña cambiada');
+        console.log('Contraseña cambiada', { oldPassword, newPassword });
     };
 
     return (
@@ -60,22 +60,25 @@ const Perfil = () => {
                         style={{ display: 'none' }}
                         accept="image/*"
                     />
-                    <button className="opcion" onClick={handleEditarPerfil}>Editar perfil</button>
-                    <button className="opcion" onClick={handleCambiarContrasena}>Cambiar contraseña</button>
+                    <button className="opcion" onClick={() => setIsEditarPerfilOpen(true)}>Editar perfil</button>
+                    <button className="opcion" onClick={() => setIsCambiarContrasenaOpen(true)}>Cambiar contraseña</button>
                 </div>
             </div>
-            <form onSubmit={handleEditarPerfil} className="form-editar">
-                <input name="nombre" defaultValue={usuario.nombre} placeholder="Nombre" required />
-                <input name="email" defaultValue={usuario.email} placeholder="Email" type="email" required />
-                <button type="submit">Guardar</button>
-            </form>
 
-            <form onSubmit={handleCambiarContrasena} className="form-cambiar-contrasena">
-                <input name="oldPassword" type="password" placeholder="Contraseña actual" required />
-                <input name="newPassword" type="password" placeholder="Nueva contraseña" required />
-                <input name="confirmPassword" type="password" placeholder="Confirmar nueva contraseña" required />
-                <button type="submit">Cambiar Contraseña</button>
-            </form>
+            {isEditarPerfilOpen && (
+                <ModalEditarPerfil
+                    usuario={usuario}
+                    onClose={() => setIsEditarPerfilOpen(false)}
+                    onSave={handleEditarPerfil}
+                />
+            )}
+
+            {isCambiarContrasenaOpen && (
+                <ModalCambiarContrasena
+                    onClose={() => setIsCambiarContrasenaOpen(false)}
+                    onSave={handleCambiarContrasena}
+                />
+            )}
         </div>
     );
 };

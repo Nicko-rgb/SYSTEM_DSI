@@ -18,8 +18,8 @@ const Cabeza = () => {
                 <img src={logo} alt="logo" />
             </Link>
             {!isLoggedIn && (
-                <Link to='/register'>
-                    <button>Sing In</button>
+                <Link to='/login'>
+                    <button>Iniciar Sesion</button>
                 </Link>
             )}
             {isLoggedIn && (

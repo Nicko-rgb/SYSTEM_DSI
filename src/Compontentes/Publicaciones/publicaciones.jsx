@@ -2,7 +2,7 @@ import './publicacion.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // import moment from 'moment';
-import { FaHeart, FaPlus } from "react-icons/fa";
+import { FaHeart, FaPlus, FaUser } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { FaTimes } from "react-icons/fa";
 import { SlOptionsVertical } from "react-icons/sl"
@@ -164,12 +164,12 @@ const Publicaciones = () => {
 
     return (
         <div className="publicaciones">
-            <Navegador />
             <Cabeza />
+            <Navegador />
             <main className="subPubli">
                 {!isLoggedIn && (
                     <div className="noLogueado">
-                        <h2>Para subir publicaciones debes iniciar sesión</h2>
+                        <p>Para subir publicaciones debes iniciar sesión</p>
                         <button onClick={() => window.location.href = "/login"}>INICIA SESION</button>
                     </div>
                 )}
@@ -189,7 +189,7 @@ const Publicaciones = () => {
                 {[...publicaciones].reverse().map((datos) => (
                     <div className="content-publicacion" key={datos._id}>
                         <header>
-                            <i className="fa fa-user"></i>
+                            <FaUser className="fa fa-user"></FaUser>
                             <div className="datoUser">
                                 <h3>{datos.userName} </h3>
                                 <div>

@@ -58,3 +58,8 @@
         width: calc(100% - 55px);
     }
 }
+@media (max-width: 700px) {
+    .beneficios main{
+        margin-top: -70px;
+    }
+}

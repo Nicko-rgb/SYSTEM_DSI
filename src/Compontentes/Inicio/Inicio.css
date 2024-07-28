@@ -1,10 +1,18 @@
-.inicio {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.inicio, .inicio {
     position: relative;
-    background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
     height: 100vh;
     overflow-y: auto;
+    font-family: "Poppins";
+    transition: background-image .6s ease-in-out; /* Smooth transition */
 }
-
+.inicio .navegador{
+    background: none;
+    background: linear-gradient(135deg, rgba(4, 4, 27, 0.834) 0%, rgba(64, 2, 2, 0.246) 200%);
+    box-shadow: 0 0 3px aqua;
+    border: rgb(57, 68, 68) solid 1px;
+}
 .inicio .navegador .link1 {
     color: orangered;
 }
@@ -13,38 +21,32 @@
     width: 100%;
 }
 
-.inicio main {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 35px;
-    height: calc(100% - 70px);
-    width: 100%;
-    transform: scale(0);
-    transition: transform 1s ease-in-out;
-}
-
-
 .inicio .loaded {
     transform: scale(1);
 }
-
+.inicio main{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+    height: calc(100vh - 70px);
+}
 .inicio main>div {
     margin: auto 0;
 }
 
 .inicio main .bienvenida {
-    position: absolute;
-    color: white;
-    top: 0;
-    width: 100%;
+    position: relative;
+    color: #f0f0f0;
     text-align: center;
-    /* font-family: 'Poppins', sans-serif; */
-    /* font-family: 'Montserrat';  */
-    /* font-family: 'Open Sans'; */
-    /* font-family: 'Lato'; */
-    /* font-family: 'Raleway'; */
-    /* font-family: 'Merriweather'; */
+    font-size: 22px;
+    font-family: 'poppins';
+    color: aqua;
+    width: auto;
+    padding: 0 20px;
+    margin: 0 auto;
+    margin-top: 30px;
+    backdrop-filter: blur(10px);
 }
 
 .inicio .icoNav {
@@ -58,15 +60,14 @@
 
 .inicio .navHidde {
     position: absolute;
-    left: -150px;
+    left: -170px;
     display: flex;
     flex-direction: column;
     gap: 5px;
     padding-left: 10px;
-    width: 150px;
+    width: 170px;
     padding-top: 35px;
     transition: 0.3s ease;
-    backdrop-filter: blur(10px);
     z-index: 1;
 }
 
@@ -79,12 +80,23 @@
 }
 
 .inicio .navHidde .linkHidde {
+    backdrop-filter: blur(10px);
     color: white;
     text-decoration: none;
-    position: relative
+    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-.linkHidde::before {
+.inicio .navHidde .linkHidde:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.inicio .linkHidde::before {
     content: "";
     position: absolute;
     width: 0%;
@@ -97,7 +109,7 @@
     transition: width 0.3s ease-in-out;
 }
 
-.linkHidde:hover::before {
+.inicio .linkHidde:hover::before {
     width: 100%;
 }
 
@@ -115,237 +127,142 @@
     }
 }
 
-.inicio main>div {
+.inicio .content{
+    position: relative;
     display: flex;
     flex-direction: column;
-    padding-left: 4vw;
-    color: white;
-    /* min-width: 50%; */
-    max-width: 55%;
+    gap: 70px;
+    padding-bottom: 150px;
 }
-
-main div h3,
-h1 {
-    font-family: arial;
-    margin: 0;
-}
-
-main h3 {
-    font-size: 1.2vw;
-}
-main .bienvenida{
-    font-size: 22px;
-}
-
-main div h1 {
-    font-size: 2.5vw;
-}
-
-main div p {
-    font-family: arial;
-    text-align: justify;
-}
-
-.inicio main .butons {
-    position: relative;
+.inicio .content .subContent{
     display: flex;
-    flex-direction: row;
-    justify-content: left;
-    padding-left: 0;
-    gap: 5vw;
-    margin-top: 2.5vw;
-    padding-bottom: 2.5vw;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
 }
-
-.inicio main .butons button {
-    border: orangered solid 1px;
-    border-radius: 5px;
-    width: 130px;
-    height: 37px;
+.inicio .subContent2{
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 255, 255, 0.126);
+    box-shadow: 0 0 6px aqua;
+    border: rgba(0, 0, 0, 0.139) solid 1px;
+    padding: 20px;
+    border-radius: 14px; 
+    max-width: 850px;
+    transition: .4s ease;
+}
+.inicio .subContent2 .insti{
+    color: rgb(32, 94, 251);
+    text-shadow: 0 0 10px black;
+    -webkit-text-stroke: .1px aqua;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
+}
+.inicio .subContent2 .des{
+    font-size: 45px;
+    color: rgb(32, 94, 251);
+    -webkit-text-stroke: aqua .4px;
+    text-shadow: 0 0 3px white,
+                0 0 3px white;
+}
+.inicio .subContent2 p{
+    font-size: 1.2rem;
+    font-family: 'poppins';
+    color: white;
+}
+.inicio .content .box-butons .butons1, .butons2{
+    display: flex;
+    gap: 70px;
+    margin-left: 6%;
+}
+.inicio .box-butons button{
+    border: none;
+    padding: 0 15px;
+    height: 40px;
+    width: 140px;
+    border-radius:8px;
+    box-shadow: 0 0 3px aqua,
+                0 0 3px aqua;
+    color: white;
+    font-weight: bold;
     cursor: pointer;
     transition: .3s ease;
-    margin-bottom: 20px;
 }
-
-main .butons .btn1 {
+.inicio .box-butons .btn1{
     background: orangered;
-    color: white;
 }
-
-.inicio main .butons .btn1:hover {
+.inicio .box-butons .btn2{
     background: transparent;
-    color: orangered;
+    backdrop-filter: blur(10px);
 }
-
-main .butons .btn2 {
-    background: transparent;
-    color: orangered;
-}
-
-.inicio main .butons .btn2:hover {
+.inicio .box-butons .btn2:hover{
     background: orangered;
-    color: white;
 }
-
-.code-example {
-    position: relative;
-    background-color: #282c34;
-    color: #fff;
-    border-radius: 5px;
-    font-family: 'Courier New', monospace;
-    font-size: initial;
-    line-height: 1.5;
-    white-space: pre-wrap;
-    overflow-x: auto;
-    width: 100%;
-    height: 280px;
-    margin-bottom: 20px;
+.inicio ,.box-butons .butons2 button{
+    background: transparent;
+    width: auto;
+    backdrop-filter: blur(20px);
+}
+.inicio .box-butons .butons2 button:hover{
+    background: orangered;
+}
+.inicio .content .fotos{
+    width: 340px;
+    height: 340px;
     padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 255, 255, 0.126);
+    box-shadow: 0 0 6px aqua;
+    border: rgba(0, 0, 0, 0.139) solid 1px;
+    transition: .4 ease;
 }
-.code-example button{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 25px;
-    display: grid;
-    place-items: center;
-    background-color: transparent;
-    color: white;
-    border: none;
-    box-shadow: 0 0 1px white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.code-example code span {
-    color: white;
-    animation: cursor .5s linear infinite;
-}
-
-@keyframes cursor {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-.inicio main .img {
-    position: relative;
-    min-width: 20%;
+.inicio .fotos img{
+    width: 300px;
     height: 300px;
-    width: 400px;
-    margin-right: 4vw;
+    object-fit: contain;
 }
 
-.inicio main .img img {
-    position: absolute;
-    left: 0;
-    object-fit: cover;
-    overflow-y: hidden;
-    backface-visibility: hidden;
-    height: 300px;
-    width: 400px;
-}
-
-@media (max-width:1180px) {
-    /* main>div {
-        max-width: 70%;
-        min-width: 60%;
-    } */
-    
-
-    main h3 {
-        font-size: 1.5vw;
-    }
-    main .bienvenida{
-        font-size: 22px;
-    }
-
-    main div h1 {
-        font-size: 2.8vw;
-    }
-
-    main div p {
-        font-family: arial;
-        text-align: justify;
-        font-size: 1.3vw;
-    }
-
-    .inicio main .img {
-        height: 200px;
-        width: 300px;
-    }
-
-    .inicio main .img img {
-        height: 200px;
-        width: 300px;
-    }
-}
-
-@media (max-width: 1050px) {
-    .inicio main h3 {
+@media (max-width: 800px) {
+    .inicio main .bienvenida{
         font-size: 20px;
+        backdrop-filter: blur(5px);
+    }
+    .inicio .content .subContent{
+        flex-direction: column;
+        transition: .4s ease;
+    }
+    .inicio .content .subContent2 h1{
+        font-size: 35px;
+        margin-top: 20px;
+    }
+    .inicio .content .fotos{
+        box-shadow: 3px;
+    }
+    .inicio main .box-butons .butons1{
+        justify-content: center;
+        margin-left: 0;
+        align-items: center;
+    }
+    .inicio .box-butons button{
+        margin-left: -6%;
+    }
+}
+@media (max-width: 700px) {
+    .inicio .icoNav, .navHidde{
+        margin-top: -70px;
+    }
+    .inicio main{
+        padding: 5px;
+        margin-top: -70px;
     }
     .inicio main .bienvenida{
-        font-size: 23px;
+        font-size: 20px;
     }
-
-    .inicio main h1 {
-        font-size: 34px;
+    .inicio .content .subContent .insti{
+        font-size: 22px;
     }
-
-    .inicio main p {
-        font-size: 16px;
-    }
-}
-
-@media (max-width:800px) {
-    .inicio main {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .inicio main>div {
-        min-width: 100%;
-        padding-left: 0;
-        padding: 4vw;
-        gap: 1vw;
-        margin-top: 50px;
-    }
-
-    .inicio main .bienvenida {
-        top: 30px;
-        padding: 0 4vw;
-    }
-
-    .inicio main .img {
-        height: 500px;
-        width: 400px;
-        min-width: 100%;
-        margin-right: 0;
-        margin-top: -30px;
-        padding-bottom: 170px;
-    }
-
-    .inicio main .img img {
-        position: initial;
-        height: 300px;
-        width: 400px;
-        margin: 0 auto;
-    }
-
-    .inicio .code-example {
-        font-size: initial;
-        width: auto;
-        height: 280px;
+    .inicio .content .subContent .subContent2{
+        box-shadow: none;
     }
 }

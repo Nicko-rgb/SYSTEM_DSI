@@ -37,7 +37,7 @@ const Login = () => {
         <div className="registroUser">
             <Cabeza />
             <div className="subRegistro sesion">
-                <Link to='/'><MdArrowBackIos className='icoVolver'/></Link>
+                <Link to='/'><MdArrowBackIos className='icoVolver' /></Link>
                 <h2>Iniciar Sesión</h2>
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -50,7 +50,7 @@ const Login = () => {
                     </div>
                     {errorMessage && <p className='errorPassword-message'>{errorMessage}</p>}
                     <button type="submit">INICIAR SESIÓN</button>
-                    <p>No tienes cuenta?<Link to='/register' className='redirectLink'>Registrate</Link></p>
+                    <p>¿ No tienes cuenta ? <a href="/register"> Registrate</a> </p>
                 </form>
             </div>
         </div>

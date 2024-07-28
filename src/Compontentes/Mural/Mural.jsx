@@ -3,6 +3,7 @@ import './mural.css';
 import DataMural from './muralDB';
 import Navegador from '../Navegador/Navegador';
 import ModalImg from '../Modal/ModalImg';
+import Cabeza from '../Navegador/Cabeza';
 
 const Mural = () => {
     const [verModal, setVerModal] = useState(false);
@@ -20,6 +21,7 @@ const Mural = () => {
 
     return (
         <div className="periodico">
+            <Cabeza />
             <Navegador />
             <main>
                 {DataMural.map((mural) => (

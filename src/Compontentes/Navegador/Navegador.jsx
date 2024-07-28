@@ -31,7 +31,7 @@ const Navegador = () => {
                 </nav>
                 <div>
                     {!isLoggedIn && (
-                        <Link to='/login'>
+                        <Link to='/login' className='bbt'>
                             <button className='btnLogin'>Iniciar Sesión</button>
                         </Link>
                     )}

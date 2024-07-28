@@ -13,7 +13,7 @@ const RegistroUser = () => {
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
     const [phone, setPhone] = useState('');
-    const [isStudent, setIsStudent] = useState(false);
+    const isStudent = false
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -54,7 +54,7 @@ const RegistroUser = () => {
             navigate('/login');
         } catch (error) {
             console.error("Error al registrar usuario:", error);
-            setErrorMessage('Error: posiblemente el Correo ya esta en uso');
+            setErrorMessage('Error: posiblemente el correo ya está en uso');
         }
     };
 
@@ -80,13 +80,13 @@ const RegistroUser = () => {
                         <input type="text" required value={phone} onChange={(e) => setPhone(e.target.value)} />
                         <FaPhone className='icon' />
                     </div>
-                    <div>
+                    {/* <div>
                         <label>¿Eres estudiante de DSI del IESTP Suiza?</label>
                         <aside>
                             <p>SI</p>
                             <input type="checkbox" checked={isStudent} onChange={(e) => setIsStudent(e.target.checked)} />
                         </aside>
-                    </div>
+                    </div> */}
                     <div>
                         <label>Correo electrónico:</label>
                         <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -102,11 +102,11 @@ const RegistroUser = () => {
                     </div>
                     <div className="terminos">
                         <input type="checkbox" checked={termsAccepted} onChange={(e) => setTermsAccepted(e.target.checked)} />
-                        <label>Al Registrarse Acepta los <Link to='/wiki/system-blog/term & condic' className='link'>Términos y Condiciones</Link></label>
+                        <p>Al Registrarse Acepta los <a href="/wiki/term-condic"> Términos y condicones</a> </p>
                     </div>
                     {errorMessage && <p className='errorPassword-message'>{errorMessage}</p>}
                     <button type="submit" className={`${termsAccepted ? '' : 'disabled'}`}>REGISTRAR</button>
-                    <p>Ya tienes cuenta?<Link to='/login/' className='link'>Iniciar Sesion</Link></p>
+                    <p>¿Ya tienes cuenta?<Link to='/login/' className='link'> Iniciar Sesión</Link></p>
                 </form>
             </div>
         </div>
