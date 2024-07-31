@@ -3,17 +3,17 @@
   "name": "D'SYSTEM BLOG",
   "icons": [
     {
-      "src": "icodsi.png",
+      "src": "icodsi.jpg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "icodsi.png",
+      "src": "icodsi.jpg",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "icodsi.png",
+      "src": "icodsi.jpg",
       "type": "image/png",
       "sizes": "512x512"
     }
