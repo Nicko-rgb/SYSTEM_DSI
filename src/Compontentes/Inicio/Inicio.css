@@ -144,6 +144,7 @@
 .inicio .subContent2{
     backdrop-filter: blur(5px);
     background-color: rgba(0, 255, 255, 0.126);
+    /* background: rgba(153, 181, 253, 0.306); */
     box-shadow: 0 0 6px aqua;
     border: rgba(0, 0, 0, 0.139) solid 1px;
     padding: 20px;
@@ -152,15 +153,15 @@
     transition: .4s ease;
 }
 .inicio .subContent2 .insti{
-    color: rgb(32, 94, 251);
-    text-shadow: 0 0 10px black;
-    -webkit-text-stroke: .1px aqua;
-    font-size: 23px;
+    color: blue;
+    text-shadow: 0 0 10px aqua;
+    -webkit-text-stroke: .4px black;
+    font-size: 22px;
     font-weight: bold;
     text-align: center;
 }
 .inicio .subContent2 .des{
-    font-size: 45px;
+    font-size: 40px;
     color: rgb(32, 94, 251);
     -webkit-text-stroke: aqua .4px;
     text-shadow: 0 0 3px white,
@@ -211,20 +212,113 @@
     max-width: 450px;
     width: 100%;
     height: 340px;
-    padding: 20px;
     border-radius: 15px;
-    backdrop-filter: blur(2px);
-    background-color: rgba(0, 255, 255, 0.126);
-    box-shadow: 0 0 6px aqua;
-    border: rgba(0, 0, 0, 0.139) solid 1px;
+    backdrop-filter: blur(20px);
     transition: .4 ease;
-}
-.inicio .new_public img{
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
 }
 
+.publicaciones-container {
+    display: flex; 
+    transition: transform 0.5s ease; 
+    border: transparent solid 1px;
+    gap: 10px;
+}
+
+.box_publicaciones {
+    position: relative;
+    min-width: 100%; 
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid aqua; 
+    border-radius: 8px; 
+    background-color: #ffffff49; 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    margin-left: -5px;
+    overflow: hidden;
+}
+.box_publicaciones .box_user{
+    position: absolute;
+    top: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+.box_publicaciones .user{
+    color: black;
+    background: white;
+    font-size: 16px;
+    font-family: 'poppins';
+    text-align: center;
+    padding: 0 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+}
+.box_publicaciones .txt_descrip{
+    position: absolute;
+    z-index: 1;
+    backdrop-filter: blur(40px);
+    box-shadow: 0 0 4px black;
+    border-radius: 6px;
+    font-family: 'poppins';
+    right: 10px;
+    bottom: 10px;
+    padding: 0 10px;
+    font-size: 15px;
+    color: white;
+}
+.box_publicaciones img{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -0;
+    border-radius: 8px;
+}
+.box_publicaciones video{
+    width: 100%;
+    height: 100%;
+}
+.box_publicaciones .soloTextoPublic{
+    background: rgb(37, 36, 36);
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagination {
+    position: absolute;
+    bottom: 0px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%; 
+    background-color: #a19e9e;
+    transition: .3s ease;
+    border: none;
+    cursor: pointer; 
+    margin: auto 5px; 
+}
+
+.dot.active {
+    background-color: white;
+    height: 10px;
+    width: 10px;
+}
 @media (max-width: 800px) {
     .inicio main .bienvenida{
         font-size: 20px;

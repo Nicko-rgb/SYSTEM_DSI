@@ -17,6 +17,8 @@ const UploadForm = ({ cerrarSubir }) => {
 
     const subirArchivo = () => {
         setConArchivo(true);
+        setMensaje('')
+        setText(true)
     };
 
     const handleTextChange = (e) => {
@@ -56,7 +58,10 @@ const UploadForm = ({ cerrarSubir }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
+        if(video || image ) {
+            setText('')
+        }
         if (!text) {
             setMensaje('Rellene o Escriba en el Campo');
             return;
