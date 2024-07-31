@@ -86,7 +86,7 @@ const Publicaciones = () => {
             setComment('');
 
             // Opcionalmente, actualizar el estado local con la publicación actualizada
-            const response = await fetch(`/api/publicaciones/${publicacionId}`);
+            const response = await fetch(`https://backend-systemblog-production.up.railway.app/api/publicaciones/${publicacionId}`);
             const updatedPublicacion = await response.json();
             setPublicaciones((prevPublicaciones) =>
                 prevPublicaciones.map((pub) =>

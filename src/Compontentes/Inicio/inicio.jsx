@@ -92,7 +92,7 @@ const Inicio = () => {
                                 la vez.
                             </p>
                         </div>
-                        <div className="fotos">
+                        <div className="new_public">
                             <img src={logodsi} alt="" />
                         </div>
                     </div>

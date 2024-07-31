@@ -14,21 +14,39 @@ const UploadForm = ({ cerrarSubir }) => {
     const [image, setImage] = useState(null);
     const [video, setVideo] = useState(null);
     const [mensaje, setMensaje] = useState('');
+    const [showGallery, setShowGallery] = useState(false);
+    const [galleryImages, setGalleryImages] = useState([]);
 
-    const subirArchivo = () => {
-        setConArchivo(true);
+    const fileInputRef = useRef(null);
+
+    const handleFileIconClick = () => {
+        fileInputRef.current.click();
     };
 
-    const handleTextChange = (e) => {
-        setText(e.target.value);
+    const handleGalleryToggle = () => {
+        setShowGallery(!showGallery);
+        loadGalleryImages();
     };
 
-    const conTextoArchivo = (e) => {
-        setTextArchivo(e.target.value);
+    const loadGalleryImages = async () => {
+        try {
+            const response = await navigator.mediaDevices.getUserMedia({ video: false, audio: false });
+            const track = response.getTracks()[0];
+            const imageCapture = new ImageCapture(track);
+            const imageBitmaps = await imageCapture.getAvailableImageModes();
+            const images = await Promise.all(imageBitmaps.map(async (bitmap) => {
+                const blob = await imageCapture.grabFrame(bitmap);
+                return URL.createObjectURL(blob);
+            }));
+            setGalleryImages(images);
+        } catch (error) {
+            console.error('Error al cargar las imágenes de la galería:', error);
+        }
     };
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
+
         const maxDuration = 30; // Duración máxima en segundos
 
         if (selectedFile) {
@@ -52,6 +70,12 @@ const UploadForm = ({ cerrarSubir }) => {
                 cerrarSubir();
             }
         }
+    };
+
+    const selectImageFromGallery = (selectedImage) => {
+        setImage(selectedImage);
+        setConArchivo(true);
+        setShowGallery(false); // Cerrar la galería
     };
 
     const handleSubmit = async (e) => {
@@ -85,11 +109,6 @@ const UploadForm = ({ cerrarSubir }) => {
             console.error("Error al publicar:", error);
         }
     };
-    const fileInputRef = useRef(null);
-
-    const handleFileIconClick = () => {
-        fileInputRef.current.click();
-    };
 
     return (
         <div className="formSubir">
@@ -104,11 +123,11 @@ const UploadForm = ({ cerrarSubir }) => {
                             <>
                                 <textarea
                                     value={text}
-                                    onChange={handleTextChange}
+                                    onChange={(e) => setText(e.target.value)}
                                     placeholder="Sube algo nuevo o consulta tus dudas..."
                                 />
                                 <div>
-                                    <TbPhotoPlus className='ico_subir_img' onClick={subirArchivo} />
+                                    <TbPhotoPlus className='ico_subir_img' onClick={() => setConArchivo(true)} />
                                     <p className='txt_subir'>Subir Archivo</p>
                                 </div>
                             </>
@@ -118,20 +137,21 @@ const UploadForm = ({ cerrarSubir }) => {
                                     <textarea
                                         value={textArchivo}
                                         placeholder='Añade una descripción o mensaje...'
-                                        onChange={conTextoArchivo}
+                                        onChange={(e) => setTextArchivo(e.target.value)}
                                     />
                                 </div>
                                 {!image && !video && (
-                                    <div className='seleccionar' onClick={handleFileIconClick}>
-                                        <TbPhotoUp className="selec_file" />
-                                        <p className='txt_selec'>Seleccione de la Galeria</p>
+                                    <div className='seleccionar'>
+                                        <TbPhotoUp className="selec_file" onClick={handleGalleryToggle} />
+                                        <p className='txt_selec'>Seleccione de la Galería</p>
                                         <input type="file" ref={fileInputRef} className="archivo" onChange={handleFileChange} style={{ display: 'none' }} />
+                                        <button type="button" onClick={handleFileIconClick}>Abrir Explorador de Archivos</button>
                                     </div>
                                 )}
                                 <div className="verArchivo">
                                     {image && (
                                         <div className="file-preview">
-                                            <img src={URL.createObjectURL(image)} alt="Archivo subido" />
+                                            <img src={image} alt="Archivo subido" />
                                         </div>
                                     )}
                                     {video && (
@@ -147,6 +167,24 @@ const UploadForm = ({ cerrarSubir }) => {
                         <p className='msgp'>{mensaje}</p>
                         <button type="submit"><IoMdCloudUpload className='icoSubir' /> Subir</button>
                     </form>
+
+                    {/* Componente de Galería */}
+                    {showGallery && (
+                        <div className="gallery">
+                            <h3>Galería de Imágenes</h3>
+                            <div className="gallery-grid">
+                                {galleryImages.map((imageUrl, index) => (
+                                    <img
+                                        key={index}
+                                        src={imageUrl}
+                                        alt={`Imagen ${index + 1}`}
+                                        onClick={() => selectImageFromGallery(imageUrl)}
+                                    />
+                                ))}
+                            </div>
+                            <button onClick={handleGalleryToggle}>Cerrar Galería</button>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

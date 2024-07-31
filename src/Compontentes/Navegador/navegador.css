@@ -32,12 +32,12 @@
 .navegador nav .link {
     color: white;
     text-decoration: none;
-    font-family: arial;
-    font-weight: bold;
     position: relative;
     width: 120px;
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
+    font-family: 'poppins';
+    font-weight: initial;
 }
 
 .link::before {
