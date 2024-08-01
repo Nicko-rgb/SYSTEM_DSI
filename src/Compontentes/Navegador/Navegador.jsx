@@ -27,6 +27,7 @@ const Navegador = () => {
                     <Link className="link link1" to='/'><IoHome className='navIco' /> Inicio</Link>
                     <Link className="link link2" to='/publicacion' onClick={recargarPublicacion}><MdOutlinePublic className='navIco' /> Publicaciones</Link>
                     <Link className="link link3" to='/dsi'><TbInfoCircleFilled className='navIco' /> DSI</Link>
+                    <Link className='link link5' to='/dsi/docentes'> Docentes </Link>
                     <Link className="link link4" to='/periodico_mural'><FaNewspaper className='navIco' /> P. Mural</Link>
                 </nav>
                 <div>

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.inicio, .inicio {
+.inicio{
     position: relative;
     height: 100vh;
     overflow-y: auto;
@@ -139,17 +139,16 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    gap: 20px;
 }
 .inicio .subContent2{
     backdrop-filter: blur(5px);
     background-color: rgba(0, 255, 255, 0.126);
-    /* background: rgba(153, 181, 253, 0.306); */
     box-shadow: 0 0 6px aqua;
     border: rgba(0, 0, 0, 0.139) solid 1px;
     padding: 20px;
     border-radius: 14px; 
-    max-width: 850px;
+    max-width: 750px;
+    width: 100%;
     transition: .4s ease;
 }
 .inicio .subContent2 .insti{
@@ -231,6 +230,7 @@
     position: relative;
     min-width: 100%; 
     width: 100%;
+    width: 83px;
     box-sizing: border-box;
     border: 1px solid aqua; 
     border-radius: 8px; 
@@ -319,16 +319,18 @@
     height: 10px;
     width: 10px;
 }
+@media (max-width: 1050px){
+    .inicio .content .subContent{
+        flex-direction: column-reverse;
+        transition: .4s ease;
+        gap: 50px;
+    }
+}
 @media (max-width: 800px) {
     .inicio main .bienvenida{
         font-size: 20px;
         backdrop-filter: blur(5px);
         margin-top: 0px;
-    }
-    .inicio .content .subContent{
-        flex-direction: column-reverse;
-        transition: .4s ease;
-        gap: 60px;
     }
     .inicio .content .subContent2 h1{
         font-size: 35px;
@@ -361,3 +363,4 @@
         padding-bottom: 200px;
     }
 }
+
