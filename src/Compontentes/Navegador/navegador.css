@@ -38,6 +38,10 @@
     font-size: 13px;
     font-family: 'poppins';
     font-weight: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 
 .link::before {

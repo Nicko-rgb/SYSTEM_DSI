@@ -16,9 +16,11 @@
     height: calc(100vh - 70px);
     margin-left: 205px;
 }
-.horario .container h2{
+.horario .container .titulo{
     text-align: center;
-    margin-top: 30px;
+    margin-top: 50px;
+    font-family: 'poppins';
+    font-size: 23px;
 }
 .horario .container nav{
     position: fixed;
@@ -30,7 +32,7 @@
     z-index: 1;
     pointer-events: none;
 }
-.horario .container nav a{
+.horario .container .hor_ciclos a{
     font-family: 'poppins';
     font-weight: initial;
     font-size: 16px;
@@ -38,17 +40,16 @@
     text-align: center;
     width: 85px;
     padding: 4px 0;
-    border-radius: 6px;
-    border: aqua solid 1px;
+    border-radius: 8px;
+    box-shadow: 0 0 2px aqua;
     transition: .3s ease;
     pointer-events: initial;
     scroll-behavior: smooth; /* Aplica desplazamiento suave a toda la página */
 
 }
-.horario nav a:hover{
+.horario .hor_ciclos a:hover{
     transition: .3s ease;
-    background-color: #2c3e50;
-    text-decoration: underline;
+    box-shadow: 0 0 5px aqua;
 }
 .horario .container table thead tr{
     border: white solid 1px;
@@ -68,7 +69,12 @@
     margin-top: 0;
 }
 .horario .tablas_horario .ultima{
-    margin-bottom: 100px;
+    margin-bottom: 200px;
+}
+.horario .tabla h3{
+    font-family: 'poppins';
+    font-size: 18px;
+    text-align: center;
 }
 table {
     width: 100%;
@@ -91,7 +97,7 @@ th {
 }
 
 td:hover {
-    background-color: #f1f1f198;
+    background-color: #f1f1f1c9;
     color: black;
     transition: .5s ease;
 
@@ -107,4 +113,19 @@ tbody tr:nth-child(6) td{
     background-color: #e0e0e0;
     color: black;
     height: auto;
+}
+
+@media (max-width: 800px){
+    .horario .container{
+        margin-left: 55px;
+        width: calc(100% - 55px);
+    }
+    .horario .container nav{
+        width: 100%;
+    }
+}
+@media (max-width: 700px) {
+    .horario .tablas_horario table th, td{
+        font-size: 10px;
+    }
 }

@@ -198,16 +198,16 @@ export const Horario = () => {
             <main>
                 <NavegadorDsi />
                 <div className="container">
-                    <h2>Horarios de Desarrollo de Sistemas</h2>
-                    <nav>
-                        <a href="#1ciclo" className='ciclo1'>1 CICLO</a>
-                        <a href="#3ciclo" className='ciclo2'>3 CICLO</a>
-                        <a href="#5ciclo" className='ciclo3'>5 CICLO</a>
+                    <p className='titulo'>Horarios de Desarrollo de Sistemas</p>
+                    <nav className='hor_ciclos'>
+                        <a href="#1ciclo" className='ciclo1'>I CICLO</a>
+                        <a href="#3ciclo" className='ciclo2'>III CICLO</a>
+                        <a href="#5ciclo" className='ciclo3'>V CICLO</a>
                     </nav>
 
                     <div className="tablas_horario">
                         <div className="tabla" id='1ciclo'>
-                            <h3>HORARIO DE I CICLO</h3>
+                            <h3>Horario de I Ciclo</h3>
                             <table>
                                 <thead>
                                     <tr>
@@ -231,7 +231,7 @@ export const Horario = () => {
                         </div>
 
                         <div className="tabla" id='3ciclo'>
-                            <h3>HORARIO DE III CICLO</h3>
+                            <h3>Horario de III Ciclo</h3>
                             <table>
                                 <thead>
                                     <tr>
@@ -255,7 +255,7 @@ export const Horario = () => {
                         </div>
 
                         <div className="tabla  ultima" id='5ciclo'>
-                            <h3>HORARIO DE V CICLO</h3>
+                            <h3>Horario de V Ciclo</h3>
                             <table>
                                 <thead>
                                     <tr>

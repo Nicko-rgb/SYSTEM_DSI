@@ -1,9 +1,10 @@
 import nixon from './IMG/nick.jpg';
 import romer from './IMG/romer.jpg';
-import soria from './IMG/soria.jpg';
+import soria from './IMG/cesar.jpg';
 import bruno from './IMG/bruno.jpg';
 import josep from './IMG/joseph.jpg'
 import castillo from './IMG/castillon.jpg'
+import Antoni from './IMG/Anthony.jpg'
 
 const datDev = [
     {
@@ -47,12 +48,28 @@ const datDev = [
         github: "https://github.com/josephpadillaalban",
     },
     {
-        id: '5',
+        id: '6',
         name: 'Vargas Castillon Edinson',
         cargo: 'Diseñador CSS',
         email: "castillonfor7@gmail.com",
         img: castillo,
         github: "https://github.com/bartolito-castro",
+    },
+    {
+        id: '7',
+        name: 'Garcia Prada Antoni',
+        cargo: 'Diseñador Web',
+        email: "antonipradas@gmail.com",
+        img: Antoni,
+        github: "https://github.com/antonipradas",
+    },
+    {
+        id: '8',
+        name: 'Yaicate Cahuasa Victor',
+        cargo: 'Diseñador Web',
+        email: "victoryaicate@gmail.com",
+        img: Antoni,
+        github: "https://github.com/victoryaicate",
     }
 ];
 

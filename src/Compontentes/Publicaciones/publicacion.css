@@ -297,11 +297,14 @@ p {
     font-size: 20px;
 }
 /**********************************/
-
+.divComentar{
+    padding: 0 10px;
+}
 .divGusta {
     display: flex;
     align-items: center;
     cursor: pointer;
+    padding: 0 10px;
 }
 
 .ico.meGusta {
@@ -322,3 +325,5 @@ p {
         width: 100%;
     }
 }
+
+

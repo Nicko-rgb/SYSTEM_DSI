@@ -1,9 +1,8 @@
 import './registro.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { MdArrowBackIos } from 'react-icons/md'
 import { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 
 import Cabeza from '../Navegador/Cabeza'
 import EstadoSesion from './Sesion'
@@ -13,15 +12,17 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setIsLoading(true)
 
         try {
             const response = await axios.post('https://backend-systemblog-production.up.railway.app/api/login', { email, password })
-            console.log("Inicio de Sesion de usuario Exitoso");
-            handleLogin(response.data.name, response.data.token)
+            console.log("Inicio de Sesion de usuario Exitoso")
+            handleLogin(response.data.id, response.data.name, response.data.token)
             navigate('/')
         } catch (error) {
             console.error('Error al iniciar sesión:', error)
@@ -30,6 +31,8 @@ const Login = () => {
             } else {
                 setErrorMessage('Error al iniciar sesión. Inténtalo de nuevo.')
             }
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -49,8 +52,10 @@ const Login = () => {
                         <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     {errorMessage && <p className='errorPassword-message'>{errorMessage}</p>}
-                    <button type="submit">INICIAR SESIÓN</button>
-                    <p>¿ No tienes cuenta ? <a href="/register"> Registrate</a> </p>
+                    <button type="submit" disabled={isLoading}>
+                        {isLoading ? 'Iniciando sesión...' : 'INICIAR SESIÓN'}
+                    </button>
+                    <p>¿ No tienes cuenta ? <Link to="/register"> Registrate</Link> </p>
                 </form>
             </div>
         </div>
