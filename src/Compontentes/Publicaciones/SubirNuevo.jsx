@@ -1,9 +1,9 @@
 import './subirnuevo.css';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import { FaTimes } from 'react-icons/fa';
 import { IoMdCloudUpload } from "react-icons/io";
-import { TbPhotoPlus } from "react-icons/tb";
+import { TbPhotoPlus, TbPhotoUp } from "react-icons/tb";
 import EstadoSesion from '../Formularios/Sesion';
 
 const UploadForm = ({ cerrarSubir }) => {
@@ -17,6 +17,8 @@ const UploadForm = ({ cerrarSubir }) => {
 
     const subirArchivo = () => {
         setConArchivo(true);
+        setMensaje('')
+        setText(true)
     };
 
     const handleTextChange = (e) => {
@@ -56,7 +58,10 @@ const UploadForm = ({ cerrarSubir }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
+        if(video || image ) {
+            setText('')
+        }
         if (!text) {
             setMensaje('Rellene o Escriba en el Campo');
             return;
@@ -85,6 +90,11 @@ const UploadForm = ({ cerrarSubir }) => {
             console.error("Error al publicar:", error);
         }
     };
+    const fileInputRef = useRef(null);
+
+    const handleFileIconClick = () => {
+        fileInputRef.current.click();
+    };
 
     return (
         <div className="formSubir">
@@ -104,20 +114,24 @@ const UploadForm = ({ cerrarSubir }) => {
                                 />
                                 <div>
                                     <TbPhotoPlus className='ico_subir_img' onClick={subirArchivo} />
-                                    <p>Subir Archivo</p>
+                                    <p className='txt_subir'>Subir Archivo</p>
                                 </div>
                             </>
                         ) : (
                             <>
                                 <div className="descripcion">
-                                    <textarea 
+                                    <textarea
                                         value={textArchivo}
                                         placeholder='Añade una descripción o mensaje...'
                                         onChange={conTextoArchivo}
                                     />
                                 </div>
                                 {!image && !video && (
-                                    <input type="file" className='archivo' onChange={handleFileChange} />
+                                    <div className='seleccionar' onClick={handleFileIconClick}>
+                                        <TbPhotoUp className="selec_file" />
+                                        <p className='txt_selec'>Seleccione de la Galeria</p>
+                                        <input type="file" ref={fileInputRef} className="archivo" onChange={handleFileChange} style={{ display: 'none' }} />
+                                    </div>
                                 )}
                                 <div className="verArchivo">
                                     {image && (

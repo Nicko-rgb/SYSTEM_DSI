@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.inicio, .inicio {
+.inicio{
     position: relative;
     height: 100vh;
     overflow-y: auto;
@@ -137,9 +137,8 @@
 }
 .inicio .content .subContent{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 20px;
 }
 .inicio .subContent2{
     backdrop-filter: blur(5px);
@@ -148,19 +147,20 @@
     border: rgba(0, 0, 0, 0.139) solid 1px;
     padding: 20px;
     border-radius: 14px; 
-    max-width: 850px;
+    max-width: 750px;
+    width: 100%;
     transition: .4s ease;
 }
 .inicio .subContent2 .insti{
-    color: rgb(32, 94, 251);
-    text-shadow: 0 0 10px black;
-    -webkit-text-stroke: .1px aqua;
-    font-size: 23px;
+    color: blue;
+    text-shadow: 0 0 10px aqua;
+    -webkit-text-stroke: .4px black;
+    font-size: 22px;
     font-weight: bold;
     text-align: center;
 }
 .inicio .subContent2 .des{
-    font-size: 45px;
+    font-size: 40px;
     color: rgb(32, 94, 251);
     -webkit-text-stroke: aqua .4px;
     text-shadow: 0 0 3px white,
@@ -207,38 +207,138 @@
 .inicio .box-butons .butons2 button:hover{
     background: orangered;
 }
-.inicio .content .fotos{
-    width: 340px;
+.inicio .content .new_public{
+    max-width: 450px;
+    width: 100%;
     height: 340px;
-    padding: 20px;
     border-radius: 15px;
-    backdrop-filter: blur(2px);
-    background-color: rgba(0, 255, 255, 0.126);
-    box-shadow: 0 0 6px aqua;
-    border: rgba(0, 0, 0, 0.139) solid 1px;
+    backdrop-filter: blur(20px);
     transition: .4 ease;
-}
-.inicio .fotos img{
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
+    display: flex;
+    padding: 10px;
+    overflow: hidden;
 }
 
+.publicaciones-container {
+    display: flex; 
+    transition: transform 0.5s ease; 
+    border: transparent solid 1px;
+    gap: 10px;
+}
+
+.box_publicaciones {
+    position: relative;
+    min-width: 100%; 
+    width: 100%;
+    width: 83px;
+    box-sizing: border-box;
+    border: 1px solid aqua; 
+    border-radius: 8px; 
+    background-color: #ffffff49; 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    margin-left: -5px;
+    overflow: hidden;
+}
+.box_publicaciones .box_user{
+    position: absolute;
+    top: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+.box_publicaciones .user{
+    color: black;
+    background: white;
+    font-size: 16px;
+    font-family: 'poppins';
+    text-align: center;
+    padding: 0 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+}
+.box_publicaciones .txt_descrip{
+    position: absolute;
+    z-index: 1;
+    backdrop-filter: blur(40px);
+    box-shadow: 0 0 4px black;
+    border-radius: 6px;
+    font-family: 'poppins';
+    right: 10px;
+    bottom: 10px;
+    padding: 0 10px;
+    font-size: 15px;
+    color: white;
+}
+.box_publicaciones img{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -0;
+    border-radius: 8px;
+}
+.box_publicaciones video{
+    width: 100%;
+    height: 100%;
+}
+.box_publicaciones .soloTextoPublic{
+    background: rgb(37, 36, 36);
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagination {
+    position: absolute;
+    bottom: 0px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex; 
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%; 
+    background-color: #a19e9e;
+    transition: .3s ease;
+    border: none;
+    cursor: pointer; 
+    margin: auto 5px; 
+}
+
+.dot.active {
+    background-color: white;
+    height: 10px;
+    width: 10px;
+}
+@media (max-width: 1050px){
+    .inicio .content .subContent{
+        flex-direction: column-reverse;
+        transition: .4s ease;
+        gap: 50px;
+    }
+}
 @media (max-width: 800px) {
     .inicio main .bienvenida{
         font-size: 20px;
         backdrop-filter: blur(5px);
-    }
-    .inicio .content .subContent{
-        flex-direction: column;
-        transition: .4s ease;
+        margin-top: 0px;
     }
     .inicio .content .subContent2 h1{
         font-size: 35px;
         margin-top: 20px;
     }
-    .inicio .content .fotos{
+    .inicio .content .new_public{
         box-shadow: 3px;
+        margin-top: 30px;
     }
     .inicio main .box-butons .butons1{
         justify-content: center;
@@ -263,3 +363,4 @@
         padding-bottom: 200px;
     }
 }
+

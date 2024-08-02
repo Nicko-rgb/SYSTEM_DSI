@@ -25,13 +25,12 @@
     display: flex;
     flex-direction: column;
     border: rgb(0, 255, 8) solid 1px;
-    height: 100%;
     background-color: #edfcf7;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    min-width: 600px;
+    max-width: 550px;
+    width: 100%;
     height: auto;
     margin: auto auto;
 }
@@ -51,7 +50,7 @@
     color: rgb(76, 72, 72);
 }
 
-.subirCabeza .close-btn {
+.formSubir .subirCabeza .close-btn {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -75,10 +74,11 @@
     border: none;
     box-shadow: 0 0 2px orangered;
     border-radius: 7px;
-    width: 100%;
     max-width: 100%;
-    min-width: 530px;
+    min-width: 100%;
+    width: 100%;
     max-height: 400px;
+    min-height: 50px;
     outline: none;
     padding: 10px;
     font-size: 20px;
@@ -100,7 +100,6 @@
     margin: 0 auto;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: 10px;
 }
 .formSubir form .icoSubir{
     font-size: 25px;
@@ -109,7 +108,8 @@
 
 .formSubir form .ico_subir_img{
     font-size: 35px;
-    margin-left: 500px;
+    margin-left: 455px;
+    margin-top: 10px;
     border-radius: 5px;
     box-shadow: 0 0 1px orangered;
     padding: 5px;
@@ -119,7 +119,7 @@
 .formSubir form .ico_subir_img:hover{
     box-shadow: 0 0 5px orangered;
 }
-.formSubir form div p{
+.formSubir form div .txt_subir{
     display: none;
     position: absolute;
     right: 0;
@@ -132,15 +132,18 @@
     border-radius: 7px;
     transition: 1s ease;
 }
-.formSubir form div .ico_subir_img:hover ~ p{
+.formSubir form div .ico_subir_img:hover ~ .txt_subir{
     display: block;
 }
-.formSubir form div p:hover {
+.formSubir form div .txt_subir:hover {
     background-color: #1d1a1a;
     display: block;
 }
 .formSubir form .archivo{
     margin-top: 10px;
+}
+form .descripcion{
+    width: 100%;
 }
 .formSubir form  .verArchivo .file-preview img, source{
     margin-top: 10px;
@@ -152,13 +155,29 @@
     max-height: 500px;
     object-fit: contain;
 }
-.formSubir .subContend form input{
-    color: black;
-    margin-top: -20px;
+
+.formSubir .seleccionar{
+    display: flex;
+    gap: 5px;
+    padding: 7px;
+    background: green;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    margin-top: 6px;
+    cursor: pointer;
+    color: white;
+    font-family: 'poppins';
+}
+.formSubir .seleccionar .selec_file{
+    font-size: 20px;
+    font-weight: bold;
+}
+.formSubir .seleccionar .txt_selec{
+    display: block;
 }
 .formSubir form .msgp{
     color: red;
-    margin-top: -60px;
+    margin: 0;
 }
 
 @media (max-width: 700px){

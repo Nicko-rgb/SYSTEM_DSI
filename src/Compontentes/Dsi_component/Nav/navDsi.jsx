@@ -2,7 +2,7 @@ import React from 'react'
 import './navDsi.css'
 import { Link } from 'react-router-dom'
 
-import { FaInfoCircle, FaChalkboardTeacher, FaServer, FaFacebook, FaWhatsapp } from "react-icons/fa";
+import { FaInfoCircle, FaChalkboardTeacher, FaServer, FaFacebook, FaWhatsapp, FaCalendarAlt } from "react-icons/fa";
 import { PiBooksFill } from "react-icons/pi";
 import { FaHandshakeSimple, FaPeopleLine } from "react-icons/fa6";
 import { CiLocationOn } from "react-icons/ci";
@@ -22,6 +22,9 @@ const NavegadorDsi = () => {
                     <Link className='div link3' to="/dsi/modulos">
                         <FaServer className='icons-lateral' />
                     </Link >
+                    <Link className='div link7' to='/dsi/horario'>
+                        <FaCalendarAlt className='icons-lateral'/>
+                    </Link>
                     <Link className='div link4' to="/dsi/biblioteca">
                         <PiBooksFill className='icons-lateral' />
                     </Link >
@@ -37,6 +40,7 @@ const NavegadorDsi = () => {
                     <Link className='dsiLink link1' to="/dsi/">Acerca de</Link>
                     <Link className='dsiLink link2' to="/dsi/docentes">Docentes</Link>
                     <Link className='dsiLink link3' to="/dsi/modulos">Módulos</Link>
+                    <Link className='dsiLink link7' to='/dsi/horario'> Horarios</Link>
                     <Link className='dsiLink link4' to="/dsi/biblioteca">Biblioteca</Link>
                     <Link className='dsiLink link5' to="/dsi/beneficios">Beneficios</Link>
                     <Link className='dsiLink link6' to="/dsi/developers">Desarrolladores</Link>
@@ -48,9 +52,6 @@ const NavegadorDsi = () => {
                         <Link className='lIco' to='https://walink.co/7c3eb6' title='WhatsApp'>
                             <FaWhatsapp className='ico wsp' />
                         </Link>
-                        {/* <Link className='lIco' to='https://institutosuiza.edu.pe/' title='Conoce más'>
-                            <img src={internet} alt="" />
-                        </Link> */}
                         <Link className='lIco' to='https://maps.app.goo.gl/CYYX3S4YEFjuyHCi7' title='Mapa'>
                             <CiLocationOn className='ico map'/>
                         </Link>

@@ -11,6 +11,7 @@ import Docentes from './Compontentes/Dsi_component/Docentes/Docentes';
 import Modulos from './Compontentes/Dsi_component/Modulos/Modulos';
 import Beneficios from './Compontentes/Dsi_component/Beneficios/Beneficios';
 import Developers from './Compontentes/Dsi_component/Developers/Developers';
+import Horario from './Compontentes/Dsi_component/Horario/Horario';
 import CursorEffect from './CursorEfect/CursorEfect';
 import Perfil from './Compontentes/Perfil/Perfil';
 
@@ -34,6 +35,7 @@ function App() {
                     <Route path="/dsi/biblioteca" element={<Biblioteca />} />
                     <Route path="/dsi/beneficios" element={<Beneficios />} />
                     <Route path="/dsi/developers" element={<Developers />} />
+                    <Route path="/dsi/horario" element={<Horario />} />
                 </Routes>
             </BrowserRouter>
         </div>

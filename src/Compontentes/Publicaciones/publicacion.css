@@ -49,7 +49,7 @@
     padding: 10px;
     border-radius: 15px;
     background-color: transparent;
-    max-width: 620px;
+    max-width: 570px;
     width: 100%;
 }
 .publicaciones .subPubli .subirNuevo img{
@@ -96,7 +96,8 @@
     box-shadow:  0 0 2px aqua;
     background: rgb(20, 17, 17);
     border-radius: 10px;
-    width: 600px;
+    max-width: 550px;
+    width: 100%;
     height: auto;
     padding: 15px;
     display: flex;
@@ -228,7 +229,7 @@ p {
     margin-top: -10px;
 }
 .publicaciones .content-publicacion .publicArchivo .fotoPublicacion, .videoPublicacion{
-    background-color: rgb(19, 17, 17);
+    background-color: rgb(35, 35, 35);
 }
 .publicaciones .content-publicacion .publicArchivo  img {
     width: 100%;
@@ -482,11 +483,6 @@ p {
         padding-bottom: 150px;
     }
     .publicaciones .subPubli .content-publicacion img{
-        width: 100%;
-    }
-}
-@media (max-width: 600px){
-    .publicaciones .subPubli .content-publicacion{
         width: 100%;
     }
 }
