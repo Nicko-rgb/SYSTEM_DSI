@@ -15,7 +15,6 @@ import useLogout from './useLogout';
 import fondo1 from '../../IMG/std2.jpg';
 import fondo3 from '../../IMG/studentInformatica.jpeg';
 import fondo4 from '../../IMG/Suiza.jpg';
-import logodsi from '../../IMG/logodsi.png';
 
 const Inicio = () => {
     const { userName, isLoggedIn, handleLogout } = EstadoSesion();

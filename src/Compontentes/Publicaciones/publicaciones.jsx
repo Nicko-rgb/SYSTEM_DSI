@@ -1,6 +1,11 @@
+
 import "./publicacion.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './publicacion.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import { FaHeart, FaPlus, FaUser } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
 import { SlOptionsVertical } from "react-icons/sl";
@@ -74,13 +79,13 @@ const Publicaciones = () => {
 
                 // Inicializa los estados locales para cada publicación
                 setShowComments(publicaciones.reduce((acc, pub) => ({ ...acc, [pub._id]: false }), {}));
-                setLikes(publicaciones.reduce((acc, pub) => ({ ...acc, [pub._id]: false }), {}));
             } catch (error) {
                 console.log(error)
             }
         };
         fechPublicacion();
     }, []);
+
     //codigo para enviar comentarios de cada publicacion
     const handleCommentSubmit = async (publicacionId) => {
         try {
@@ -112,44 +117,25 @@ const Publicaciones = () => {
         }
     };
 
-    //codigo de los likes de cada publicacion para obtener y enviar
-    useEffect(() => {
-        // Cargar los likes del usuario al iniciar el componente
-        const fetchLikes = async () => {
-            try {
-                const response = await axios.get(`https://backend-systemblog-production.up.railway.app/api/likes/${userName}`);
-                setLikes(response.data.reduce((acc, like) => {
-                    acc[like.publicacionId] = true;
-                    return acc;
-                }, {}));
-            } catch (error) {
-                console.error('Error al cargar los likes:', error);
-            }
-        };
-        fetchLikes();
-    }, [userName]);
-
-    //obtener lo likes de cada uno
+    //codigo para dar likes a las publicaciones
     const handleLike = async (publicacionId) => {
         try {
             // Verificar si el usuario ya ha dado like a la publicación
-            if (likes[publicacionId]) {
-                return;
-            }
-
-            // Enviar la acción de like al servidor
-            await axios.post(`https://backend-systemblog-production.up.railway.app/api/publicaciones/${publicacionId}/like`, {
+            const isLiked = likes[publicacionId];
+    
+            // Enviar la acción de like o unlike al servidor
+            const response = await axios.post(`https://backend-systemblog-production.up.railway.app/api/publicaciones/${publicacionId}/like`, {
                 userName: userName,
             });
-
+    
             // Actualizar el estado local de likes
-            setLikes((prevLikes) => ({ ...prevLikes, [publicacionId]: true }));
-
+            setLikes((prevLikes) => ({ ...prevLikes, [publicacionId]: !isLiked })); // Alternar el estado del like
+    
             // Actualizar el estado local de la publicación
             setPublicaciones((prevPublicaciones) =>
                 prevPublicaciones.map((pub) =>
                     pub._id === publicacionId
-                        ? { ...pub, likes: pub.likes + 1 }
+                        ? response.data // Usar la publicación actualizada devuelta por el servidor
                         : pub
                 )
             );
@@ -157,6 +143,46 @@ const Publicaciones = () => {
             console.error('Error al dar like:', error);
         }
     };
+
+    // Código para servir los likes de cada publicación
+    useEffect(() => {
+        const fetchLikes = async () => {
+            if (userName) {
+                try {
+                    const response = await axios.get(`https://backend-systemblog-production.up.railway.app/api/likes/${userName}`);
+
+                    // Verificar si la respuesta contiene datos
+                    if (response.data) {
+                        // Reducir los likes a un objeto donde las claves son los IDs de las publicaciones
+                        const likesData = response.data.reduce((acc, like) => {
+                            acc[like.publicacionId.toString()] = true; // Asegúrate de convertir el ObjectId a string
+                            return acc;
+                        }, {});
+                        setLikes(likesData); // Establecer el estado de likes
+                    }
+                } catch (error) {
+                    console.error('Error al cargar los likes:', error);
+                }
+            }
+        };
+
+        fetchLikes();
+    }, [userName]);
+
+    const borrarPublicacion = async (publicacionId) => {
+        try {
+            await axios.delete(`https://backend-systemblog-production.up.railway.app/api/borrar/publicaciones/${publicacionId}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            // Actualizar el estado de las publicaciones en el componente padre
+            setPublicaciones(prev => prev.filter(pub => pub._id !== publicacionId));
+            console.log('Publicación eliminada con éxito');
+        } catch (error) {
+            console.error('Error al eliminar la publicaciónss:', error);
+        }
+    }
 
     //formatear menos 5 horas
     const moment = require('moment-timezone'); // Asegúrate de que moment-timezone esté instalado
@@ -209,7 +235,9 @@ const Publicaciones = () => {
                                 <p>Denuncia</p>
                                 <p>Ver la Publicacion</p>
                                 <p>Informacion</p>
-                                <p>Borrar Publicacion</p>
+                                {datos.userName === userName && (
+                                    <p onClick={() => borrarPublicacion(datos._id)}>Eliminar</p>
+                                )}
                             </div>
                         </header>
 
@@ -271,9 +299,9 @@ const Publicaciones = () => {
                 ))}
             </main>
             {showModal && (
-                <div className="modal">
-                    <IoIosCloseCircleOutline className='close-button' onClick={closeModal}/>
-                    <img src={`https://backend-systemblog-production.up.railway.app/uploads/${selectedImage.filename}`} alt="Imagen ampliada" />
+                <div className="modal" onClick={closeModal}>
+                    <IoIosCloseCircleOutline className='close-button' onClick={closeModal} />
+                    <img src={`https://backend-systemblog-production.up.railway.app/uploads/${selectedImage.filename}`} alt="Imagen ampliada" onClick={(e) => e.stopPropagation()} />
                 </div>
             )}
         </div>

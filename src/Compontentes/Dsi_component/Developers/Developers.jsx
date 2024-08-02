@@ -82,12 +82,12 @@ const Developers = () => {
             <main>
                 <NavegadorDsi />
                 <div className="container">
-                    <h2 style={{ textAlign: 'center' }}>DESARROLLADORES D'SYSTEM BLOG</h2>
+                    <h2 style={{ textAlign: 'center', userSelect: 'none' }}>DESARROLLADORES D'SYSTEM BLOG</h2>
                     <div className="dev-list">
                         {datDev.map((dev, index) => (
                             <div className="box" key={index} style={{ animationDelay: `${index * 0.2}s` }}>
                                 <img src={dev.img} alt={dev.nombre} onClick={() => abrirModal(dev.img)} />
-                                <h3 className='name'>{dev.name}</h3>
+                                <p className='name'>{dev.name}</p>
                                 <p>{dev.cargo}</p>
                                 <p>{dev.email}</p>
                                 <a href={dev.github} target="_blank" rel="noopener noreferrer">Cuenta de GitHub</a>

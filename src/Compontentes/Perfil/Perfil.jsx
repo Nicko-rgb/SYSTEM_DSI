@@ -6,7 +6,7 @@ import ModalEditarPerfil from './Modales/ModalEditarPerfil';
 import ModalCambiarContrasena from './Modales/ModalCambiarContraseña';
 
 const Perfil = () => {
-    const { userName } = EstadoSesion();
+    const { userName, userId } = EstadoSesion();
     const [usuario, setUsuario] = useState(null);
     const [isEditarPerfilOpen, setIsEditarPerfilOpen] = useState(false);
     const [isCambiarContrasenaOpen, setIsCambiarContrasenaOpen] = useState(false);
@@ -48,7 +48,7 @@ const Perfil = () => {
             <div className="perfil-card">
                 <img src={usuario.fotoPerfil} alt="Foto de perfil" className="perfil-foto" />
                 <div className="perfil-info">
-                    <h2>{usuario.nombre}</h2>
+                    <h2>{userId} {usuario.nombre} </h2>
                     <p>{usuario.email}</p>
                 </div>
                 <div className="perfil-opciones">

@@ -60,17 +60,22 @@
     box-shadow: 0 0 5px aqua;
 }
 .dev-list .box .name{
-    margin-top: 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
     text-align: center;
 }
 .dev-list .box p{
-    font-size: 16px;
+    font-size: 13px;
     text-align: center;
-    font-size: 'poppins';
+    color: gray;
+    font-family: 'poppins';
 }
 .dev-list .box .name, .box a {
     transition: color 0.3s ease;
     color: white;
+    font-family: 'poppins';
+    font-size: 14px;
 }
 .dev-list .box a:hover{
     text-decoration: underline;
