@@ -105,6 +105,8 @@
     gap: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
+    position: relative;
+    overflow: hidden; /* Esto evitará que los hijos se salgan */
 }
 
 .content-publicacion header {
@@ -112,7 +114,7 @@
     height: 65px;
     position: relative;
     align-items: center;
-    z-index: 0;
+    z-index: 2;
     color: white;
 }
 
@@ -146,23 +148,59 @@
     top: 5px;
     color: white;
     font-size: 25px;
-    z-index: 3;
+    z-index: 4;
     cursor: pointer;
 }
-.content-publicacion header .accionPubli{
+.content-publicacion header .accionPubli {
     position: absolute;
-    right: 5px;
-    background: rgb(16, 80, 110);
-    width: 150px;
-    padding: 10px;
-    z-index: 2;
-    display: none;
+  top: 4px; /* Ajusta este valor según necesites */
+  /* right: 12px; */
+  left: 63%;
+  max-width: calc(100% - 10px); /* Esto evitará que se salga por la derecha */
+  width: 180px; /* O el ancho que prefieras */
+  background: linear-gradient(to bottom right, rgb(4, 4, 27), rgb(64, 2, 2));
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Un valor alto para asegurar que esté por encima de otros elementos */
+  display: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
 }
-.content-publicacion header .ico-publiAction:hover ~ .accionPubli{
+
+.content-publicacion header .ico-publiAction:hover ~ .accionPubli,
+.content-publicacion header .accionPubli:hover {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
-.content-publicacion header .accionPubli:hover{
-    display: block;
+
+.content-publicacion header .accionPubli .accion-item {
+    margin: 8px 0;
+    padding: 8px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.content-publicacion header .accionPubli .accion-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transform: scale(1.05); /* Efecto de escalación mínima */
+}
+
+.content-publicacion header .accionPubli .accion-item:first-child {
+    color: #ff3b30; /* Color rojo para "Denuncia" */
+}
+
+.content-publicacion header .accionPubli .accion-item:last-child {
+    color: #ff9500; /* Color anaranjado para "Borrar Publicación" */
 }
 
 .content-publicacion header .datoUser div {
@@ -182,6 +220,7 @@ p {
     place-items: center;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 .publicaciones .content-publicacion .publicArchivo .descrip{
     padding-bottom: 10px;
@@ -314,6 +353,131 @@ p {
 .divGusta.liked .ico.meGusta {
     color: red;
 }
+/* ... (código CSS anterior sin cambios) ... */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .modal-content {
+    background: linear-gradient(to bottom right, rgb(10, 10, 40), rgb(80, 5, 5));
+    padding: 25px;
+    border-radius: 15px;
+    width: 600px;
+    max-width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    animation: slideIn 0.3s ease;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .modal-content h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: aqua;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+  
+  .modal-content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content button {
+    background-color: orangered;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 20px auto 0;
+  }
+  
+  .modal-content button:hover {
+    background-color: #ff6347;
+    transform: scale(1.05);
+  }
+  
+  .modal-content textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid aqua;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+  }
+  
+  .modal-content img {
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+  
+  .modal-content .info-item {
+    margin-bottom: 10px;
+  }
+  
+  .modal-content .info-label {
+    font-weight: bold;
+    color: aqua;
+  }
+  
+  @media (max-width: 768px) {
+    .modal-content {
+      width: 90%;
+      padding: 20px;
+    }
+  
+    .modal-content h2 {
+      font-size: 20px;
+    }
+  
+    .modal-content p {
+      font-size: 14px;
+    }
+  
+    .modal-content button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  /* ... (resto del código CSS sin cambios) ... */
 /*******************************************************************************/
 
 @media (max-width: 700px) {

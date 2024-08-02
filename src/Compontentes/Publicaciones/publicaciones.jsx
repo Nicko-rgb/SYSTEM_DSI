@@ -1,18 +1,38 @@
+
+import "./publicacion.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import './publicacion.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import { FaHeart, FaPlus, FaUser } from "react-icons/fa";
 import { TiMessages } from "react-icons/ti";
-import { SlOptionsVertical } from "react-icons/sl"
+import { SlOptionsVertical } from "react-icons/sl";
 import { CiCircleInfo } from "react-icons/ci";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import texto from '../../IMG/texto.png'
+import texto from "../../IMG/texto.png";
 
-import Navegador from '../Navegador/Navegador';
-import Cabeza from '../Navegador/Cabeza';
-import Comentarios from './Comentarios';
-import UploadForm from './SubirNuevo';
-import EstadoSesion from '../Formularios/Sesion';
+import Navegador from "../Navegador/Navegador";
+import Cabeza from "../Navegador/Cabeza";
+import Comentarios from "./Comentarios";
+import UploadForm from "./SubirNuevo";
+import EstadoSesion from "../Formularios/Sesion";
+
+
+// Componente Modal mejorado
+const Modal = ({ isOpen, onClose, children, title }) => {
+  if (!isOpen) return null;
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <h2>{title}</h2>
+        {children}
+        <button className="modal-close" onClick={onClose}>Cerrar</button>
+      </div>
+    </div>
+  );
+}
 
 const Publicaciones = () => {
     //verificar si el usuario inicio sesion
@@ -286,6 +306,7 @@ const Publicaciones = () => {
             )}
         </div>
     );
+
 };
 
 export default Publicaciones;
