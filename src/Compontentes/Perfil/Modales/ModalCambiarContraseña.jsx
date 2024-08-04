@@ -23,8 +23,8 @@ const ModalCambiarContrasena = ({ onClose, onSave }) => {
         <div className="modalPerfil">
             <div className="modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
-                <form onSubmit={handleSubmit}>
                 <h2>Cambiar Contraseña</h2>
+                <form onSubmit={handleSubmit}>
                     <label>
                         Contraseña Actual:
                         <input name="oldPassword" type={showPassword ? "text" : "password"} placeholder="Contraseña actual" required />
@@ -34,7 +34,7 @@ const ModalCambiarContrasena = ({ onClose, onSave }) => {
                         <input name="newPassword" type={showPassword ? "text" : "password"} placeholder="Nueva contraseña" required />
                     </label>
                     <label>
-                        Confirmar Contraseña:
+                        Confirmar Nueva Contraseña:
                         <input name="confirmPassword" type={showPassword ? "text" : "password"} placeholder="Confirmar nueva contraseña" required />
                     </label>
                     <label className="show-password">

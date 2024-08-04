@@ -14,8 +14,8 @@ const ModalEditarPerfil = ({ usuario, onClose, onSave }) => {
         <div className="modalPerfil">
             <div className="modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
-                <form onSubmit={handleSubmit}>
                 <h2>Editar Perfil</h2>
+                <form onSubmit={handleSubmit}>
                     <div className="input-group">
                         <label htmlFor="nombre">Nombre</label>
                         <input name="nombre" defaultValue={usuario.nombre} placeholder="Nombre" required />
