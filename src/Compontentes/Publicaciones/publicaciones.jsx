@@ -212,8 +212,7 @@ const Publicaciones = () => {
                             </div>
                             <SlOptionsVertical className='ico-publiAction' />
                             <div className='accionPubli'>
-                                <p>Denuncia</p>
-                                <p>Ver la Publicacion</p>
+                                <p>Reportar</p>
                                 <p>Informacion</p>
                                 {datos.userName === userName && (
                                     <p onClick={() => borrarPublicacion(datos._id)}>Eliminar</p>

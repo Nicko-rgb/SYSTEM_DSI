@@ -22,7 +22,13 @@ const Login = () => {
         try {
             const response = await axios.post('https://backend-systemblog-production.up.railway.app/api/login', { email, password })
             console.log("Inicio de Sesion de usuario Exitoso")
-            handleLogin(response.data.id, response.data.name, response.data.token)
+            handleLogin(
+                response.data.id, 
+                response.data.name, 
+                response.data.email, 
+                response.data.token, // Asegúrate de que el token se pase correctamente
+                response.data.fotoPerfil // Pasar la foto de perfil
+            )
             navigate('/')
         } catch (error) {
             console.error('Error al iniciar sesión:', error)
@@ -62,4 +68,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;

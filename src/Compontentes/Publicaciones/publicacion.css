@@ -142,7 +142,7 @@
 }
 .content-publicacion header .ico-publiAction {
     position: absolute;
-    right: 5px;
+    right: -3px;
     top: 5px;
     color: white;
     font-size: 25px;
@@ -151,18 +151,45 @@
 }
 .content-publicacion header .accionPubli{
     position: absolute;
-    right: 5px;
-    background: rgb(16, 80, 110);
+    right: -50px;
+    top: -30px;
+    background: rgb(30, 29, 30);
+    border-radius: 5px;
+    box-shadow: 0 0 3px white;
     width: 150px;
-    padding: 10px;
     z-index: 2;
-    display: none;
+    transform: scale(0);
+    z-index: 4;
+    padding: 5px;
+    transition: .3s ease;
+}
+.content-publicacion header .accionPubli p{
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px;
+    font-family: 'poppins';
+    font-size: 14px;
+}
+.content-publicacion header .accionPubli p:hover{
+    background: rgb(52, 51, 52);
 }
 .content-publicacion header .ico-publiAction:hover ~ .accionPubli{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transform: scale(1);
+    transition: .3s ease;
+    right: 5px;
+    top: 0px;
 }
 .content-publicacion header .accionPubli:hover{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transform: scale(1);
+    transition: .3s ease;
+    right: 5px;
+    top: 0px;
 }
 
 .content-publicacion header .datoUser div {
