@@ -17,6 +17,7 @@
 }
 
 .developers .container {
+    position: relative;
     padding: 20px;
     color: white;
     transition: 0.3s ease;
@@ -27,6 +28,15 @@
 
 .developers .dsiNav .link6 {
     color: orangered;
+}
+.propiedad1{
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    color: gray;
+    font-family: 'poppins';
+    font-size: 9px;
+    width: 100%;text-align: center;
 }
 
 .dev-list{

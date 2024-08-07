@@ -100,6 +100,7 @@ const Developers = () => {
                         ))}
                     </div>
                 </div>
+                <p className="propiedad1">Propiedad de Nick7</p>
             </main>
             {verModal && (
                 <ModalImg
