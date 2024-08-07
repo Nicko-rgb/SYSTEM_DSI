@@ -18,7 +18,7 @@ import { Reporte } from '../Complementos/Reporte';
 
 const Publicaciones = () => {
     //verificar si el usuario inicio sesion
-    const { userName, isLoggedIn } = EstadoSesion()
+    const { userName, isLoggedIn, userId } = EstadoSesion()
     const [publicaciones, setPublicaciones] = useState([]);
     const [comment, setComment] = useState('');
     // Agrega un estado local para cada publicación
@@ -98,14 +98,15 @@ const Publicaciones = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    usuario: userName,
+                    usuarioId: userId, // Cambiar 'usuario' a 'usuarioId'
+                    usuarioName: userName,
                     texto: comment,
                 }),
             });
-
+    
             // Limpiar el campo de comentario
             setComment('');
-
+    
             // Opcionalmente, actualizar el estado local con la publicación actualizada
             const response = await fetch(`https://backend-systemblog-production.up.railway.app/api/publicaciones/${publicacionId}`);
             const updatedPublicacion = await response.json();
@@ -122,17 +123,16 @@ const Publicaciones = () => {
     //codigo para dar likes a las publicaciones
     const handleLike = async (publicacionId) => {
         try {
-            // Verificar si el usuario ya ha dado like a la publicación
             const isLiked = likes[publicacionId];
-
+    
             // Enviar la acción de like o unlike al servidor
             const response = await axios.post(`https://backend-systemblog-production.up.railway.app/api/publicaciones/${publicacionId}/like`, {
                 userName: userName,
             });
-
+    
             // Actualizar el estado local de likes
             setLikes((prevLikes) => ({ ...prevLikes, [publicacionId]: !isLiked })); // Alternar el estado del like
-
+    
             // Actualizar el estado local de la publicación
             setPublicaciones((prevPublicaciones) =>
                 prevPublicaciones.map((pub) =>
@@ -145,6 +145,7 @@ const Publicaciones = () => {
             console.error('Error al dar like:', error);
         }
     };
+    
 
     // Código para servir los likes de cada publicación
     useEffect(() => {

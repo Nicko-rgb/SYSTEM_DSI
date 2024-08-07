@@ -114,6 +114,7 @@
     .developers .container{
         margin-left: 55px;
         width: calc(100% - 55px);
+        padding-bottom: 100px;
     }
     .dev-list{
         display: grid;

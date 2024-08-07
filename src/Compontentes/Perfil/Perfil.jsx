@@ -40,7 +40,7 @@ const Perfil = () => {
         if (file) {
             // Comprimir la imagen
             new Compressor(file, {
-                quality: 0.6, // Ajusta la calidad según sea necesario (0.0 a 1.0)
+                quality: 0.2, // Ajusta la calidad según sea necesario (0.0 a 1.0)
                 success: async (compressedResult) => {
                     const formData = new FormData();
                     formData.append('fotoPerfil', compressedResult);

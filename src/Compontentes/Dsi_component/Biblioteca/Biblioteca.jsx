@@ -18,7 +18,7 @@ const Biblioteca = () => {
                 <NavegadorDsi />
                 <div className="container">
                     <h1>Biblioteca de Developers</h1>
-                    <p style={{ marginTop: '10px', fontSize: 'initial' }}>
+                    <p style={{ marginTop: '10px', fontSize: '14px' }}>
                         Bienvenido a nuestra biblioteca de recursos para desarrolladores. Aquí encontrarás una amplia variedad de documentos,
                         tutoriales y guías creados por una comunidad de desarrolladores apasionados y dedicados.
                         Nuestra biblioteca está organizada por categorías para facilitar tu navegación. Cada documento ha sido cuidadosamente

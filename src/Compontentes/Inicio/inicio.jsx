@@ -110,6 +110,7 @@ const Inicio = () => {
                 {isLoggedIn && (
                     <p className='bienvenida underline-animation'>Bienvenido(a) {userName}</p>
                 )}
+                <button className='install'>Instalar Sitio como aplicacion</button>
                 <div className='content'>
                     <div className="subContent">
                         <div className="subContent2">

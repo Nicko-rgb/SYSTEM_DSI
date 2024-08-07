@@ -24,6 +24,9 @@
     width: calc(100% - 205px);
 }
 
+.biblioteca .container > p{
+    font-family: 'poppins';
+}
 .biblioteca .dsiNav .link4{
     color: orangered;
 }

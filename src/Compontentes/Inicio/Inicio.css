@@ -32,6 +32,21 @@
     gap: 20px;
     height: calc(100vh - 70px);
 }
+.inicio .install{
+    position: absolute;
+    right: 15px;    
+    top: 10px;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 8px;
+    box-shadow: aqua 0 0 4px;
+    background: rgb(21, 5, 45);
+    font-family: 'poppins';
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+}
 .inicio main>div {
     margin: auto 0;
 }
