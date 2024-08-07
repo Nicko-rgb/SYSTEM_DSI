@@ -17,6 +17,7 @@ const Perfil = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const fileInputRef = useRef(null);
+    const [imgError, setImgError] = useState(false);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -84,15 +85,22 @@ const Perfil = () => {
     const cerrarModalFoto = () => {
         setIsModalOpen(false);
     }
+    const handleImageError = () => {
+        setImgError(true); // Cambia el estado si hay un error al cargar la imagen
+    };
     return (
         <div className="perfil-container">
             <Link className="boton-regresar" to="/">Regresar</Link>
             <div className="perfil-card">
                 <div className="box_foto" onClick={() => openModal(usuario.fotoPerfil.path)}>
-                    {usuario.fotoPerfil && usuario.fotoPerfil.path ? (
-                        <img src={usuario.fotoPerfil.path} alt="Foto de perfil" />
-                    ) : (
+                    {imgError || !usuario.fotoPerfil || !usuario.fotoPerfil.path ? (
                         <FaUserCircle className="icon_user" size={100} />
+                    ) : (
+                        <img
+                            src={usuario.fotoPerfil.path}
+                            alt="Foto de perfil"
+                            onError={handleImageError} // Maneja el error de carga de la imagen
+                        />
                     )}
                 </div>
                 <div className="perfil-info">

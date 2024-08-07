@@ -1,0 +1,89 @@
+.informacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    z-index: 1000; /* Asegúrate de que el modal esté por encima de otros elementos */
+    opacity: 0; /* Comienza invisible */
+    pointer-events: none; /* Evita interacciones antes de que se muestre */
+    transition: opacity 0.3s ease; /* Transición para la opacidad */
+}
+
+.informacion main {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 600px;
+    width: 100%;
+    transform: scale(0); /* Comienza escalado a 0 */
+    transition: transform 0.3s ease; /* Transición para la escala */
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Clases para la animación */
+.scale-in {
+    opacity: 1; /* Hacer visible */
+    pointer-events: auto; /* Permitir interacciones */
+}
+
+.scale-in main {
+    transform: scale(1); /* Escalar a 1 */
+}
+
+.scale-out {
+    opacity: 0; /* Hacer invisible */
+    pointer-events: none; /* Evitar interacciones */
+}
+
+.scale-out main {
+    transform: scale(0); /* Escalar a 0 */
+}
+.informacion main h2{
+    text-align: center;
+    font-family: 'poppins';
+}
+.informacion main p{
+    font-family: 'poppins';
+}
+.informacion .close_info{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 35px;
+    width: 35px;
+    display: grid;
+    place-items: center;
+    padding: 5px;
+    border: gray solid 1px;
+    color: gray;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+}
+.informacion .txt_boxx{
+    padding: 10px;
+    min-height: 300px;
+    color: white;
+    border-radius: 10px;
+    background: rgb(41, 40, 40);
+    display: grid;
+    place-items: center;
+}
+.informacion main img{
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    padding: 10px;
+}
+.informacion .close_info:hover{
+    background-color: #f0f0f0;
+}

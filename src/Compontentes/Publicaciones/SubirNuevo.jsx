@@ -7,14 +7,14 @@ import { TbPhotoPlus, TbPhotoUp } from "react-icons/tb";
 import EstadoSesion from '../Formularios/Sesion';
 
 const UploadForm = ({ cerrarSubir }) => {
-    const { userName } = EstadoSesion();
+    const { userId, userName} = EstadoSesion();
     const [conArchivo, setConArchivo] = useState(false);
     const [text, setText] = useState('');
     const [textArchivo, setTextArchivo] = useState('');
     const [image, setImage] = useState(null);
     const [video, setVideo] = useState(null);
     const [mensaje, setMensaje] = useState('');
-
+    
     const subirArchivo = () => {
         setConArchivo(true);
         setMensaje('')
@@ -71,6 +71,7 @@ const UploadForm = ({ cerrarSubir }) => {
             setMensaje('Subiendo Publicación....');
 
             const formData = new FormData();
+            formData.append('userId', userId);
             formData.append('userName', userName);
             formData.append('text', text);
             formData.append('textArchivo', textArchivo);

@@ -27,7 +27,7 @@ const Login = () => {
                 response.data.name, 
                 response.data.email, 
                 response.data.token, // Asegúrate de que el token se pase correctamente
-                response.data.fotoPerfil // Pasar la foto de perfil
+                response.data.fotoPerfil.path // Pasar la foto de perfil
             )
             navigate('/')
         } catch (error) {

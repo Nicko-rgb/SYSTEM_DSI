@@ -28,7 +28,7 @@ function App() {
 
                     <Route path="/register" element={<RegistroUser />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/user/perfil" element={<Perfil />} />
+                    <Route path="/perfil/:name/:id" element={<Perfil />} />
 
                     <Route path="/dsi/docentes" element={<Docentes />} />
                     <Route path="/dsi/modulos" element={<Modulos />} />

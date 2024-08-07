@@ -13,20 +13,26 @@ import Cabeza from '../Navegador/Cabeza';
 import Comentarios from './Comentarios';
 import UploadForm from './SubirNuevo';
 import EstadoSesion from '../Formularios/Sesion';
+import { InfoPublicacion } from '../Complementos/InfoPublic';
+import { Reporte } from '../Complementos/Reporte';
 
 const Publicaciones = () => {
     //verificar si el usuario inicio sesion
     const { userName, isLoggedIn } = EstadoSesion()
     const [publicaciones, setPublicaciones] = useState([]);
     const [comment, setComment] = useState('');
-
-
     // Agrega un estado local para cada publicación
     const [showComments, setShowComments] = useState({});
     const [likes, setLikes] = useState({});
     const [showUploadForm, setShowUploadForm] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedPublication, setSelectedPublication] = useState(null);
+    const [modalInfo, setModalInfo] = useState(false)
+    const [modalReport, setModalReport] = useState(false)
+    const [imgError, setImgError] = useState(false);
+    
+
 
     const handleComments = (id) => {
         setShowComments((prevShowComments) => ({
@@ -48,6 +54,22 @@ const Publicaciones = () => {
         setShowModal(false);
         setSelectedImage(null);
     };
+    const abrirInfoClick = (publication) => {
+        setSelectedPublication(publication);
+        setModalInfo(true);
+    };
+    const cerrarInfoModal = () => {
+        setModalInfo(false);
+        setSelectedPublication(null);
+    }
+    const abrirReporteClick = (publication) => {
+        setSelectedPublication(publication);
+        setModalReport(true);
+    }
+    const cerrarReporteModal = () => {
+        setModalReport(false);
+        setSelectedPublication(null);
+    }
 
     //obtener las publicaciones
     useEffect(() => {
@@ -102,15 +124,15 @@ const Publicaciones = () => {
         try {
             // Verificar si el usuario ya ha dado like a la publicación
             const isLiked = likes[publicacionId];
-    
+
             // Enviar la acción de like o unlike al servidor
             const response = await axios.post(`https://backend-systemblog-production.up.railway.app/api/publicaciones/${publicacionId}/like`, {
                 userName: userName,
             });
-    
+
             // Actualizar el estado local de likes
             setLikes((prevLikes) => ({ ...prevLikes, [publicacionId]: !isLiked })); // Alternar el estado del like
-    
+
             // Actualizar el estado local de la publicación
             setPublicaciones((prevPublicaciones) =>
                 prevPublicaciones.map((pub) =>
@@ -175,6 +197,10 @@ const Publicaciones = () => {
         return moment.utc(timeString, 'HH:mm:ss').local().format('HH:mm');
     };
 
+    const handleImageError = () => {
+        setImgError(true); // Cambia el estado si hay un error al cargar la imagen
+    };
+
     return (
         <div className="publicaciones">
             <Cabeza />
@@ -202,30 +228,40 @@ const Publicaciones = () => {
                 {[...publicaciones].reverse().map((datos) => (
                     <div className="content-publicacion" key={datos._id}>
                         <header>
-                            <FaUser className="fa fa-user"></FaUser>
+                            {/* Mostrar la foto de perfil o el icono de usuario */}
+                            {!imgError && datos.userId && datos.userId.fotoPerfil && datos.userId.fotoPerfil.path ? (
+                                <img
+                                    src={`https://backend-systemblog-production.up.railway.app/${datos.userId.fotoPerfil.path}`}
+                                    alt="Foto de perfil"
+                                    onError={handleImageError}
+                                    className="fa fa-user" // Asegúrate de aplicar estilos para que se vea bien
+                                />
+                            ) : (
+                                <FaUser className="fa fa-user" style={{ padding: '5px' }} />
+                            )}
                             <div className="datoUser">
-                                <h3>{datos.userName} </h3>
+                                <h3>{datos.userName}</h3>
                                 <div>
-                                    <p>{formatDate(datos.createdAtDate)} </p>
-                                    <p>{formatTime(datos.createdAtTime)} </p>
+                                    <p>{formatDate(datos.createdAtDate)}</p>
+                                    <p>{formatTime(datos.createdAtTime)}</p>
                                 </div>
                             </div>
                             <SlOptionsVertical className='ico-publiAction' />
                             <div className='accionPubli'>
-                                <p>Reportar</p>
-                                <p>Informacion</p>
+                                <p onClick={() => abrirReporteClick(datos)}>Reportar</p>
+                                <p onClick={() => abrirInfoClick(datos)}>Información</p>
                                 {datos.userName === userName && (
-                                    <p onClick={() => borrarPublicacion(datos._id)}>Eliminar</p>
+                                    <p onClick={() => borrarPublicacion(datos._id)} style={{ color: 'red' }}>Eliminar</p>
                                 )}
                             </div>
                         </header>
 
                         {datos.image || datos.video ? (
                             <div className="publicArchivo">
-                                <p className='descrip'> {datos.textArchivo} </p>
+                                <p className='descrip'>{datos.textArchivo}</p>
                                 {datos.image && (
                                     <div className="fotoPublicacion" onClick={() => handleImageClick(datos.image)}>
-                                        <img src={`https://backend-systemblog-production.up.railway.app/uploads/${datos.image.filename}`} alt='imagenPublic' />
+                                        <img src={`https://backend-systemblog-production.up.railway.app/uploads/${datos.image.filename}`} alt='' />
                                     </div>
                                 )}
                                 {datos.video && (
@@ -247,18 +283,15 @@ const Publicaciones = () => {
                                 <FaHeart className={`ico meGusta ${likes[datos._id] ? 'liked' : ''}`} />
                                 <p style={{ color: 'white' }}>{datos.likes}</p>
                             </div>
-
                             <div className={`divComentar ${showComments[datos._id] ? 'show-comments' : ''}`} onClick={() => handleComments(datos._id)}>
                                 <TiMessages className='ico comentar' />
-                                <p>{datos.comentarios.length} </p>
+                                <p>{datos.comentarios.length}</p>
                             </div>
                         </footer>
 
-                        {
-                            showComments[datos._id] && (
-                                <Comentarios className={`comments ${showComments[datos._id] ? 'show-comments' : ''}`} comentarios={datos.comentarios} />
-                            )
-                        }
+                        {showComments[datos._id] && (
+                            <Comentarios className={`comments ${showComments[datos._id] ? 'show-comments' : ''}`} comentarios={datos.comentarios} datos= {datos} />
+                        )}
 
                         <div style={{ position: 'relative' }} className='formComent'>
                             <form onSubmit={(e) => {
@@ -282,6 +315,18 @@ const Publicaciones = () => {
                     <IoIosCloseCircleOutline className='close-button' onClick={closeModal} />
                     <img src={`https://backend-systemblog-production.up.railway.app/uploads/${selectedImage.filename}`} alt="Imagen ampliada" onClick={(e) => e.stopPropagation()} />
                 </div>
+            )}
+            {modalInfo && (
+                <InfoPublicacion
+                    publication={selectedPublication}
+                    onClose={cerrarInfoModal}
+                />
+            )}
+            {modalReport && (
+                <Reporte
+                    publication={selectedPublication}
+                    onClose={cerrarReporteModal}
+                />
             )}
         </div>
     );

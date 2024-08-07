@@ -6,7 +6,7 @@ section{
 section .sub{
     box-shadow: 0 0 1px white;
     border-radius: 10px;
-    padding: 10px;
+    padding: 5px 10px;
     background: rgb(41, 40, 40);
 }
 section div .infoComent{
@@ -20,13 +20,30 @@ section div .infoComent .userComent{
     border: white solid 1px;
     color: white;
 }
+section .infoComent .user_foto{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+section .infoComent .user_ico{
+    font-size: 28px;
+    padding: 4px;
+    border-radius: 50%;
+    border: white solid 1px;
+    color: white;
+}
 section div .infoComent h4{
-    font-size: 15px;
+    font-size: 14px;
     margin-left: 5px;
     color: white;
+    font-family: 'poppins';
     font-weight: bold;
+    text-decoration: underline;
 }
-section div p{
+section div .txtCom{
     margin-left: 35px;
     font-family: 'poppins';
+    margin-top: -7px;
+    color: rgb(212, 60, 60);
 }
