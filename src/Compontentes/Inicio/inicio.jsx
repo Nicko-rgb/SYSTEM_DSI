@@ -178,7 +178,7 @@ const Inicio = () => {
                         )}
                     </div>
                 </div>
-                <p className="propiedad1">Propiedad de DSI</p>
+                <p className="propiedad1">Propiedad de DSB</p>
             </main>
         </div>
     );
